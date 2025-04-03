@@ -3,10 +3,11 @@
 #include <limits>
 #include <utility>
 #include "../CustomLib/Generators.h"
-Employee::Employee() : id{genid(12)}, name{genid(16, false)}, worktime{0}, payment{0} {}
 
-Employee::Employee(std::string& name, float worktime) :
-        id{genid(12)}, name{name}, worktime{worktime}, payment{0.0f} { };
+Employee::Employee() : Employee(genid(10, false), 0) {}
+
+Employee::Employee(std::string  name, float worktime) :
+        id{genid(12)}, name{std::move(name)}, worktime{worktime}, payment{0.0f} { };
 
 void Employee::setWorkTime() {
     do {
@@ -20,20 +21,12 @@ void Employee::setWorkTime() {
     } while(!std::cin.fail());
 }
 
-Employee::~Employee() {}
+Employee::~Employee() = default;
 
-float Employee::getWorkTime() const {
-    return worktime;
-}
+float Employee::getWorkTime() const { return worktime; }
 
-std::string Employee::getID() const {
-    return id;
-}
+std::string Employee::getID() const { return id; }
 
-std::string Employee::getName() const {
-    return name;
-}
+std::string Employee::getName() const { return name; }
 
-float Employee::getPayment() const {
-    return payment;
-}
+float Employee::getPayment() const { return payment; }

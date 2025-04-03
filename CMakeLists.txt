@@ -18,4 +18,6 @@ add_executable(StaffDemo main.cpp
         Headers/Factory.h
         Sources/Interfaces.cpp
         Headers/Interfaces.h
-        )
+        CustomLib/TextEdit.cpp
+        CustomLib/TextEdit.h
+)

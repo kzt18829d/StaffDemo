@@ -97,6 +97,12 @@ build CMakeFiles/StaffDemo.dir/Sources/Interfaces.cpp.obj: CXX_COMPILER__StaffDe
   OBJECT_DIR = CMakeFiles\StaffDemo.dir
   OBJECT_FILE_DIR = CMakeFiles\StaffDemo.dir\Sources
 
+build CMakeFiles/StaffDemo.dir/CustomLib/TextEdit.cpp.obj: CXX_COMPILER__StaffDemo_unscanned_Debug D$:/TOP_Akademy/__moudls/StaffDemo/CustomLib/TextEdit.cpp || cmake_object_order_depends_target_StaffDemo
+  DEP_FILE = CMakeFiles\StaffDemo.dir\CustomLib\TextEdit.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\StaffDemo.dir
+  OBJECT_FILE_DIR = CMakeFiles\StaffDemo.dir\CustomLib
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target StaffDemo
@@ -105,7 +111,7 @@ build CMakeFiles/StaffDemo.dir/Sources/Interfaces.cpp.obj: CXX_COMPILER__StaffDe
 #############################################
 # Link the executable StaffDemo.exe
 
-build StaffDemo.exe: CXX_EXECUTABLE_LINKER__StaffDemo_Debug CMakeFiles/StaffDemo.dir/main.cpp.obj CMakeFiles/StaffDemo.dir/CustomLib/Generators.cpp.obj CMakeFiles/StaffDemo.dir/Sources/Personal.cpp.obj CMakeFiles/StaffDemo.dir/Sources/Employee.cpp.obj CMakeFiles/StaffDemo.dir/Sources/Engineer.cpp.obj CMakeFiles/StaffDemo.dir/Sources/Manager.cpp.obj CMakeFiles/StaffDemo.dir/Sources/Factory.cpp.obj CMakeFiles/StaffDemo.dir/Sources/Interfaces.cpp.obj
+build StaffDemo.exe: CXX_EXECUTABLE_LINKER__StaffDemo_Debug CMakeFiles/StaffDemo.dir/main.cpp.obj CMakeFiles/StaffDemo.dir/CustomLib/Generators.cpp.obj CMakeFiles/StaffDemo.dir/Sources/Personal.cpp.obj CMakeFiles/StaffDemo.dir/Sources/Employee.cpp.obj CMakeFiles/StaffDemo.dir/Sources/Engineer.cpp.obj CMakeFiles/StaffDemo.dir/Sources/Manager.cpp.obj CMakeFiles/StaffDemo.dir/Sources/Factory.cpp.obj CMakeFiles/StaffDemo.dir/Sources/Interfaces.cpp.obj CMakeFiles/StaffDemo.dir/CustomLib/TextEdit.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\StaffDemo.dir

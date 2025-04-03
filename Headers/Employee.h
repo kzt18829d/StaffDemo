@@ -11,7 +11,7 @@ protected:
     float payment;
 public:
     Employee();
-    Employee(std::string& name, float worktime);
+    Employee(std::string name, float worktime);
     virtual ~Employee();
 
     void setWorkTime();
