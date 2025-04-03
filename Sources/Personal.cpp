@@ -64,7 +64,7 @@ void Driver::printInfo() const {
 //              "ID: " << getID() << std::endl <<
 //              "Work time: " << getWorkTime() << std::endl <<
 //              "Hourly rate: " << getHourlyRate() << std::endl <<
-//              "Night bonus: " << getNightBonus() << std::endl <<
+//              "Night bonusForProject: " << getNightBonus() << std::endl <<
 //              "Payment: " << getPayment() << std::endl;
 //    std::cout.width(31);
 //    std::cout.fill('-');

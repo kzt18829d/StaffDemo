@@ -1,13 +1,15 @@
-//
-// Created by hid3h on 03.04.2025.
-//
-
 #ifndef STAFFDEMO_INTERFACES_H
 #define STAFFDEMO_INTERFACES_H
 
+class ProjectBudget {
+public:
+    virtual int calcBudgetPart(float part, int budget) = 0;
+    virtual int calcProAdditions() = 0;
+};
 
-class Interfaces {
-
+class Heading {
+public:
+    virtual int calcHeads(int heads) = 0;
 };
 
 
