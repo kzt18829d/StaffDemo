@@ -5,8 +5,8 @@
 #include "../CustomLib/Generators.h"
 Employee::Employee() : id{genid(12)}, name{genid(16, false)}, worktime{0}, payment{0} {}
 
-Employee::Employee(std::string name, float worktime) :
-        id{genid(12)}, name{std::move(name)}, worktime{worktime}, payment{0.0f} { };
+Employee::Employee(std::string& name, float worktime) :
+        id{genid(12)}, name{name}, worktime{worktime}, payment{0.0f} { };
 
 void Employee::setWorkTime() {
     do {
@@ -32,4 +32,8 @@ std::string Employee::getID() const {
 
 std::string Employee::getName() const {
     return name;
+}
+
+float Employee::getPayment() const {
+    return payment;
 }

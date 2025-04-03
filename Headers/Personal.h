@@ -8,7 +8,7 @@ protected:
     float hourlyRate;
 public:
     Personal();
-    Personal(std::string name, float worktime, float hourlyRate);
+    Personal(std::string& name, float worktime, float hourlyRate);
     ~Personal() override;
     float getHourlyRate() const;
     void printInfo() const override;
@@ -17,7 +17,7 @@ public:
 class Cleaner : public Personal {
 public:
     Cleaner();
-    Cleaner(std::string name, float worktime, float hourlyRate);
+    Cleaner(std::string& name, float worktime, float hourlyRate);
     ~Cleaner() override;
     void calc() override;
     void printInfo() const override;
@@ -28,7 +28,7 @@ private:
     float nightBonus;
 public:
     Driver();
-    Driver(std::string name, float worktime, float hourlyRate, float nightBonus);
+    Driver(std::string& name, float worktime, float hourlyRate, float nightBonus);
     ~Driver() override;
     float getNightBonus() const;
     void calc() override;
