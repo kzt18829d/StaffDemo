@@ -48,7 +48,7 @@ float Driver::getNightBonus() const { return nightBonus; }
 void Driver::calc() { payment = (payment * worktime) + nightBonus; }
 
 void Driver::printInfo() const {
-    std::cout << std::setw(30) << std::setfill('-') << " Personal Info " << std::setw(15) << std::setfill('-') << "" << std::endl;
+    std::cout << std::setfill('-') << std::setw(30) << " Personal Info " << std::setw(15) << std::setfill('-') << "" << std::endl;
     std::cout << std::setfill(' ');
     std::cout << std::left << std::setw(30) << "Name: " << std::setw(15) << getName() << std::endl <<
                 std::setw(30) << "ID: " << std::setw(15) << getID() << std::endl <<

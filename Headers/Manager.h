@@ -15,15 +15,14 @@ public:
     void calc() override;
 };
 
-class SeniorManager : public ProjectManager {
-private:
-    std::vector<Project*> project;
-public:
-    SeniorManager(const std::string &name1, float worktime1, Project *project1, const std::string &name,
-                  float worktime, const std::vector<Project *>& project);
-    ~SeniorManager() override;
-    void calc() override;
-};
+//class SeniorManager : public ProjectManager {
+//private:
+//    std::vector<Project*> project;
+//public:
+//    SeniorManager(const std::string &name, float worktime, const std::vector<Project *> &project);
+//    ~SeniorManager() override;
+//    void calc() override;
+//};
 
 
 #endif //STAFFDEMO_MANAGER_H

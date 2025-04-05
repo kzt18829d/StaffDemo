@@ -18,10 +18,3 @@ void ProjectManager::calc() {
 
 }
 
-SeniorManager::SeniorManager(const std::string &name, float worktime, const std::vector<Project *>& project) {}
-
-SeniorManager::~SeniorManager() = default;
-
-void SeniorManager::calc() {
-    ProjectManager::calc(); // переделать!!!!!!!!!
-}

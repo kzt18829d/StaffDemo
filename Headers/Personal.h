@@ -18,9 +18,6 @@ class Cleaner : public Personal {
 public:
     Cleaner();
     Cleaner(const std::string& name, float worktime, float hourlyRate);
-
-    Cleaner(const std::string &name, float worktime, float hourlyRate);
-
     ~Cleaner() override;
     void calc() override;
     void printInfo() const override;
