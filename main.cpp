@@ -2,16 +2,17 @@
 #include "Headers/Employee.h"
 #include "Headers/Personal.h"
 #include "CustomLib/Generators.h"
-#include <iostream>
 #include <vector>
-#include <iomanip>
-
-
+#include "CustomLib/TranslationManager.h"
+#include <windows.h>
 
 int main() {
+    SetConsoleOutputCP( 65001 );
+    TranslationManager::instance().loadJson("..\\JSON\\langs.json", "ru");
+
     std::vector<Employee*> STAFF;
     std::string name = "Stepan";
-    Driver d1(name, 100, 100, 30);
+    Cleaner d1(name, 100, 100);
     d1.printInfo();
     d1.calc();
     d1.printInfo();

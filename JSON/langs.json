@@ -1,0 +1,42 @@
+{
+  "en": {
+    "TITLE_F": "StaffDemo. Personal Management System",
+    "TITLE1": "StaffDemo",
+    "TITLE2": "Personal Management System",
+    "ERRORS.CIN.INVAlID_ARGUMENT": "CIN ERROR: INVALID_ARGUMENT.",
+    "ERRORS.repeat": "Repeat. . . .",
+    "ERRORS.repeat_confirm1": "Repeat confirmation. . . .",
+    "employee1": "Employee",
+    "employee2": "employee",
+    "employee.setWorkTime.t1": "Enter employee work time (hours)",
+    "personal.printInfo.PersonalInfo": "Personal Info",
+    "personal.WorkTime": "Work time",
+    "personal.HourlyRate": "Hourly rate",
+    "personal.Payment": "Payment",
+    "personal.Driver1": "Driver",
+    "personal.Driver2": "driver",
+    "personal.driver.NightBonus": "Night bonus",
+    "WORDS.Name": "Name",
+    "WORDS.ID": "ID"
+  },
+  "ru": {
+    "ERRORS.CIN.INVAlID_ARGUMENT": "ОШИБКА ВВОДА: INVALID_ARGUMENT",
+    "ERRORS.repeat": "Повторите. . . .",
+    "ERRORS.repeat_confirm1": "Повторите подтверждение. . . .",
+    "employee.setWorkTime.t1": "Введите время работы (в часах)",
+    "TITLE_F": "StaffDemo. Система управления персоналом",
+    "TITLE1": "StaffDemo",
+    "TITLE2": "Система управления персоналом",
+    "employee1": "Сотрудник",
+    "employee2": "сотрудник",
+    "personal.printInfo.PersonalInfo": "Личная информация",
+    "personal.WorkTime": "Рабочее время",
+    "personal.HourlyRate": "Почасовая ставка",
+    "personal.Payment": "Оплата",
+    "personal.Driver1": "Водитель",
+    "personal.Driver2": "водитель",
+    "personal.driver.NightBonus": "Ночной бонус",
+    "WORDS.Name": "Имя",
+    "WORDS.ID": "ID"
+  }
+}

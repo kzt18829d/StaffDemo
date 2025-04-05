@@ -20,4 +20,10 @@ add_executable(StaffDemo main.cpp
         Headers/Interfaces.h
         CustomLib/TextEdit.cpp
         CustomLib/TextEdit.h
+        Main_Menu.cpp
+        CustomLib/TranslationManager.cpp
+        CustomLib/TranslationManager.h
 )
+
+find_package(nlohmann_json CONFIG REQUIRED)
+target_link_libraries(StaffDemo PRIVATE nlohmann_json::nlohmann_json)
