@@ -1,7 +1,7 @@
 #include "TranslationManager.h"
 #include <fstream>
-#include <sstream>
 #include <iostream>
+
 
 TranslationManager &TranslationManager::instance() {
     static TranslationManager inst;
@@ -20,7 +20,6 @@ void TranslationManager::loadJson(const std::string &filename, const std::string
         file >> LANG_DATABASE;
         if (LANG_DATABASE.contains(lang)) translations = LANG_DATABASE[lang];
         else std::cerr << "~~~~~~ ERROR. Language not found." << std::endl;
-
     }
     catch (const nlohmann::json::parse_error& e) {
         std::cerr << "~~~~~~ ERROR. Parsing JSON: " << e.what() << std::endl;
@@ -47,7 +46,7 @@ std::string TranslationManager::tr(const std::string &key, bool space, const std
 }
 
 int TranslationManager::trlen(const std::string &key, size_t modification, const std::unordered_map<std::string, std::string> &val) {
-    std::string translate = tr(key, val);
+    std::string translate = tr(key, false, val);
     return translate.length() + modification;
 }
 

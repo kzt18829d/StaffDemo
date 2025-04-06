@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.30)
 project(StaffDemo)
 
 set(CMAKE_CXX_STANDARD 20)
-
+include_directories(external/tabulate/include)
 add_executable(StaffDemo main.cpp
         CustomLib/Generators.h
         CustomLib/Generators.cpp
@@ -20,10 +20,15 @@ add_executable(StaffDemo main.cpp
         Headers/Interfaces.h
         CustomLib/TextEdit.cpp
         CustomLib/TextEdit.h
-        Main_Menu.cpp
         CustomLib/TranslationManager.cpp
         CustomLib/TranslationManager.h
+        MainMenu.cpp
+        MainMenu.h
 )
 
 find_package(nlohmann_json CONFIG REQUIRED)
 target_link_libraries(StaffDemo PRIVATE nlohmann_json::nlohmann_json)
+
+add_subdirectory(fmt)
+target_link_libraries(StaffDemo PRIVATE fmt)
+

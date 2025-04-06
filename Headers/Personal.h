@@ -28,7 +28,7 @@ private:
     float nightBonus;
 public:
     Driver();
-    Driver(std::string& name, float worktime, float hourlyRate, float nightBonus);
+    Driver(const std::string& name, float worktime, float hourlyRate, float nightBonus);
     ~Driver() override;
     float getNightBonus() const;
     void calc() override;
