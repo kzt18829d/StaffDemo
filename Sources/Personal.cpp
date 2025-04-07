@@ -2,9 +2,8 @@
 #include "../CustomLib/Generators.h"
 #include <iomanip>
 #include "../CustomLib/TranslationManager.h"
-#include "fmt/format.h"
-#include "fmt/core.h"
-#include "tabulate/table.hpp"
+
+
 Personal::Personal() : Personal(genid(10, false), 0, 0) {}
 
 Personal::Personal(const std::string& name, float worktime, float hourlyRate) :

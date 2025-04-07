@@ -358,6 +358,9 @@ FMT_UNICODE:BOOL=ON
 //Halt the compilation with an error on compiler warnings.
 FMT_WERROR:BOOL=OFF
 
+//The directory containing a CMake configuration file for Qt6.
+Qt6_DIR:PATH=Qt6_DIR-NOTFOUND
+
 //Value Computed by CMake
 StaffDemo_BINARY_DIR:STATIC=D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug-event-trace
 
@@ -423,7 +426,7 @@ _VCPKG_INSTALLED_DIR:PATH=C:/Users/hid3h/vcpkg/installed
 fmt_DIR:PATH=C:/Users/hid3h/vcpkg/installed/x64-windows/share/fmt
 
 //The directory containing a CMake configuration file for nlohmann_json.
-nlohmann_json_DIR:PATH=C:/Users/hid3h/vcpkg/installed/x64-windows/share/nlohmann_json
+nlohmann_json_DIR:PATH=nlohmann_json_DIR-NOTFOUND
 
 
 ########################
@@ -560,7 +563,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

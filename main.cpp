@@ -2,12 +2,10 @@
 #include "Headers/Employee.h"
 #include <unordered_map>
 #include "CustomLib/TranslationManager.h"
-#include <windows.h>
 #include "MainMenu.h"
 #include "Headers/Factory.h"
 
 int main() {
-    SetConsoleOutputCP( 65001 );
     TranslationManager::instance().loadJson("JSON\\langs.json", "ru");
 
     std::vector<Employee*> Staff;
