@@ -1,22 +1,24 @@
-#include <iostream>
-#include "Headers/Employee.h"
-#include <unordered_map>
 #include "CustomLib/TranslationManager.h"
-#include "MainMenu.h"
-#include "Headers/Factory.h"
+#include <QApplication>
+#include "ui/MainWindow.h"
 
-int main() {
-    TranslationManager::instance().loadJson("JSON\\langs.json", "ru");
+int main(int argc, char *argv[]) {
 
-    std::vector<Employee*> Staff;
-    std::vector<std::pair<Project, std::vector<Employee*>>> projectList; // пока под вопросом
-
-    loadScreen(Staff);
-    system("pause");
-    Menu_Screen();
-
-    bool IS_RUNNING = true;
-    while(IS_RUNNING) {
-
-    }
+    QApplication app(argc, argv);
+    MainWindow window;
+    window.show();
+    return app.exec();
+//    TranslationManager::instance().loadJson("JSON\\langs.json", "ru");
+//
+//    std::vector<Employee*> Staff;
+//    std::vector<std::pair<Project, std::vector<Employee*>>> projectList; // пока под вопросом
+//
+//    loadScreen(Staff);
+//    system("pause");
+//    Menu_Screen();
+//
+//    bool IS_RUNNING = true;
+//    while(IS_RUNNING) {
+//
+//    }
 }

@@ -1,14 +1,5 @@
 D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug-event-trace/CMakeFiles/StaffDemo.dir
 D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug-event-trace/CMakeFiles/edit_cache.dir
 D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug-event-trace/CMakeFiles/rebuild_cache.dir
-D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug-event-trace/CMakeFiles/list_install_components.dir
-D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug-event-trace/CMakeFiles/install.dir
-D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug-event-trace/CMakeFiles/install/local.dir
-D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug-event-trace/CMakeFiles/install/strip.dir
-D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug-event-trace/fmt/CMakeFiles/fmt.dir
-D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug-event-trace/fmt/CMakeFiles/edit_cache.dir
-D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug-event-trace/fmt/CMakeFiles/rebuild_cache.dir
-D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug-event-trace/fmt/CMakeFiles/list_install_components.dir
-D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug-event-trace/fmt/CMakeFiles/install.dir
-D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug-event-trace/fmt/CMakeFiles/install/local.dir
-D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug-event-trace/fmt/CMakeFiles/install/strip.dir
+D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug-event-trace/CMakeFiles/StaffDemo_autogen_timestamp_deps.dir
+D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug-event-trace/CMakeFiles/StaffDemo_autogen.dir

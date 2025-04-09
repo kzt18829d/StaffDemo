@@ -18,14 +18,14 @@ void Personal::printInfo() const {
     // personal info
 //    std::cout << fmt::format("{:=^57}", TranslationManager::instance().tr("personal.printInfo.PersonalInfo", true) + " ") << std::endl;
 
-    tabulate::Table PersonalInfo;
-    PersonalInfo.add_row({fmt::format("{:<{}}", TranslationManager::instance().tr("WORDS.Name"), 30), fmt::format("{:<{}}", getName(), 20)});
-    PersonalInfo.add_row({fmt::format("{:<{}}", TranslationManager::instance().tr("WORDS.ID"), 30), fmt::format("{:<{}}", getID(), 20)});
-    PersonalInfo.add_row({fmt::format("{:<{}}", TranslationManager::instance().tr("personal.WorkTime"), 30), fmt::format("{:<{}}", getWorkTime(), 20)});
-    PersonalInfo.add_row({fmt::format("{:<{}}", TranslationManager::instance().tr("personal.HourlyRate"), 30), fmt::format("{:<{}}", getHourlyRate(), 20)});
-    PersonalInfo.add_row({fmt::format("{:<{}}", TranslationManager::instance().tr("personal.Payment"), 30), fmt::format("{:<{}}", getPayment(), 20)});
-
-    std::cout << PersonalInfo << std::endl;
+//    tabulate::Table PersonalInfo;
+//    PersonalInfo.add_row({fmt::format("{:<{}}", TranslationManager::instance().tr("WORDS.Name"), 30), fmt::format("{:<{}}", getName(), 20)});
+//    PersonalInfo.add_row({fmt::format("{:<{}}", TranslationManager::instance().tr("WORDS.ID"), 30), fmt::format("{:<{}}", getID(), 20)});
+//    PersonalInfo.add_row({fmt::format("{:<{}}", TranslationManager::instance().tr("personal.WorkTime"), 30), fmt::format("{:<{}}", getWorkTime(), 20)});
+//    PersonalInfo.add_row({fmt::format("{:<{}}", TranslationManager::instance().tr("personal.HourlyRate"), 30), fmt::format("{:<{}}", getHourlyRate(), 20)});
+//    PersonalInfo.add_row({fmt::format("{:<{}}", TranslationManager::instance().tr("personal.Payment"), 30), fmt::format("{:<{}}", getPayment(), 20)});
+//
+//    std::cout << PersonalInfo << std::endl;
 
             // Name
 //    std::cout << std::left << std::setw(30) << TranslationManager::instance().tr("WORDS.Name") <<

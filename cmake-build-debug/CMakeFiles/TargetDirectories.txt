@@ -1,3 +1,5 @@
 D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug/CMakeFiles/StaffDemo.dir
 D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug/CMakeFiles/edit_cache.dir
 D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug/CMakeFiles/StaffDemo_autogen_timestamp_deps.dir
+D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug/CMakeFiles/StaffDemo_autogen.dir
