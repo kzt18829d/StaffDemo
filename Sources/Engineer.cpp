@@ -1,52 +1,68 @@
-//
-// Created by hid3h on 03.04.2025.
-//
-
 #include "../Headers/Engineer.h"
+#include <exception>
 
-Engineer::Engineer(const std::string &name, float worktime, float hourlyRate, const Project& project) :
-        Personal(name, worktime, hourlyRate), project{project}, bonusForProject{0.0f} {}
+Engineer::Engineer(const std::string &name, const std::string &position, const std::string &id, int salary,
+       Project *project, float partOfBudget) :
+       Personal(name, position, id, salary), project{project}, partOfBudget(partOfBudget)
+{}
 
-Engineer::~Engineer() = default;
+int Engineer::calcBudgetPart(float part, int budget) {
+    return static_cast<int>(part * budget / 100);
+}
 
-int Engineer::calcBudgetPart(float part, int budget) { // интерфейс, его нужно сделать
+int Engineer::calcProAdditions() {
     return 0;
 }
 
-void Engineer::calc() { payment = (worktime * hourlyRate) + bonusForProject; }
-
-Tester::Tester(const std::string &name, float worktime, float hourlyRate, const Project &project) :
-    Engineer(name, worktime, hourlyRate, project) {}
-
-Tester::~Tester() = default;
-
-int Tester::calcProAdditions() { // ну это расчёт выплат, я не придумал, поэтому пишешь ты, я уже заебался. классы допишу, ты интерфейсы, дальше посмотрим
-    return 0;
+void Engineer::calc() {
+    payment = Personal::calcBase(salary, worktime) + calcBudgetPart(partOfBudget, project ? project->getBudget() : 0) + calcProAdditions();
 }
 
-Programmer::Programmer(const std::string &name, float worktime, float hourlyRate, const Project &project) :
-    Engineer(name, worktime, hourlyRate, project), premier{0} {}
+Programmer::Programmer(const std::string &name, const std::string &position, const std::string &id, int salary,
+                       Project *project, int proAdditions, float partOfBudget) :
+        Engineer(name, position, id,salary, project, partOfBudget), proAdditions{proAdditions}
+{}
 
-Programmer::~Programmer() = default;
-
-int Programmer::calcProAdditions() { // здесь то же, что и в class Tester, ебись с этим)))))))
-    return 0;
+void Programmer::addProAdditions(int add) {
+    proAdditions += add;
 }
 
-TeamLeader::TeamLeader(const std::string &name, float worktime, float hourlyRate, const Project &project) :
-        Programmer(name, worktime, hourlyRate, project) {}
+void Programmer::removeProAdditiond(int remove) {
+    if (remove > proAdditions) throw std::overflow_error(std::string("Rem.value > proAddition"));
+    proAdditions -= remove;
+}
 
-TeamLeader::~TeamLeader() = default;
+int Programmer::calcProAdditions() {
+    return proAdditions;
+}
 
-int TeamLeader::calcHeads(int heads) {
-    /*
-     * ну тут тоже ты
-     * и параметр возможно надо будет изменить. не возможно, а точно скорее всего + class Project подстроить
-     * я писал это всё не особо думая и выстраивая схемы взаимодействия, так что нужно будет редактировать всё ещё
-     * */
-    return 0; // GPT выключил блять, кому сказал
+Tester::Tester(const std::string &name, const std::string &position, const std::string &id, int salary,
+               Project *project, int proAdditions, float partOfBudget) :
+        Engineer(name, position, id, salary, project, partOfBudget), proAdditions{proAdditions}
+{}
+
+void Tester::addProAdditions(int add) {
+    proAdditions += add;
+}
+
+void Tester::removeProAdditiond(int remove) {
+    if (remove > proAdditions) throw std::overflow_error(std::string("Rem.value > proAddition"));
+    proAdditions -= remove;
+}
+
+int Tester::calcProAdditions() {
+    return proAdditions;
+}
+
+TeamLeader::TeamLeader(const std::string &name, const std::string &position, const std::string &id, int salary,
+                       Project *project, int proAdditions, float partOfBudget, int teamHeading) :
+        Programmer(name, position, id, salary, project, proAdditions, partOfBudget), teamHeading(teamHeading)
+{}
+
+int TeamLeader::calcHeads() {
+    return teamHeading;
 }
 
 void TeamLeader::calc() {
-    Engineer::calc();
+    payment = Personal::calcBase(salary, worktime) + Engineer::calcBudgetPart(partOfBudget, project ? project->getBudget() : 0) + Programmer::calcProAdditions() + calcHeads();
 }

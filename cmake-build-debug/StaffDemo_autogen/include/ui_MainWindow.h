@@ -10,8 +10,10 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
@@ -23,6 +25,7 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QMenuBar *menubar;
+    QMenu *menuasd;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -30,16 +33,22 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(800, 600);
+        MainWindow->setMinimumSize(QSize(800, 600));
+        MainWindow->setMaximumSize(QSize(800, 600));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 800, 33));
+        menuasd = new QMenu(menubar);
+        menuasd->setObjectName("menuasd");
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
         MainWindow->setStatusBar(statusbar);
+
+        menubar->addAction(menuasd->menuAction());
 
         retranslateUi(MainWindow);
 
@@ -49,6 +58,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "StaffDemo - Personal Management System", nullptr));
+        menuasd->setTitle(QCoreApplication::translate("MainWindow", "asd", nullptr));
     } // retranslateUi
 
 };

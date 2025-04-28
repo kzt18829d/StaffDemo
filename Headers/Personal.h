@@ -2,37 +2,34 @@
 #define STAFFDEMO_PERSONAL_H
 
 #include "Employee.h"
+#include "Interfaces.h"
 
-class Personal : public Employee {
+class Personal : public Employee, public WorkBaseTime {
 protected:
-    float hourlyRate;
+    int salary;
 public:
-    Personal();
-    Personal(const std::string& name, float worktime, float hourlyRate);
-    ~Personal() override;
-    float getHourlyRate() const;
-    void printInfo() const override;
+    Personal(const std::string& name, const std::string& position, const std::string& id, int salary);
+    virtual ~Personal() override = default;
+
+    int calcBase(int salary_, int worktime_) override;
+    int calcBonus() override;
+
+    void calc() override;
 };
 
 class Cleaner : public Personal {
 public:
-    Cleaner();
-    Cleaner(const std::string& name, float worktime, float hourlyRate);
-    ~Cleaner() override;
-    void calc() override;
-    void printInfo() const override;
+    Cleaner(const std::string& name, const std::string& position, const std::string& id, int salary);
+    ~Cleaner() override = default;
 };
 
 class Driver : public Personal {
 private:
-    float nightBonus;
+    int nightBonus;
 public:
-    Driver();
-    Driver(const std::string& name, float worktime, float hourlyRate, float nightBonus);
-    ~Driver() override;
-    float getNightBonus() const;
-    void calc() override;
-    void printInfo() const override;
+    Driver(const std::string& name, const std::string& position, const std::string& id, int salary, int nBonus);
+    ~Driver() override = default;
+    int calcBonus() override;
 };
 
 

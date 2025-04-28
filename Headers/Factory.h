@@ -1,7 +1,3 @@
-//
-// Created by hid3h on 03.04.2025.
-//
-
 #ifndef STAFFDEMO_FACTORY_H
 #define STAFFDEMO_FACTORY_H
 #include <string>
@@ -9,17 +5,12 @@
 
 class Project {
 private:
-    std::string projectName;
-    float budget;
+    std::string name;
+    int budget;
 public:
-    Project();
-    Project(std::string  projectName, float budget);
-    ~Project();
-
-    std::string getProjectName() const;
-    float getBudget() const;
-
-    void showProjectInfo() const;
+    Project(const std::string& name, int budget);
+    std::string getName() const;
+    int getBudget() const;
 };
 
 template <typename T>

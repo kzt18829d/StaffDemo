@@ -7,21 +7,21 @@ class Employee {
 protected:
     std::string id;
     std::string name;
-    float worktime;
-    float payment;
+    std::string position;
+    int worktime;
+    int payment;
 public:
-    Employee();
-    Employee(std::string name, float worktime);
+    Employee(const std::string& name, const std::string& position, const std::string& id);
     virtual ~Employee();
 
-    void setWorkTime();
-    float getWorkTime() const;
+    void setWorkTime(int worktime_);
+    virtual void calc() = 0;
+
     std::string getID() const;
     std::string getName() const;
-    float getPayment() const;
-
-    virtual void calc() = 0;
-    virtual void printInfo() const = 0;
+    std::string getPosition() const;
+    int getWorkTime() const;
+    int getPayment() const;
 };
 
 

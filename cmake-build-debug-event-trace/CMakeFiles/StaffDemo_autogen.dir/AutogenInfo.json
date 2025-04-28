@@ -291,7 +291,37 @@
 		"D:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets.cmake",
 		"D:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets-relwithdebinfo.cmake",
 		"D:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginAdditionalTargetInfo.cmake",
-		"D:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessAliasTargets.cmake"
+		"D:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessAliasTargets.cmake",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/FetchContent.cmake",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/ExternalProject/shared_internal_commands.cmake",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/FindGit.cmake",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/FindPackageMessage.cmake",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/ExternalProject/gitclone.cmake.in",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/ExternalProject/RepositoryInfo.txt.in",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/ExternalProject/stepscript.cmake.in",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/FindGit.cmake",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/FindPackageMessage.cmake",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/ExternalProject/gitupdate.cmake.in",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/ExternalProject/UpdateInfo.txt.in",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/ExternalProject/stepscript.cmake.in",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/ExternalProject/PatchInfo.txt.in",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/ExternalProject/stepscript.cmake.in",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/FindGit.cmake",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/FindPackageMessage.cmake",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/ExternalProject/gitclone.cmake.in",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/ExternalProject/RepositoryInfo.txt.in",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/ExternalProject/stepscript.cmake.in",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/FindGit.cmake",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/FindPackageMessage.cmake",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/ExternalProject/gitupdate.cmake.in",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/ExternalProject/UpdateInfo.txt.in",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/ExternalProject/stepscript.cmake.in",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/ExternalProject/PatchInfo.txt.in",
+		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/cmake/win/x64/share/cmake-3.30/Modules/ExternalProject/stepscript.cmake.in"
 	],
 	"CMAKE_SOURCE_DIR" : "D:/TOP_Akademy/__moudls/StaffDemo",
 	"CROSS_CONFIG" : false,
@@ -300,9 +330,9 @@
 	"HEADERS" : 
 	[
 		[
-			"D:/TOP_Akademy/__moudls/StaffDemo/CustomLib/Generators.h",
+			"D:/TOP_Akademy/__moudls/StaffDemo/CustomLib/Functions.h",
 			"MU",
-			"X3APILSGTH/moc_Generators.cpp",
+			"X3APILSGTH/moc_Functions.cpp",
 			null
 		],
 		[
@@ -315,6 +345,12 @@
 			"D:/TOP_Akademy/__moudls/StaffDemo/CustomLib/json.hpp",
 			"MU",
 			"X3APILSGTH/moc_json.cpp",
+			null
+		],
+		[
+			"D:/TOP_Akademy/__moudls/StaffDemo/Graphics.h",
+			"MU",
+			"EWIEGA46WW/moc_Graphics.cpp",
 			null
 		],
 		[
@@ -386,18 +422,19 @@
 	"MOC_INCLUDES" : 
 	[
 		"D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug-event-trace",
+		"D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug-event-trace/_deps/fmt-src/include",
+		"D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug-event-trace/_deps/tabulate-src/include",
 		"D:/Qt/6.9.0/mingw_64/include/QtWidgets",
 		"D:/Qt/6.9.0/mingw_64/include",
 		"D:/Qt/6.9.0/mingw_64/include/QtCore",
 		"D:/Qt/6.9.0/mingw_64/mkspecs/win32-g++",
 		"D:/Qt/6.9.0/mingw_64/include/QtGui",
-		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++",
-		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32",
-		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward",
-		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include",
-		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/mingw/include",
-		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed",
-		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/mingw/x86_64-w64-mingw32/include"
+		"D:/Dev/msys64/mingw64/include/c++/14.2.0",
+		"D:/Dev/msys64/mingw64/include/c++/14.2.0/x86_64-w64-mingw32",
+		"D:/Dev/msys64/mingw64/include/c++/14.2.0/backward",
+		"D:/Dev/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include",
+		"D:/Dev/msys64/mingw64/include",
+		"D:/Dev/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed"
 	],
 	"MOC_MACRO_NAMES" : 
 	[
@@ -412,7 +449,7 @@
 	"MOC_PATH_PREFIX" : false,
 	"MOC_PREDEFS_CMD" : 
 	[
-		"D:/Program Files/JetBrains/CLion 2024.3.2/bin/mingw/bin/g++.exe",
+		"D:/Dev/msys64/mingw64/bin/c++.exe",
 		"-std=gnu++20",
 		"-dM",
 		"-E",
@@ -433,7 +470,7 @@
 	"SOURCES" : 
 	[
 		[
-			"D:/TOP_Akademy/__moudls/StaffDemo/CustomLib/Generators.cpp",
+			"D:/TOP_Akademy/__moudls/StaffDemo/CustomLib/Functions.cpp",
 			"MU",
 			null
 		],

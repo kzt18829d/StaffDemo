@@ -5,26 +5,19 @@
 #include <utility>
 
 #include "../Headers/Factory.h"
-#include "../CustomLib/Generators.h"
+#include "../CustomLib/Functions.h"
 #include <iostream>
 #include <iomanip>
 
-Project::Project() : Project(genid(10, false), 0) {}
+Project::Project(const std::string &name, int budget) :
+    name{std::move(name)}, budget{budget}
+{}
 
-Project::Project(std::string projectName, float budget) : projectName{std::move(projectName)}, budget{budget} {}
+std::string Project::getName() const {
+    return name;
+}
 
-Project::~Project() = default;
-
-
-std::string Project::getProjectName() const { return projectName; }
-
-float Project::getBudget() const { return budget; }
-
-void Project::showProjectInfo() const {
-    std::cout << std::setw(30) << std::setfill('-') << " Project Info " << std::setw(16) << "" << std::endl;
-    std::cout << std::setfill(' ');
-    std::cout << std::left << std::setw(30) << "Project name: " << std::setw(16) << getProjectName() << std::endl <<
-                std::setw(30) << " Project Budget " << std::setw(16) << getBudget() << std::endl;
-    std::cout << std::setw(46) << std::setfill('-') << "" << std::endl << std::setfill(' ');
+int Project::getBudget() const {
+    return budget;
 }
 

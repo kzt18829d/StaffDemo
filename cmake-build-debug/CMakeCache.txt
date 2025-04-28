@@ -213,6 +213,21 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=StaffDemo
 
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION:STATIC=1.5.0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=1
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MINOR:STATIC=5
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_PATCH:STATIC=0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_TWEAK:STATIC=
+
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=D:/Program Files/JetBrains/CLion 2024.3.2/bin/mingw/bin/ranlib.exe
 
@@ -296,6 +311,98 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Directory under which to collect all populated content
+FETCHCONTENT_BASE_DIR:PATH=D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug/_deps
+
+//Disables all attempts to download or update content and assumes
+// source dirs already exist
+FETCHCONTENT_FULLY_DISCONNECTED:BOOL=OFF
+
+//Enables QUIET option for all content population
+FETCHCONTENT_QUIET:BOOL=ON
+
+//When not empty, overrides where to find pre-populated content
+// for fmt
+FETCHCONTENT_SOURCE_DIR_FMT:PATH=
+
+//When not empty, overrides where to find pre-populated content
+// for tabulate
+FETCHCONTENT_SOURCE_DIR_TABULATE:PATH=
+
+//Enables UPDATE_DISCONNECTED behavior for all content population
+FETCHCONTENT_UPDATES_DISCONNECTED:BOOL=OFF
+
+//Enables UPDATE_DISCONNECTED behavior just for population of fmt
+FETCHCONTENT_UPDATES_DISCONNECTED_FMT:BOOL=OFF
+
+//Enables UPDATE_DISCONNECTED behavior just for population of tabulate
+FETCHCONTENT_UPDATES_DISCONNECTED_TABULATE:BOOL=OFF
+
+//Value Computed by CMake
+FMT_BINARY_DIR:STATIC=D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug/_deps/fmt-build
+
+//Installation directory for cmake files, a relative path that
+// will be joined with C:/Program Files (x86)/StaffDemo or an absolute
+// path.
+FMT_CMAKE_DIR:STRING=lib/cmake/fmt
+
+//Generate the cuda-test target.
+FMT_CUDA_TEST:BOOL=OFF
+
+//Debug library postfix.
+FMT_DEBUG_POSTFIX:STRING=d
+
+//Generate the doc target.
+FMT_DOC:BOOL=OFF
+
+//Generate the fuzz target.
+FMT_FUZZ:BOOL=OFF
+
+//Installation directory for include files, a relative path that
+// will be joined with C:/Program Files (x86)/StaffDemo or an absolute
+// path.
+FMT_INC_DIR:STRING=include
+
+//Generate the install target.
+FMT_INSTALL:BOOL=ON
+
+//Value Computed by CMake
+FMT_IS_TOP_LEVEL:STATIC=OFF
+
+//Installation directory for libraries, a relative path that will
+// be joined to C:/Program Files (x86)/StaffDemo or an absolute
+// path.
+FMT_LIB_DIR:STRING=lib
+
+//Build a module instead of a traditional library.
+FMT_MODULE:BOOL=OFF
+
+//Include core requiring OS (Windows/Posix) 
+FMT_OS:BOOL=ON
+
+//Enable extra warnings and expensive tests.
+FMT_PEDANTIC:BOOL=OFF
+
+//Installation directory for pkgconfig (.pc) files, a relative
+// path that will be joined with C:/Program Files (x86)/StaffDemo
+// or an absolute path.
+FMT_PKGCONFIG_DIR:STRING=lib/pkgconfig
+
+//Value Computed by CMake
+FMT_SOURCE_DIR:STATIC=D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug/_deps/fmt-src
+
+//Expose headers with marking them as system.
+FMT_SYSTEM_HEADERS:BOOL=OFF
+
+//Generate the test target.
+FMT_TEST:BOOL=OFF
+
+//Halt the compilation with an error on compiler warnings.
+FMT_WERROR:BOOL=OFF
+
+//Git command line client
+GIT_EXECUTABLE:FILEPATH=C:/Program Files/Git/cmd/git.exe
+
 //Additional directories where find(Qt6 ...) host Qt components
 // are searched
 QT_ADDITIONAL_HOST_PACKAGES_PREFIX_PATH:STRING=
@@ -339,6 +446,9 @@ Qt6ZlibPrivate_DIR:PATH=D:/Qt/6.9.0/mingw_64/lib/cmake/Qt6ZlibPrivate
 //The directory containing a CMake configuration file for Qt6.
 Qt6_DIR:PATH=D:/Qt/6.9.0/mingw_64/lib/cmake/Qt6
 
+//Build Samples
+SAMPLES:BOOL=OFF
+
 //Value Computed by CMake
 StaffDemo_BINARY_DIR:STATIC=D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug
 
@@ -362,6 +472,18 @@ Vulkan_LIBRARY:FILEPATH=Vulkan_LIBRARY-NOTFOUND
 
 //Path to a program.
 WINDEPLOYQT_EXECUTABLE:FILEPATH=D:/Qt/6.9.0/mingw_64/bin/windeployqt.exe
+
+//Value Computed by CMake
+tabulate_BINARY_DIR:STATIC=D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug/_deps/tabulate-build
+
+//OFF
+tabulate_BUILD_TESTS:BOOL=OFF
+
+//Value Computed by CMake
+tabulate_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+tabulate_SOURCE_DIR:STATIC=D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug/_deps/tabulate-src
 
 
 ########################
@@ -504,7 +626,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -564,6 +686,8 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //Details about finding WrapAtomic
 FIND_PACKAGE_MESSAGE_DETAILS_WrapAtomic:INTERNAL=[1][v()]
+//ADVANCED property for variable: GIT_EXECUTABLE
+GIT_EXECUTABLE-ADVANCED:INTERNAL=1
 //Test HAVE_STDATOMIC
 HAVE_STDATOMIC:INTERNAL=1
 //Qt feature: abstractbutton (from target Qt6::Widgets)
@@ -1346,6 +1470,9 @@ QT_FEATURE_xmlstreamwriter:INTERNAL=ON
 QT_FEATURE_xrender:INTERNAL=OFF
 //Qt feature: zstd (from target Qt6::Core)
 QT_FEATURE_zstd:INTERNAL=OFF
+TABULATE_VERSION_MAJOR:INTERNAL=1
+TABULATE_VERSION_MINOR:INTERNAL=5
+TABULATE_VERSION_PATCH:INTERNAL=0
 //ADVANCED property for variable: Vulkan_GLSLANG_VALIDATOR_EXECUTABLE
 Vulkan_GLSLANG_VALIDATOR_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Vulkan_GLSLC_EXECUTABLE

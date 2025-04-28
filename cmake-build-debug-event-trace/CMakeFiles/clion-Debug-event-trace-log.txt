@@ -1,5 +1,9 @@
 "D:\Program Files\JetBrains\CLion 2024.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=D:/Program Files/JetBrains/CLion 2024.3.2/bin/ninja/win/x64/ninja.exe" --profiling-format=google-trace --profiling-output=CMakeFiles\clion-event-trace.json -DCMAKE_TOOLCHAIN_FILE=D:\Dev\vcpkg\scripts\buildsystems\vcpkg.cmake -G Ninja -S D:\TOP_Akademy\__moudls\StaffDemo -B D:\TOP_Akademy\__moudls\StaffDemo\cmake-build-debug-event-trace
 -- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
--- Configuring done (2.1s)
--- Generating done (0.3s)
+-- Version: 10.2.1
+-- Build type: Debug
+-- tabulate version: v1.5.0
+-- Using C++11
+-- Configuring done (2.0s)
+-- Generating done (0.4s)
 -- Build files have been written to: D:/TOP_Akademy/__moudls/StaffDemo/cmake-build-debug-event-trace

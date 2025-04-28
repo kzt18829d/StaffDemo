@@ -12,8 +12,7 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/ui)
 add_executable(StaffDemo main.cpp
         CustomLib/json.hpp
-        CustomLib/Generators.h
-        CustomLib/Generators.cpp
+        CustomLib/Functions.h
         Sources/Personal.cpp
         Headers/Personal.h
         Sources/Employee.cpp
@@ -30,10 +29,29 @@ add_executable(StaffDemo main.cpp
         CustomLib/TranslationManager.h
         ui/MainWindow.ui
         ui/MainWindow.cpp
+        CustomLib/Functions.cpp
+        Graphics.h
 )
 
-target_link_libraries(StaffDemo PRIVATE Qt6::Widgets)
 
 target_include_directories(StaffDemo PRIVATE
         ${CMAKE_CURRENT_BINARY_DIR}
 )
+
+include(FetchContent)
+
+FetchContent_Declare(
+        fmt
+        GIT_REPOSITORY https://github.com/fmtlib/fmt.git
+        GIT_TAG 10.2.1
+)
+FetchContent_MakeAvailable(fmt)
+
+FetchContent_Declare(
+        tabulate
+        GIT_REPOSITORY https://github.com/p-ranav/tabulate.git
+        GIT_TAG master
+)
+FetchContent_MakeAvailable(tabulate)
+
+target_link_libraries(StaffDemo PRIVATE Qt6::Widgets fmt::fmt tabulate::tabulate)
