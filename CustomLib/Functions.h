@@ -17,21 +17,20 @@
 
 #include "../Headers/Personal.h"
 #include "../Headers/Engineer.h"
-const char delim(';');
 
 std::string genid();
 std::string genid(int lenght, bool num_token=true, bool let_token=true);
 
 template <typename T>
-void saveSCV(const std::string& directory, const std::unordered_map<std::string, Employee*>&STAFF_LIST, const std::unordered_multimap<std::string, T*>&PROJECT_LIST)  {
+void saveSCV(const std::string& directory, const std::unordered_map<std::string, Employee*>&STAFF_LIST, const std::unordered_multimap<std::string, T*>&PROJECT_LIST, const char delim=';')  {
     std::ofstream file(directory);
     file << "id;name;position;salary;project\n";
     for (const auto& [id, emp]: STAFF_LIST) {
-        file << emp->getID() << delim << emp->getName() << delim << emp->type() << delim << emp->getPayment() << delim << PROJECT_LIST[emp->getID()].type() << '\n';
+        file << emp->getID() << delim << emp->getName() << delim << emp->getPosition() << delim << emp->getPayment() << delim << PROJECT_LIST[emp->getID()].type() << '\n';
     }
 }
 
-std::vector<std::string>split(const std::string& line) {
+inline std::vector<std::string>split(const std::string& line, char delim=';') {
     std::vector<std::string> result;
     std::stringstream ss(line);
     std::string value;
@@ -62,14 +61,14 @@ std::pair<F, std::unique_ptr<Employee>> cEmployee(const F& param) {
     switch (param[2]) {
         case "Cleaner":
             std::cout << EmplInfo << std::endl;
-            std::cout << "Employee "
+            std::cout << "Employee ";
             return std::make_unique<Cleaner>(param[1], param[2], param[0], param[3]);
         case "Driver":
             {
                 int nBonus;
-                std::cout <<
+
             }
-            return std::make_unique<Driver>(param[1], param[2], param[0], param[3])
+            return std::make_unique<Driver>(param[1], param[2], param[0], param[3]);
 
     }
 }
@@ -86,7 +85,7 @@ void loadSCV(const std::string& directory, std::unordered_map<std::string, std::
 
         if (fields[2] == "Cleaner") STAFF_LIST.insert({fields[0], std::make_unique<Cleaner>(fields[1], fields[2], fields[0], std::stoi(fields[3]))});
         else if (fields[2] == "Driver") STAFF_LIST.insert({fields[0], std::make_unique<Driver>(fields[1], fields[2], fields[0], std::stoi(fields[3]))});
-//        else if (fields[2] == "Programmer")
+
 
     }
 }

@@ -19,6 +19,15 @@ StaffDemo_autogen/timestamp: \
 	D:/Dev/msys64/mingw64/share/cmake/Modules/Compiler/GNU-C.cmake \
 	D:/Dev/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX.cmake \
 	D:/Dev/msys64/mingw64/share/cmake/Modules/Compiler/GNU.cmake \
+	D:/Dev/msys64/mingw64/share/cmake/Modules/ExternalProject/PatchInfo.txt.in \
+	D:/Dev/msys64/mingw64/share/cmake/Modules/ExternalProject/RepositoryInfo.txt.in \
+	D:/Dev/msys64/mingw64/share/cmake/Modules/ExternalProject/UpdateInfo.txt.in \
+	D:/Dev/msys64/mingw64/share/cmake/Modules/ExternalProject/gitclone.cmake.in \
+	D:/Dev/msys64/mingw64/share/cmake/Modules/ExternalProject/gitupdate.cmake.in \
+	D:/Dev/msys64/mingw64/share/cmake/Modules/ExternalProject/shared_internal_commands.cmake \
+	D:/Dev/msys64/mingw64/share/cmake/Modules/ExternalProject/stepscript.cmake.in \
+	D:/Dev/msys64/mingw64/share/cmake/Modules/FetchContent.cmake \
+	D:/Dev/msys64/mingw64/share/cmake/Modules/FindGit.cmake \
 	D:/Dev/msys64/mingw64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake \
 	D:/Dev/msys64/mingw64/share/cmake/Modules/FindPackageMessage.cmake \
 	D:/Dev/msys64/mingw64/share/cmake/Modules/FindThreads.cmake \
@@ -634,6 +643,7 @@ StaffDemo_autogen/timestamp: \
 	D:/TOP_Akademy/__moudls/StaffDemo/CustomLib/TranslationManager.cpp \
 	D:/TOP_Akademy/__moudls/StaffDemo/CustomLib/TranslationManager.h \
 	D:/TOP_Akademy/__moudls/StaffDemo/CustomLib/json.hpp \
+	D:/TOP_Akademy/__moudls/StaffDemo/Graphics.h \
 	D:/TOP_Akademy/__moudls/StaffDemo/Headers/Employee.h \
 	D:/TOP_Akademy/__moudls/StaffDemo/Headers/Engineer.h \
 	D:/TOP_Akademy/__moudls/StaffDemo/Headers/Factory.h \
