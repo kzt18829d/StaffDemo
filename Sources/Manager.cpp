@@ -1,4 +1,4 @@
-#include "../Headers/Manager.h"
+#include "Manager.h"
 
 ProjectManager::ProjectManager(const std::string &name, const std::string &position, const std::string &id, int heading,
                                float partOfBudget, int proAddition, Project *project) :

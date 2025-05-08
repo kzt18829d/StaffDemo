@@ -1,6 +1,19 @@
 {
   "en": {
-    "TITLE_F": "StaffDemo. Personal Management System",
+    "table.KEY" : "Key",
+    "table.VALUE" : "Value",
+    "teamleader.TeamHeading" : "TeamHeading",
+    "engineer.PartOfBudget" : "Part of Budget",
+    "engineer.ProAdditions" : "ProAdditions",
+    "engineer.Project/s" : "Project/s",
+    "smanager.Projects" : "Projects",
+    "engineer.Project" : "Project",
+    "personal.Salary" : "Salary",
+    "Position" : "Position",
+    "LOADSCREEN.ERROR.INPUT" : "Invalid input. Please enter 'y' or 'n'.",
+    "LOADSCREEN.LQ" : "Load Database from .scv or create new? (y/n):",
+    "TITLE_F1" : "Personal Management System \"StaffDemo\"",
+    "TITLE_F2": "StaffDemo. Personal Management System",
     "TITLE1": "StaffDemo",
     "TITLE2": "Personal Management System",
     "ERRORS.CIN.INVAlID_ARGUMENT": "CIN ERROR: INVALID_ARGUMENT.",
@@ -24,7 +37,8 @@
     "ERRORS.repeat": "Повторите. . . .",
     "ERRORS.repeat_confirm1": "Повторите подтверждение. . . .",
     "employee.setWorkTime.t1": "Введите время работы (в часах)",
-    "TITLE_F": "StaffDemo. Система управления персоналом",
+    "TITLE_F1" : "Система управления персоналом \"StaffDemo\"",
+    "TITLE_F2": "StaffDemo. Система управления персоналом",
     "TITLE1": "StaffDemo",
     "TITLE2": "Система управления персоналом",
     "employee1": "Сотрудник",
@@ -37,6 +51,8 @@
     "personal.Driver2": "водитель",
     "personal.driver.NightBonus": "Ночной бонус",
     "WORDS.Name": "Имя",
-    "WORDS.ID": "ID"
+    "WORDS.ID": "ID",
+    "LOADSCREEN.ERROR.INPUT" : "Invalid input. Please enter 'y' or 'n'.",
+    "LOADSCREEN.LQ" : "Load Database from .scv or create new? (y/n):"
   }
 }

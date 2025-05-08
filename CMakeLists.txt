@@ -3,13 +3,11 @@ project(StaffDemo)
 
 set(CMAKE_CXX_STANDARD 20)
 
-set(CMAKE_PREFIX_PATH "D:/Qt/6.9.0/mingw_64")
-find_package(Qt6 REQUIRED COMPONENTS Widgets)
-
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/ui)
+set(CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/TUI)
+
 add_executable(StaffDemo main.cpp
         CustomLib/json.hpp
         CustomLib/Functions.h
@@ -27,15 +25,21 @@ add_executable(StaffDemo main.cpp
         Headers/Interfaces.h
         CustomLib/TranslationManager.cpp
         CustomLib/TranslationManager.h
-        ui/MainWindow.ui
-        ui/MainWindow.cpp
         CustomLib/Functions.cpp
-        Graphics.h
+        TUI/_TUI.cpp
+        TUI/_TUI.h
+        TUI_FTXUI/TUI.h
+        TUI_FTXUI/TUI.cpp
 )
 
 
 target_include_directories(StaffDemo PRIVATE
         ${CMAKE_CURRENT_BINARY_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/TUI
+        ${CMAKE_CURRENT_SOURCE_DIR}/TUI_FTXUI
+        ${CMAKE_CURRENT_SOURCE_DIR}/Sources
+        ${CMAKE_CURRENT_SOURCE_DIR}/Headers
+        ${CMAKE_CURRENT_SOURCE_DIR}/CustomLib
 )
 
 include(FetchContent)
@@ -53,5 +57,17 @@ FetchContent_Declare(
         GIT_TAG master
 )
 FetchContent_MakeAvailable(tabulate)
+FetchContent_Declare(
+        ftxui
+        GIT_REPOSITORY https://github.com/ArthurSonzogni/ftxui
+        GIT_TAG main
+)
+FetchContent_MakeAvailable(ftxui)
 
-target_link_libraries(StaffDemo PRIVATE Qt6::Widgets fmt::fmt tabulate::tabulate)
+target_link_libraries(StaffDemo PRIVATE
+        fmt::fmt
+        tabulate::tabulate
+        PRIVATE ftxui::screen
+        PRIVATE ftxui::dom
+        PRIVATE ftxui::component
+)

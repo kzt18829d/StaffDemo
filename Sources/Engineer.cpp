@@ -1,5 +1,4 @@
-#include "../Headers/Engineer.h"
-#include <exception>
+#include "Engineer.h"
 
 Engineer::Engineer(const std::string &name, const std::string &position, const std::string &id, int salary,
        Project *project, float partOfBudget) :

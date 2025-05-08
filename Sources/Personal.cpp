@@ -1,4 +1,4 @@
-#include "../Headers/Personal.h"
+#include "Personal.h"
 
 Personal::Personal(const std::string &name, const std::string &position, const std::string &id, int salary) :
     Employee(name, position, id), salary{salary} {}

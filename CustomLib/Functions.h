@@ -5,7 +5,6 @@
 #include <string>
 #include <unordered_map>
 #include <fstream>
-#include "../Headers/Employee.h"
 #include <string>
 #include <vector>
 #include <sstream>
@@ -15,8 +14,11 @@
 #include <fmt/core.h>
 #include <tabulate/table.hpp>
 
-#include "../Headers/Personal.h"
-#include "../Headers/Engineer.h"
+#include <TUI.h>
+
+#include "Employee.h"
+#include "Personal.h"
+#include "Engineer.h"
 
 std::string genid();
 std::string genid(int lenght, bool num_token=true, bool let_token=true);
@@ -50,27 +52,14 @@ inline std::vector<std::string>split(const std::string& line, char delim=';') {
 
 template <typename F>
 std::pair<F, std::unique_ptr<Employee>> cEmployee(const F& param) {
-    tabulate::Table EmplInfo;
+//    tabulate::Table EmplInfo;
+//
+//    EmplInfo.add_row(fmt::format("Employee " + param[1]));
+//    EmplInfo.add_row({"ID", param[0]});
+//    EmplInfo.add_row({"Name", param[1]});
+//    EmplInfo.add_row({"Position", param[2]});
+//    EmplInfo.add_row({"Salary", (param[3] == "") ? "N/A" : param[3]});
 
-    EmplInfo.add_row(fmt::format("Employee " + param[1]));
-    EmplInfo.add_row({"ID", param[0]});
-    EmplInfo.add_row({"Name", param[1]});
-    EmplInfo.add_row({"Position", param[2]});
-    EmplInfo.add_row({"Salary", (param[3] == "") ? "N/A" : param[3]});
-
-    switch (param[2]) {
-        case "Cleaner":
-            std::cout << EmplInfo << std::endl;
-            std::cout << "Employee ";
-            return std::make_unique<Cleaner>(param[1], param[2], param[0], param[3]);
-        case "Driver":
-            {
-                int nBonus;
-
-            }
-            return std::make_unique<Driver>(param[1], param[2], param[0], param[3]);
-
-    }
 }
 
 template <typename T>

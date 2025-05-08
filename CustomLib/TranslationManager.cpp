@@ -18,8 +18,11 @@ void TranslationManager::loadJson(const std::string &filename, const std::string
     try {
         nlohmann::json LANG_DATABASE;
         file >> LANG_DATABASE;
-        if (LANG_DATABASE.contains(lang)) translations = LANG_DATABASE[lang];
-        else std::cerr << "~~~~~~ ERROR. Language not found." << std::endl;
+        if (!LANG_DATABASE.contains(lang)) std::cerr << "~~~~~~ ERROR. Language not found." << std::endl;
+        translations = LANG_DATABASE[lang];
+        localization.clear();
+        for (auto& [key, value]: translations.items()) localization[key] = value.get<std::string>();
+
     }
     catch (const nlohmann::json::parse_error& e) {
         std::cerr << "~~~~~~ ERROR. Parsing JSON: " << e.what() << std::endl;
@@ -48,6 +51,10 @@ std::string TranslationManager::tr(const std::string &key, bool space, const std
 int TranslationManager::trlen(const std::string &key, size_t modification, const std::unordered_map<std::string, std::string> &val) {
     std::string translate = tr(key, false, val);
     return translate.length() + modification;
+}
+
+const std::map<std::string, std::string> &TranslationManager::dict() const {
+    return localization;
 }
 
 

@@ -1,13 +1,5 @@
-//
-// Created by hid3h on 03.04.2025.
-//
-
 #include <utility>
-
-#include "../Headers/Factory.h"
-#include "../CustomLib/Functions.h"
-#include <iostream>
-#include <iomanip>
+#include "Factory.h"
 
 Project::Project(const std::string &name, int budget) :
     name{std::move(name)}, budget{budget}
