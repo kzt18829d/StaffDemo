@@ -56,5 +56,3 @@ int TranslationManager::trlen(const std::string &key, size_t modification, const
 const std::map<std::string, std::string> &TranslationManager::dict() const {
     return localization;
 }
-
-

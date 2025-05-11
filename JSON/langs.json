@@ -1,5 +1,8 @@
 {
   "en": {
+    "BUTTON.LOAD_SCREEN.nextEmployeeButton" : "Next Employee",
+    "personal.POSITION" : "Position",
+    "file.LOC" : "DataBase directory",
     "table.KEY" : "Key",
     "table.VALUE" : "Value",
     "teamleader.TeamHeading" : "TeamHeading",
@@ -9,7 +12,6 @@
     "smanager.Projects" : "Projects",
     "engineer.Project" : "Project",
     "personal.Salary" : "Salary",
-    "Position" : "Position",
     "LOADSCREEN.ERROR.INPUT" : "Invalid input. Please enter 'y' or 'n'.",
     "LOADSCREEN.LQ" : "Load Database from .scv or create new? (y/n):",
     "TITLE_F1" : "Personal Management System \"StaffDemo\"",

@@ -18,7 +18,4 @@ public:
 
 };
 
-
-
-
 #endif //STAFFDEMO_TRANSLATIONMANAGER_H

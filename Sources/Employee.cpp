@@ -31,3 +31,11 @@ int Employee::getWorkTime() const {
 int Employee::getPayment() const {
     return payment;
 }
+
+bool Employee::operator==(const Employee &other) const {
+    return this->id == other.id;
+}
+
+bool Employee::operator!=(const Employee &other) const {
+    return this->id != other.id;
+}

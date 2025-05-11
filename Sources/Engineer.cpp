@@ -1,12 +1,13 @@
+#include <memory>
+#include <utility>
 #include "Engineer.h"
 
-Engineer::Engineer(const std::string &name, const std::string &position, const std::string &id, int salary,
-       Project *project, float partOfBudget) :
+Engineer::Engineer(const std::string &name, const std::string &position, const std::string &id, int salary, std::shared_ptr<Project> project, float partOfBudget) :
        Personal(name, position, id, salary), project{project}, partOfBudget(partOfBudget)
 {}
 
 int Engineer::calcBudgetPart(float part, int budget) {
-    return static_cast<int>(part * budget / 100);
+    return static_cast<int>(part * static_cast<float>(budget) / 100);
 }
 
 int Engineer::calcProAdditions() {
@@ -14,19 +15,27 @@ int Engineer::calcProAdditions() {
 }
 
 void Engineer::calc() {
-    payment = Personal::calcBase(salary, worktime) + calcBudgetPart(partOfBudget, project ? project->getBudget() : 0) + calcProAdditions();
+    int PoB{0};
+    if (auto proj = project.lock()) {
+        PoB = proj->getBudget();
+    }
+    payment = Personal::calcBase(salary, worktime) + calcBudgetPart(partOfBudget, PoB) + calcProAdditions();
+}
+
+std::weak_ptr<Project> Engineer::getProject() {
+    return project;
 }
 
 Programmer::Programmer(const std::string &name, const std::string &position, const std::string &id, int salary,
-                       Project *project, int proAdditions, float partOfBudget) :
-        Engineer(name, position, id,salary, project, partOfBudget), proAdditions{proAdditions}
+                       std::shared_ptr<Project> project, int proAdditions, float partOfBudget) :
+        Engineer(name, position, id,salary, std::move(project), partOfBudget), proAdditions{proAdditions}
 {}
 
 void Programmer::addProAdditions(int add) {
     proAdditions += add;
 }
 
-void Programmer::removeProAdditiond(int remove) {
+void Programmer::removeProAdditions(int remove) {
     if (remove > proAdditions) throw std::overflow_error(std::string("Rem.value > proAddition"));
     proAdditions -= remove;
 }
@@ -36,7 +45,7 @@ int Programmer::calcProAdditions() {
 }
 
 Tester::Tester(const std::string &name, const std::string &position, const std::string &id, int salary,
-               Project *project, int proAdditions, float partOfBudget) :
+               std::shared_ptr<Project>project, int proAdditions, float partOfBudget) :
         Engineer(name, position, id, salary, project, partOfBudget), proAdditions{proAdditions}
 {}
 
@@ -44,7 +53,7 @@ void Tester::addProAdditions(int add) {
     proAdditions += add;
 }
 
-void Tester::removeProAdditiond(int remove) {
+void Tester::removeProAdditions(int remove) {
     if (remove > proAdditions) throw std::overflow_error(std::string("Rem.value > proAddition"));
     proAdditions -= remove;
 }
@@ -54,7 +63,7 @@ int Tester::calcProAdditions() {
 }
 
 TeamLeader::TeamLeader(const std::string &name, const std::string &position, const std::string &id, int salary,
-                       Project *project, int proAdditions, float partOfBudget, int teamHeading) :
+                       std::shared_ptr<Project> project, int proAdditions, float partOfBudget, int teamHeading) :
         Programmer(name, position, id, salary, project, proAdditions, partOfBudget), teamHeading(teamHeading)
 {}
 
@@ -63,5 +72,9 @@ int TeamLeader::calcHeads() {
 }
 
 void TeamLeader::calc() {
-    payment = Personal::calcBase(salary, worktime) + Engineer::calcBudgetPart(partOfBudget, project ? project->getBudget() : 0) + Programmer::calcProAdditions() + calcHeads();
+    int PoB{0};
+    if (auto proj = project.lock()) {
+        PoB = proj->getBudget();
+    }
+    payment = Personal::calcBase(salary, worktime) + Engineer::calcBudgetPart(partOfBudget, PoB) + Programmer::calcProAdditions() + calcHeads();
 }

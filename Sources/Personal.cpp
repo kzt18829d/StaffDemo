@@ -15,6 +15,10 @@ void Personal::calc() {
     payment = calcBase(salary, worktime) + calcBonus();
 }
 
+int Personal::getSalary() const {
+    return salary;
+}
+
 Cleaner::Cleaner(const std::string &name, const std::string &position, const std::string &id, int salary) :
     Personal(name, position, id, salary) {}
 

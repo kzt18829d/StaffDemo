@@ -14,6 +14,8 @@ public:
     int calcBase(int salary_, int worktime_) override;
     int calcBonus() override;
 
+    int getSalary() const;
+
     void calc() override;
 };
 
@@ -31,6 +33,5 @@ public:
     ~Driver() override = default;
     int calcBonus() override;
 };
-
 
 #endif //STAFFDEMO_PERSONAL_H

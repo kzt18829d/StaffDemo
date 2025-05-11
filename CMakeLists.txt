@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/TUI)
+set(CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/TUI_old)
 
 add_executable(StaffDemo main.cpp
         CustomLib/json.hpp
@@ -26,17 +26,19 @@ add_executable(StaffDemo main.cpp
         CustomLib/TranslationManager.cpp
         CustomLib/TranslationManager.h
         CustomLib/Functions.cpp
-        TUI/_TUI.cpp
-        TUI/_TUI.h
-        TUI_FTXUI/TUI.h
-        TUI_FTXUI/TUI.cpp
+        TUI_old/_TUI.cpp
+        TUI_old/_TUI.h
+        TUI/TUI.h
+        TUI/TUI.cpp
+        CustomLib/StaffExceptions.h
+        CustomLib/StaffExceptions.cpp
 )
 
 
 target_include_directories(StaffDemo PRIVATE
         ${CMAKE_CURRENT_BINARY_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/TUI_old
         ${CMAKE_CURRENT_SOURCE_DIR}/TUI
-        ${CMAKE_CURRENT_SOURCE_DIR}/TUI_FTXUI
         ${CMAKE_CURRENT_SOURCE_DIR}/Sources
         ${CMAKE_CURRENT_SOURCE_DIR}/Headers
         ${CMAKE_CURRENT_SOURCE_DIR}/CustomLib
