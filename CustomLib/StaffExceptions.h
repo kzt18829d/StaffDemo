@@ -22,6 +22,7 @@ namespace staff {
             StaffException &operator=(const char *exceptText) = delete;
 
             const char *what() const noexcept override { return exceptionText.c_str(); }
+            const char *what_() const noexcept { return exceptionText.c_str(); }
         };
 
         class InformationMessage : public StaffException {
@@ -54,6 +55,14 @@ namespace staff {
             explicit previouslyAdded(const std::string& except) : StaffException(except) {}
             previouslyAdded(const char* except) : StaffException(except) {}
             ~previouslyAdded() override = default;
+        };
+
+        class IncorrectField : public StaffException {
+        public:
+            IncorrectField(): IncorrectField("Field Incorrectly.") {}
+            explicit IncorrectField(const std::string& except) : StaffException(except) {}
+            IncorrectField(const char* except) : StaffException(except) {}
+            ~IncorrectField() override = default;
         };
     }
 }

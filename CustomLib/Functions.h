@@ -42,9 +42,9 @@ namespace File {
 
 }
 
-namespace CEmployee {
+namespace Employees {
 
-    std::pair<bool, std::string> CreateEmployeePointers(const TempEmloyee &temp, std::unordered_map<std::string, std::shared_ptr<Employee>> &STAFF,
+    void CreateEmployeePointers(const TempEmloyee &temp, std::unordered_map<std::string, std::shared_ptr<Employee>> &STAFF,
                                                                    std::unordered_map<std::string, std::shared_ptr<Project>> &PROJECT_LIST);
 }
 

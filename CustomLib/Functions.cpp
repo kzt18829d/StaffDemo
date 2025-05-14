@@ -48,15 +48,12 @@ std::vector<std::string> File::split(const std::string &line, char delim) {
 void File::createFile(const std::string& dir) {
     std::ofstream file(dir, std::ios::out);
     if (!file.is_open()) throw std::ios::failure(std::string("Error of create file: Incorrect directory \'" + dir + "\""));
-    else {file.close(); throw staff::except::InformationMessage("File created."); }
-
 }
 
 
 void File::openFile(const std::string &dir) {
     std::ifstream file(dir, std::ios_base::in);
     if (!file.is_open()) throw std::ios::failure(std::string("Error of read file: Incorrect directory \'" + dir + "\""));
-    else {file.close(); throw staff::except::InformationMessage("File can be opened."); }
 
 }
 
@@ -121,69 +118,67 @@ std::set<std::string> File::splitUnic(const std::string &line, char delim) noexc
     return split;
 }
 
-
-std::pair<bool, std::string> CEmployee::CreateEmployeePointers(const TempEmloyee &temp, std::unordered_map<std::string, std::shared_ptr<Employee>> &STAFF,
-                          std::unordered_map<std::string, std::shared_ptr<Project>> &PROJECT_LIST) {
-    try {
-        if (STAFF[temp.id]) throw staff::except::previouslyAdded();
-        if (temp.position == "cleaner") {
-            STAFF[temp.id] = std::make_shared<Cleaner>(temp.name, temp.position, temp.id, std::stoi(temp.salary));
-        }
-        else if (temp.position == "driver") {
-            STAFF[temp.id] = std::make_shared<Driver>(temp.name, temp.position, temp.id, std::stoi(temp.salary), std::stoi(temp.nBonus));
-        }
-        else if (temp.position == "seniorm") {
-            std::map<std::string, std::weak_ptr<Project>> projects;
-            std::set<std::string> rawProjectNames = File::splitUnic(temp.project, ':');
-            for (const auto& projectName: rawProjectNames) {
-                if (auto projectFindIterator = PROJECT_LIST.find(projectName); projectFindIterator != std::end(PROJECT_LIST)) {
-                    projects[projectName] = projectFindIterator->second;
-                }
-                else {
-                    PROJECT_LIST[projectName] = std::make_shared<Project>(projectName);
-                    projects[projectName] = PROJECT_LIST[projectName];
-                }
+void Employees::CreateEmployeePointers(const TempEmloyee &temp, std::unordered_map<std::string, std::shared_ptr<Employee>> &STAFF,
+                                                               std::unordered_map<std::string, std::shared_ptr<Project>> &PROJECT_LIST) {
+    if (STAFF[temp.id]) throw staff::except::previouslyAdded();
+    if (temp.position == "cleaner") {
+        STAFF[temp.id] = std::make_shared<Cleaner>(temp.name, temp.position, temp.id, std::stoi(temp.salary));
+    }
+    else if (temp.position == "driver") {
+        STAFF[temp.id] = std::make_shared<Driver>(temp.name, temp.position, temp.id, std::stoi(temp.salary), std::stoi(temp.nBonus));
+    }
+    else if (temp.position == "seniorm") {
+        std::map<std::string, std::weak_ptr<Project>> projects;
+        std::set<std::string> rawProjectNames;
+        if (temp.project.empty()) {
+            rawProjectNames = {""};
+        } else rawProjectNames = File::splitUnic(temp.project, ':');
+        for (const auto& projectName: rawProjectNames) {
+            if (projectName.empty()) continue;
+            if (auto projectFindIterator = PROJECT_LIST.find(projectName); projectFindIterator != std::end(PROJECT_LIST)) {
+                projects[projectName] = projectFindIterator->second;
             }
-            STAFF[temp.id] = std::make_shared<SeniorManager>(temp.name, temp.position, temp.id, std::stoi(temp.tHeading),
-                                                             std::stof(temp.PoB), std::stoi(temp.PADD), projects); // unlock SM.Vector && lock SM.Map
-            for (const auto& [projectName, weak]: projects) {
-                if (auto project = weak.lock()) {
-                    project->addMember(STAFF[temp.id]);
-                }
+            else {
+                PROJECT_LIST[projectName] = std::make_shared<Project>(projectName);
+                projects[projectName] = PROJECT_LIST[projectName];
             }
         }
-        else {
-            std::shared_ptr<Project> project;
-            if (auto projectFindIterator = PROJECT_LIST.find(temp.project); projectFindIterator != std::end(PROJECT_LIST)) {
-                project = projectFindIterator->second;
+        STAFF[temp.id] = std::make_shared<SeniorManager>(temp.name, temp.position, temp.id, std::stoi(temp.tHeading),
+                                                         std::stof(temp.PoB), std::stoi(temp.PADD), projects); // unlock SM.Vector && lock SM.Map
+        for (const auto& [projectName, weak]: projects) {
+            if (auto project = weak.lock()) {
+                project->addMember(STAFF[temp.id]);
             }
-            else project = std::make_shared<Project>(temp.project);
-
-            if (temp.position == "programmer") {
-                STAFF[temp.id] = std::make_shared<Programmer>(temp.name, temp.position, temp.id,
-                                                              std::stoi(temp.salary), project, std::stoi(temp.PADD),
-                                                              std::stof(temp.PoB));
-            }
-            else if (temp.position == "tester") {
-                STAFF[temp.id] = std::make_shared<Tester>(temp.name, temp.position, temp.id,
-                                                          std::stoi(temp.salary), project, std::stoi(temp.PADD),
-                                                          std::stof(temp.PoB));
-            }
-            else if (temp.position == "timlid") {
-                STAFF[temp.id] = std::make_shared<TeamLeader>(temp.name, temp.position, temp.id,
-                                                              std::stoi(temp.salary), project, std::stoi(temp.PADD),
-                                                              std::stof(temp.PoB), std::stoi(temp.tHeading));
-            }
-            else if (temp.position == "projectm") {
-                STAFF[temp.id] = std::make_shared<ProjectManager>(temp.name, temp.position, temp.id,
-                                                                  std::stoi(temp.tHeading), std::stof(temp.PoB),
-                                                                  std::stoi(temp.PADD), project);
-            }
-            project->addMember(STAFF[temp.id]);
-            PROJECT_LIST[temp.project] = std::move(project);
         }
     }
-    catch (staff::except::StaffException &staffException) { return {false, staffException.what()}; }
-    catch (std::exception &exception) { return {false, exception.what()}; }
-    return {true, "Done"};
+    else {
+        std::shared_ptr<Project> project;
+        if (auto projectFindIterator = PROJECT_LIST.find(temp.project); projectFindIterator != std::end(PROJECT_LIST)) {
+            project = projectFindIterator->second;
+        }
+        else project = std::make_shared<Project>(temp.project);
+
+        if (temp.position == "programmer") {
+            STAFF[temp.id] = std::make_shared<Programmer>(temp.name, temp.position, temp.id,
+                                                          std::stoi(temp.salary), project, std::stoi(temp.PADD),
+                                                          std::stof(temp.PoB));
+        }
+        else if (temp.position == "tester") {
+            STAFF[temp.id] = std::make_shared<Tester>(temp.name, temp.position, temp.id,
+                                                      std::stoi(temp.salary), project, std::stoi(temp.PADD),
+                                                      std::stof(temp.PoB));
+        }
+        else if (temp.position == "timlid") {
+            STAFF[temp.id] = std::make_shared<TeamLeader>(temp.name, temp.position, temp.id,
+                                                          std::stoi(temp.salary), project, std::stoi(temp.PADD),
+                                                          std::stof(temp.PoB), std::stoi(temp.tHeading));
+        }
+        else if (temp.position == "projectm") {
+            STAFF[temp.id] = std::make_shared<ProjectManager>(temp.name, temp.position, temp.id,
+                                                              std::stoi(temp.tHeading), std::stof(temp.PoB),
+                                                              std::stoi(temp.PADD), project);
+        }
+        project->addMember(STAFF[temp.id]);
+        PROJECT_LIST[temp.project] = std::move(project);
+    }
 }

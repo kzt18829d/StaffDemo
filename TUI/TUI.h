@@ -10,6 +10,7 @@
 #include <unordered_map>
 #include <map>
 #include <memory>
+#include <fmt/core.h>
 #include "Employee.h"
 #include "Factory.h"
 #include "TranslationManager.h"
@@ -23,10 +24,14 @@ namespace TUI {
 //        template <typename ...Args>
         TableData CreateTable(const TempEmloyee& tempE);
         void N_A_DEF(TempEmloyee &temp);
+        void N_A_DEL(TempEmloyee &temp);
     }
 
+    void END_SCREEN(const std::size_t& wWidth, const std::size_t& wHeight, const std::string& WindowMessage="");
     char START_SCREEN(const std::size_t& wWidth, const std::size_t& wHeight, std::string& DIRECTORY);
-    void LOAD_SCREEN(const std::size_t& wWidth, const std::size_t& wHeight, const std::string& DIRECTORY, std::unordered_map<std::string, std::shared_ptr<Employee>>&STAFF, std::unordered_multimap<std::string, std::shared_ptr<Project>>&PROJECT_LIST);
+    void Employees_LOAD_SCREEN(const std::size_t& wWidth, const std::size_t& wHeight, const std::string& DIRECTORY,
+                               std::unordered_map<std::string, std::shared_ptr<Employee>>&STAFF,
+                               std::unordered_map<std::string, std::shared_ptr<Project>>&PROJECT_LIST);
 }
 
 #endif //STAFFDEMO_TUI_H

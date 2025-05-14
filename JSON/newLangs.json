@@ -1,5 +1,6 @@
 {
   "en": {
+    "CHECKBOX.LOAD_SCREEN.nextEmployee.comfirm" : "Confirm",
     "BUTTON.LOAD_SCREEN.nextEmployeeButton" : "Next Employee",
     "personal.POSITION" : "Position",
     "file.LOC" : "DataBase directory",
@@ -12,6 +13,7 @@
     "smanager.Projects" : "Projects",
     "engineer.Project" : "Project",
     "personal.Salary" : "Salary",
+    "LOADSCREEN.END" : "Employees Loading is ended",
     "LOADSCREEN.ERROR.INPUT" : "Invalid input. Please enter 'y' or 'n'.",
     "LOADSCREEN.LQ" : "Load Database from .scv or create new? (y/n):",
     "TITLE_F1" : "Personal Management System \"StaffDemo\"",
