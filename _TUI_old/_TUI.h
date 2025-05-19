@@ -5,9 +5,9 @@
 #include <fmt/core.h>
 #include <unordered_map>
 #include <vector>
-#include <Employee.h>
-#include "Factory.h"
-#include "Functions.h"
+#include "../include/core/employees/Employee.h"
+#include "../include/core/employees/Factory.h"
+#include "../include/utils/Functions.h"
 namespace Text {
     const std::string mTitle(" StaffDemo ");
     const std::string fTitle(" Staff Management System ");

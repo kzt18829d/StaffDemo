@@ -1,5 +1,6 @@
-#ifndef STAFFDEMO_INTERFACES_H
-#define STAFFDEMO_INTERFACES_H
+#ifndef STAFFDEMO_STAFFINTERFACES_H
+#define STAFFDEMO_STAFFINTERFACES_H
+
 
 struct WorkBaseTime {
     virtual int calcBase(int salary_, int worktime_) = 0;
@@ -18,4 +19,4 @@ struct Heading {
     virtual ~Heading() = default;
 };
 
-#endif //STAFFDEMO_INTERFACES_H
+#endif //STAFFDEMO_STAFFINTERFACES_H

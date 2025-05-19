@@ -6,15 +6,15 @@
 #include <ftxui/component/component.hpp>
 #include <ftxui/component/screen_interactive.hpp>
 #include <ftxui/dom/table.hpp>
-#include "TranslationManager.h"
+#include "utils/TranslationManager.h"
 #include <unordered_map>
 #include <map>
 #include <memory>
 #include <fmt/core.h>
-#include "Employee.h"
-#include "Factory.h"
-#include "TranslationManager.h"
-#include "Functions.h"
+#include "../include/core/employees/Employee.h"
+#include "../include/core/employees/Factory.h"
+#include "utils/TranslationManager.h"
+#include "../include/utils/Functions.h"
 
 namespace TUI {
     using TableRow = std::pair<std::string, std::string>;

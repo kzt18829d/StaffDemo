@@ -1,5 +1,5 @@
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -33,7 +33,7 @@
 
 // #include <nlohmann/adl_serializer.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -46,7 +46,7 @@
 
 // #include <nlohmann/detail/abi_macros.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -148,7 +148,7 @@
 
 // #include <nlohmann/detail/conversions/from_json.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -171,7 +171,7 @@
 
 // #include <nlohmann/detail/exceptions.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -191,7 +191,7 @@
 
 // #include <nlohmann/detail/value_t.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -207,7 +207,7 @@
 
 // #include <nlohmann/detail/macro_scope.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -219,7 +219,7 @@
 #include <utility> // declval, pair
 // #include <nlohmann/detail/meta/detected.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -232,7 +232,7 @@
 
 // #include <nlohmann/detail/meta/void_t.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -319,7 +319,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -2560,7 +2560,7 @@ JSON_HEDLEY_DIAGNOSTIC_POP
 #endif
 
 /*!
-@brief macro to briefly define a mapping between an enum and JSON
+@brief macro to briefly define a mapping between an enum and Data_local
 @def NLOHMANN_JSON_SERIALIZE_ENUM
 @since version 3.4.0
 */
@@ -2842,13 +2842,13 @@ namespace detail
 {
 
 ///////////////////////////
-// JSON type enumeration //
+// Data_local type enumeration //
 ///////////////////////////
 
 /*!
-@brief the JSON type enumeration
+@brief the Data_local type enumeration
 
-This enumeration collects the different JSON types. It is internally used to
+This enumeration collects the different Data_local types. It is internally used to
 distinguish the stored values, and the functions @ref basic_json::is_null(),
 @ref basic_json::is_object(), @ref basic_json::is_array(),
 @ref basic_json::is_string(), @ref basic_json::is_boolean(),
@@ -2864,7 +2864,7 @@ number_float), because the library distinguishes these three types for numbers:
 @ref basic_json::number_float_t is used for floating-point numbers or to
 approximate integers which do not fit in the limits of their respective type.
 
-@sa see @ref basic_json::basic_json(const value_t value_type) -- create a JSON
+@sa see @ref basic_json::basic_json(const value_t value_type) -- create a Data_local
 value with the default value for a given type
 
 @since version 1.0.0
@@ -2884,7 +2884,7 @@ enum class value_t : std::uint8_t
 };
 
 /*!
-@brief comparison operator for JSON types
+@brief comparison operator for Data_local types
 
 Returns an ordering that is similar to Python:
 - order: null < boolean < number < object < array < string < binary
@@ -2892,7 +2892,7 @@ Returns an ordering that is similar to Python:
 - discarded values are not comparable
 - binary is represented as a b"" string in python and directly comparable to a
   string; however, making a binary array directly comparable with a string would
-  be surprising behavior in a JSON file.
+  be surprising behavior in a Data_local file.
 
 @since version 1.0.0
 */
@@ -2938,7 +2938,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/string_escape.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -3013,7 +3013,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/input/position_t.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -3055,7 +3055,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/meta/cpp_future.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -3229,7 +3229,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/meta/type_traits.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -3246,7 +3246,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/iterators/iterator_traits.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -3314,7 +3314,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/meta/call_std/begin.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -3334,7 +3334,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/meta/call_std/end.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -3358,7 +3358,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/json_fwd.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -3394,7 +3394,7 @@ NLOHMANN_JSON_NAMESPACE_END
     template<typename T = void, typename SFINAE = void>
     struct adl_serializer;
 
-    /// a class to store JSON values
+    /// a class to store Data_local values
     /// @sa https://json.nlohmann.me/api/basic_json/
     template<template<typename U, typename V, typename... Args> class ObjectType =
     std::map,
@@ -3410,7 +3410,7 @@ NLOHMANN_JSON_NAMESPACE_END
     class CustomBaseClass = void>
     class basic_json;
 
-    /// @brief JSON Pointer defines a string syntax for identifying a specific value within a JSON document
+    /// @brief Data_local Pointer defines a string syntax for identifying a specific value within a Data_local document
     /// @sa https://json.nlohmann.me/api/json_pointer/
     template<typename RefStringType>
     class json_pointer;
@@ -4004,7 +4004,7 @@ using is_usable_as_key_type = typename std::conditional <
 //   - KeyType is comparable with BasicJsonType::object_t::key_type
 //   - if ExcludeObjectKeyType is true, KeyType is not BasicJsonType::object_t::key_type
 //   - the comparator is transparent or RequireTransparentComparator is false
-//   - KeyType is not a JSON iterator or json_pointer
+//   - KeyType is not a Data_local iterator or json_pointer
 template<typename BasicJsonType, typename KeyTypeCVRef, bool RequireTransparentComparator = true,
          bool ExcludeObjectKeyType = RequireTransparentComparator, typename KeyType = uncvref_t<KeyTypeCVRef>>
 using is_usable_as_basic_json_key_type = typename std::conditional <
@@ -4209,7 +4209,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/string_concat.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -4595,7 +4595,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/meta/identity_tag.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -4619,7 +4619,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/meta/std_fs.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -5125,7 +5125,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/conversions/to_json.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -5145,7 +5145,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/iterators/iteration_proxy.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -5831,7 +5831,7 @@ NLOHMANN_JSON_NAMESPACE_BEGIN
 template<typename ValueType, typename>
 struct adl_serializer
 {
-    /// @brief convert a JSON value to any value type
+    /// @brief convert a Data_local value to any value type
     /// @sa https://json.nlohmann.me/api/adl_serializer/from_json/
     template<typename BasicJsonType, typename TargetType = ValueType>
     static auto from_json(BasicJsonType && j, TargetType& val) noexcept(
@@ -5841,7 +5841,7 @@ struct adl_serializer
         ::nlohmann::from_json(std::forward<BasicJsonType>(j), val);
     }
 
-    /// @brief convert a JSON value to any value type
+    /// @brief convert a Data_local value to any value type
     /// @sa https://json.nlohmann.me/api/adl_serializer/from_json/
     template<typename BasicJsonType, typename TargetType = ValueType>
     static auto from_json(BasicJsonType && j) noexcept(
@@ -5851,7 +5851,7 @@ struct adl_serializer
         return ::nlohmann::from_json(std::forward<BasicJsonType>(j), detail::identity_tag<TargetType> {});
     }
 
-    /// @brief convert any value type to a JSON value
+    /// @brief convert any value type to a Data_local value
     /// @sa https://json.nlohmann.me/api/adl_serializer/to_json/
     template<typename BasicJsonType, typename TargetType = ValueType>
     static auto to_json(BasicJsonType& j, TargetType && val) noexcept(
@@ -5866,7 +5866,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/byte_container_with_subtype.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -5978,7 +5978,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/hash.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -6008,14 +6008,14 @@ inline std::size_t combine(std::size_t seed, std::size_t h) noexcept
 }
 
 /*!
-@brief hash a JSON value
+@brief hash a Data_local value
 
 The hash function tries to rely on std::hash where possible. Furthermore, the
-type of the JSON value is taken into account to have different hash values for
+type of the Data_local value is taken into account to have different hash values for
 null, 0, 0U, and false, etc.
 
 @tparam BasicJsonType basic_json specialization
-@param j JSON value to hash
+@param j Data_local value to hash
 @return hash value of j
 */
 template<typename BasicJsonType>
@@ -6111,7 +6111,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/input/binary_reader.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -6137,7 +6137,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/input/input_adapters.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -6218,7 +6218,7 @@ Input adapter for a (caching) istream. Ignores a UFT Byte Order Mark at
 beginning of input. Does not support changing the underlying std::streambuf
 in mid-input. Maintains underlying std::istream and std::streambuf to support
 subsequent use of standard std::istream operations to process any input
-characters following those used in parsing the JSON input.  Clears the
+characters following those used in parsing the Data_local input.  Clears the
 std::istream flags; any input errors (e.g., EOF) will be detected by the first
 subsequent call for input from the std::istream.
 */
@@ -6634,7 +6634,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/input/json_sax.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -6783,17 +6783,17 @@ struct json_sax
 namespace detail
 {
 /*!
-@brief SAX implementation to create a JSON value from SAX events
+@brief SAX implementation to create a Data_local value from SAX events
 
 This class implements the @ref json_sax interface and processes the SAX events
-to create a JSON value which makes it basically a DOM parser. The structure or
-hierarchy of the JSON value is managed by the stack `ref_stack` which contains
+to create a Data_local value which makes it basically a DOM parser. The structure or
+hierarchy of the Data_local value is managed by the stack `ref_stack` which contains
 a pointer to the respective array or object for each recursion depth.
 
 After successful parsing, the value that is passed by reference to the
 constructor contains the parsed value.
 
-@tparam BasicJsonType  the JSON type
+@tparam BasicJsonType  the Data_local type
 */
 template<typename BasicJsonType>
 class json_sax_dom_parser
@@ -6806,7 +6806,7 @@ class json_sax_dom_parser
     using binary_t = typename BasicJsonType::binary_t;
 
     /*!
-    @param[in,out] r  reference to a JSON value that is manipulated while
+    @param[in,out] r  reference to a Data_local value that is manipulated while
                        parsing
     @param[in] allow_exceptions_  whether parse errors yield exceptions
     */
@@ -6966,7 +6966,7 @@ class json_sax_dom_parser
         return object_element;
     }
 
-    /// the parsed JSON value
+    /// the parsed Data_local value
     BasicJsonType& root;
     /// stack to model hierarchy of values
     std::vector<BasicJsonType*> ref_stack {};
@@ -7187,7 +7187,7 @@ class json_sax_dom_callback_parser
 
   private:
     /*!
-    @param[in] v  value to add to the JSON value we build during parsing
+    @param[in] v  value to add to the Data_local value we build during parsing
     @param[in] skip_callback  whether we should skip calling the callback
                function; this is required after start_array() and
                start_object() SAX events, because otherwise we would call the
@@ -7265,7 +7265,7 @@ class json_sax_dom_callback_parser
         return {true, object_element};
     }
 
-    /// the parsed JSON value
+    /// the parsed Data_local value
     BasicJsonType& root;
     /// stack to model hierarchy of values
     std::vector<BasicJsonType*> ref_stack {};
@@ -7366,7 +7366,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/input/lexer.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -7477,7 +7477,7 @@ class lexer_base
 /*!
 @brief lexical analysis
 
-This class organizes the lexical analysis during JSON deserialization.
+This class organizes the lexical analysis during Data_local deserialization.
 */
 template<typename BasicJsonType, typename InputAdapterType>
 class lexer : public lexer_base<BasicJsonType>
@@ -9007,7 +9007,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/meta/is_sax.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -12159,7 +12159,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/input/parser.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -12201,17 +12201,17 @@ namespace detail
 
 enum class parse_event_t : std::uint8_t
 {
-    /// the parser read `{` and started to process a JSON object
+    /// the parser read `{` and started to process a Data_local object
     object_start,
-    /// the parser read `}` and finished processing a JSON object
+    /// the parser read `}` and finished processing a Data_local object
     object_end,
-    /// the parser read `[` and started to process a JSON array
+    /// the parser read `[` and started to process a Data_local array
     array_start,
-    /// the parser read `]` and finished processing a JSON array
+    /// the parser read `]` and finished processing a Data_local array
     array_end,
     /// the parser read a key of a value in an object
     key,
-    /// the parser finished reading a JSON value
+    /// the parser finished reading a Data_local value
     value
 };
 
@@ -12252,7 +12252,7 @@ class parser
     @brief public parser interface
 
     @param[in] strict      whether to expect the last token to be EOF
-    @param[in,out] result  parsed JSON value
+    @param[in,out] result  parsed Data_local value
 
     @throw parse_error.101 in case of an unexpected token
     @throw parse_error.102 if to_unicode fails or surrogate error
@@ -12316,7 +12316,7 @@ class parser
     @brief public accept interface
 
     @param[in] strict  whether to expect the last token to be EOF
-    @return whether the input is a proper JSON text
+    @return whether the input is a proper Data_local text
     */
     bool accept(const bool strict = true)
     {
@@ -12516,7 +12516,7 @@ class parser
                             return sax->parse_error(m_lexer.get_position(),
                                                     m_lexer.get_token_string(),
                                                     parse_error::create(101, m_lexer.get_position(),
-                                                            "attempting to parse an empty input; check that your input string or stream contains the expected JSON", nullptr));
+                                                            "attempting to parse an empty input; check that your input string or stream contains the expected Data_local", nullptr));
                         }
 
                         return sax->parse_error(m_lexer.get_position(),
@@ -12688,7 +12688,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/iterators/internal_iterator.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -12701,7 +12701,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/iterators/primitive_iterator.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -12721,9 +12721,9 @@ namespace detail
 {
 
 /*
-@brief an iterator for primitive JSON types
+@brief an iterator for primitive Data_local types
 
-This class models an iterator for primitive JSON types (boolean, number,
+This class models an iterator for primitive Data_local types (boolean, number,
 string). It's only purpose is to allow the iterator/const_iterator classes
 to "iterate" over primitive values. Internally, the iterator is modeled by
 a `difference_type` variable. Value begin_value (`0`) models the begin,
@@ -12847,9 +12847,9 @@ unions members with complex constructors, see https://github.com/nlohmann/json/p
 */
 template<typename BasicJsonType> struct internal_iterator
 {
-    /// iterator for JSON objects
+    /// iterator for Data_local objects
     typename BasicJsonType::object_t::iterator object_iterator {};
-    /// iterator for JSON arrays
+    /// iterator for Data_local arrays
     typename BasicJsonType::array_t::iterator array_iterator {};
     /// generic iterator for all other types
     primitive_iterator_t primitive_iterator {};
@@ -12860,7 +12860,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/iterators/iter_impl.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -12899,7 +12899,7 @@ template<typename IteratorType> class iteration_proxy_value;
 @brief a template for a bidirectional iterator for the @ref basic_json class
 This class implements a both iterators (iterator and const_iterator) for the
 @ref basic_json class.
-@note An iterator is called *initialized* when a pointer to a JSON value has
+@note An iterator is called *initialized* when a pointer to a Data_local value has
       been set (e.g., by a constructor or a copy assignment). If the iterator is
       default-constructed, it is *uninitialized* and most methods are undefined.
       **The library uses assertions to detect calls on uninitialized iterators.**
@@ -12960,8 +12960,8 @@ class iter_impl // NOLINT(cppcoreguidelines-special-member-functions,hicpp-speci
     iter_impl& operator=(iter_impl&&) noexcept = default;
 
     /*!
-    @brief constructor for a given JSON instance
-    @param[in] object  pointer to a JSON object for this iterator
+    @brief constructor for a given Data_local instance
+    @param[in] object  pointer to a Data_local object for this iterator
     @pre object != nullptr
     @post The iterator is initialized; i.e. `m_object != nullptr`.
     */
@@ -13609,7 +13609,7 @@ class iter_impl // NOLINT(cppcoreguidelines-special-member-functions,hicpp-speci
     }
 
   JSON_PRIVATE_UNLESS_TESTED:
-    /// associated JSON instance
+    /// associated Data_local instance
     pointer m_object = nullptr;
     /// the actual iterator of the associated instance
     internal_iterator<typename std::remove_const<BasicJsonType>::type> m_it {};
@@ -13622,7 +13622,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/iterators/json_reverse_iterator.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -13757,7 +13757,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/json_custom_base_class.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -13799,7 +13799,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/json_pointer.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -13834,7 +13834,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 NLOHMANN_JSON_NAMESPACE_BEGIN
 
-/// @brief JSON Pointer defines a string syntax for identifying a specific value within a JSON document
+/// @brief Data_local Pointer defines a string syntax for identifying a specific value within a Data_local document
 /// @sa https://json.nlohmann.me/api/json_pointer/
 template<typename RefStringType>
 class json_pointer
@@ -13862,13 +13862,13 @@ class json_pointer
     // for backwards compatibility accept BasicJsonType
     using string_t = typename string_t_helper<RefStringType>::type;
 
-    /// @brief create JSON pointer
+    /// @brief create Data_local pointer
     /// @sa https://json.nlohmann.me/api/json_pointer/json_pointer/
     explicit json_pointer(const string_t& s = "")
         : reference_tokens(split(s))
     {}
 
-    /// @brief return a string representation of the JSON pointer
+    /// @brief return a string representation of the Data_local pointer
     /// @sa https://json.nlohmann.me/api/json_pointer/to_string/
     string_t to_string() const
     {
@@ -13880,7 +13880,7 @@ class json_pointer
         });
     }
 
-    /// @brief return a string representation of the JSON pointer
+    /// @brief return a string representation of the Data_local pointer
     /// @sa https://json.nlohmann.me/api/json_pointer/operator_string/
     JSON_HEDLEY_DEPRECATED_FOR(3.11.0, to_string())
     operator string_t() const
@@ -13889,7 +13889,7 @@ class json_pointer
     }
 
 #ifndef JSON_NO_IO
-    /// @brief write string representation of the JSON pointer to stream
+    /// @brief write string representation of the Data_local pointer to stream
     /// @sa https://json.nlohmann.me/api/basic_json/operator_ltlt/
     friend std::ostream& operator<<(std::ostream& o, const json_pointer& ptr)
     {
@@ -13898,7 +13898,7 @@ class json_pointer
     }
 #endif
 
-    /// @brief append another JSON pointer at the end of this JSON pointer
+    /// @brief append another Data_local pointer at the end of this Data_local pointer
     /// @sa https://json.nlohmann.me/api/json_pointer/operator_slasheq/
     json_pointer& operator/=(const json_pointer& ptr)
     {
@@ -13908,7 +13908,7 @@ class json_pointer
         return *this;
     }
 
-    /// @brief append an unescaped reference token at the end of this JSON pointer
+    /// @brief append an unescaped reference token at the end of this Data_local pointer
     /// @sa https://json.nlohmann.me/api/json_pointer/operator_slasheq/
     json_pointer& operator/=(string_t token)
     {
@@ -13916,14 +13916,14 @@ class json_pointer
         return *this;
     }
 
-    /// @brief append an array index at the end of this JSON pointer
+    /// @brief append an array index at the end of this Data_local pointer
     /// @sa https://json.nlohmann.me/api/json_pointer/operator_slasheq/
     json_pointer& operator/=(std::size_t array_idx)
     {
         return *this /= std::to_string(array_idx);
     }
 
-    /// @brief create a new JSON pointer by appending the right JSON pointer at the end of the left JSON pointer
+    /// @brief create a new Data_local pointer by appending the right Data_local pointer at the end of the left Data_local pointer
     /// @sa https://json.nlohmann.me/api/json_pointer/operator_slash/
     friend json_pointer operator/(const json_pointer& lhs,
                                   const json_pointer& rhs)
@@ -13931,21 +13931,21 @@ class json_pointer
         return json_pointer(lhs) /= rhs;
     }
 
-    /// @brief create a new JSON pointer by appending the unescaped token at the end of the JSON pointer
+    /// @brief create a new Data_local pointer by appending the unescaped token at the end of the Data_local pointer
     /// @sa https://json.nlohmann.me/api/json_pointer/operator_slash/
     friend json_pointer operator/(const json_pointer& lhs, string_t token) // NOLINT(performance-unnecessary-value-param)
     {
         return json_pointer(lhs) /= std::move(token);
     }
 
-    /// @brief create a new JSON pointer by appending the array-index-token at the end of the JSON pointer
+    /// @brief create a new Data_local pointer by appending the array-index-token at the end of the Data_local pointer
     /// @sa https://json.nlohmann.me/api/json_pointer/operator_slash/
     friend json_pointer operator/(const json_pointer& lhs, std::size_t array_idx)
     {
         return json_pointer(lhs) /= array_idx;
     }
 
-    /// @brief returns the parent of this JSON pointer
+    /// @brief returns the parent of this Data_local pointer
     /// @sa https://json.nlohmann.me/api/json_pointer/parent_pointer/
     json_pointer parent_pointer() const
     {
@@ -13965,7 +13965,7 @@ class json_pointer
     {
         if (JSON_HEDLEY_UNLIKELY(empty()))
         {
-            JSON_THROW(detail::out_of_range::create(405, "JSON pointer has no parent", nullptr));
+            JSON_THROW(detail::out_of_range::create(405, "Data_local pointer has no parent", nullptr));
         }
 
         reference_tokens.pop_back();
@@ -13977,7 +13977,7 @@ class json_pointer
     {
         if (JSON_HEDLEY_UNLIKELY(empty()))
         {
-            JSON_THROW(detail::out_of_range::create(405, "JSON pointer has no parent", nullptr));
+            JSON_THROW(detail::out_of_range::create(405, "Data_local pointer has no parent", nullptr));
         }
 
         return reference_tokens.back();
@@ -14058,7 +14058,7 @@ class json_pointer
     {
         if (JSON_HEDLEY_UNLIKELY(empty()))
         {
-            JSON_THROW(detail::out_of_range::create(405, "JSON pointer has no parent", nullptr));
+            JSON_THROW(detail::out_of_range::create(405, "Data_local pointer has no parent", nullptr));
         }
 
         json_pointer result = *this;
@@ -14080,7 +14080,7 @@ class json_pointer
     {
         auto* result = &j;
 
-        // in case no reference tokens exist, return a reference to the JSON value
+        // in case no reference tokens exist, return a reference to the Data_local value
         // j which will be overwritten by a primitive value
         for (const auto& reference_token : reference_tokens)
         {
@@ -14145,15 +14145,15 @@ class json_pointer
           `operator[]("this").operator[]("that")` on that value, effectively
           changing the null value to an object.
 
-    @param[in] ptr  a JSON value
+    @param[in] ptr  a Data_local value
 
-    @return reference to the JSON value pointed to by the JSON pointer
+    @return reference to the Data_local value pointed to by the Data_local pointer
 
-    @complexity Linear in the length of the JSON pointer.
+    @complexity Linear in the length of the Data_local pointer.
 
     @throw parse_error.106   if an array index begins with '0'
     @throw parse_error.109   if an array index was not a number
-    @throw out_of_range.404  if the JSON pointer can not be resolved
+    @throw out_of_range.404  if the Data_local pointer can not be resolved
     */
     template<typename BasicJsonType>
     BasicJsonType& get_unchecked(BasicJsonType* ptr) const
@@ -14221,7 +14221,7 @@ class json_pointer
     @throw parse_error.106   if an array index begins with '0'
     @throw parse_error.109   if an array index was not a number
     @throw out_of_range.402  if the array index '-' is used
-    @throw out_of_range.404  if the JSON pointer can not be resolved
+    @throw out_of_range.404  if the Data_local pointer can not be resolved
     */
     template<typename BasicJsonType>
     BasicJsonType& get_checked(BasicJsonType* ptr) const
@@ -14271,15 +14271,15 @@ class json_pointer
     /*!
     @brief return a const reference to the pointed to value
 
-    @param[in] ptr  a JSON value
+    @param[in] ptr  a Data_local value
 
-    @return const reference to the JSON value pointed to by the JSON
+    @return const reference to the Data_local value pointed to by the Data_local
     pointer
 
     @throw parse_error.106   if an array index begins with '0'
     @throw parse_error.109   if an array index was not a number
     @throw out_of_range.402  if the array index '-' is used
-    @throw out_of_range.404  if the JSON pointer can not be resolved
+    @throw out_of_range.404  if the Data_local pointer can not be resolved
     */
     template<typename BasicJsonType>
     const BasicJsonType& get_unchecked(const BasicJsonType* ptr) const
@@ -14328,7 +14328,7 @@ class json_pointer
     @throw parse_error.106   if an array index begins with '0'
     @throw parse_error.109   if an array index was not a number
     @throw out_of_range.402  if the array index '-' is used
-    @throw out_of_range.404  if the JSON pointer can not be resolved
+    @throw out_of_range.404  if the Data_local pointer can not be resolved
     */
     template<typename BasicJsonType>
     const BasicJsonType& get_checked(const BasicJsonType* ptr) const
@@ -14481,7 +14481,7 @@ class json_pointer
         // check if nonempty reference string begins with slash
         if (JSON_HEDLEY_UNLIKELY(reference_string[0] != '/'))
         {
-            JSON_THROW(detail::parse_error::create(107, 1, detail::concat("JSON pointer must be empty or begin with '/' - was: '", reference_string, "'"), nullptr));
+            JSON_THROW(detail::parse_error::create(107, 1, detail::concat("Data_local pointer must be empty or begin with '/' - was: '", reference_string, "'"), nullptr));
         }
 
         // extract the reference tokens:
@@ -14598,9 +14598,9 @@ class json_pointer
     }
 
     /*!
-    @param[in] value  flattened JSON
+    @param[in] value  flattened Data_local
 
-    @return unflattened JSON
+    @return unflattened Data_local
 
     @throw parse_error.109 if array index is not a number
     @throw type_error.314  if value is not an object
@@ -14618,7 +14618,7 @@ class json_pointer
 
         BasicJsonType result;
 
-        // iterate the JSON object values
+        // iterate the Data_local object values
         for (const auto& element : *value.m_data.m_value.object)
         {
             if (JSON_HEDLEY_UNLIKELY(!element.second.is_primitive()))
@@ -14626,8 +14626,8 @@ class json_pointer
                 JSON_THROW(detail::type_error::create(315, "values in object must be primitive", &element.second));
             }
 
-            // assign value to reference pointed to by JSON pointer; Note that if
-            // the JSON pointer is "" (i.e., points to the whole value), function
+            // assign value to reference pointed to by Data_local pointer; Note that if
+            // the Data_local pointer is "" (i.e., points to the whole value), function
             // get_and_create returns a reference to result itself. An assignment
             // will then create a primitive value.
             json_pointer(element.first).get_and_create(result) = element.second;
@@ -14653,7 +14653,7 @@ class json_pointer
 
   public:
 #if JSON_HAS_THREE_WAY_COMPARISON
-    /// @brief compares two JSON pointers for equality
+    /// @brief compares two Data_local pointers for equality
     /// @sa https://json.nlohmann.me/api/json_pointer/operator_eq/
     template<typename RefStringTypeRhs>
     bool operator==(const json_pointer<RefStringTypeRhs>& rhs) const noexcept
@@ -14661,7 +14661,7 @@ class json_pointer
         return reference_tokens == rhs.reference_tokens;
     }
 
-    /// @brief compares JSON pointer and string for equality
+    /// @brief compares Data_local pointer and string for equality
     /// @sa https://json.nlohmann.me/api/json_pointer/operator_eq/
     JSON_HEDLEY_DEPRECATED_FOR(3.11.2, operator==(json_pointer))
     bool operator==(const string_t& rhs) const
@@ -14669,56 +14669,56 @@ class json_pointer
         return *this == json_pointer(rhs);
     }
 
-    /// @brief 3-way compares two JSON pointers
+    /// @brief 3-way compares two Data_local pointers
     template<typename RefStringTypeRhs>
     std::strong_ordering operator<=>(const json_pointer<RefStringTypeRhs>& rhs) const noexcept // *NOPAD*
     {
         return  reference_tokens <=> rhs.reference_tokens; // *NOPAD*
     }
 #else
-    /// @brief compares two JSON pointers for equality
+    /// @brief compares two Data_local pointers for equality
     /// @sa https://json.nlohmann.me/api/json_pointer/operator_eq/
     template<typename RefStringTypeLhs, typename RefStringTypeRhs>
     // NOLINTNEXTLINE(readability-redundant-declaration)
     friend bool operator==(const json_pointer<RefStringTypeLhs>& lhs,
                            const json_pointer<RefStringTypeRhs>& rhs) noexcept;
 
-    /// @brief compares JSON pointer and string for equality
+    /// @brief compares Data_local pointer and string for equality
     /// @sa https://json.nlohmann.me/api/json_pointer/operator_eq/
     template<typename RefStringTypeLhs, typename StringType>
     // NOLINTNEXTLINE(readability-redundant-declaration)
     friend bool operator==(const json_pointer<RefStringTypeLhs>& lhs,
                            const StringType& rhs);
 
-    /// @brief compares string and JSON pointer for equality
+    /// @brief compares string and Data_local pointer for equality
     /// @sa https://json.nlohmann.me/api/json_pointer/operator_eq/
     template<typename RefStringTypeRhs, typename StringType>
     // NOLINTNEXTLINE(readability-redundant-declaration)
     friend bool operator==(const StringType& lhs,
                            const json_pointer<RefStringTypeRhs>& rhs);
 
-    /// @brief compares two JSON pointers for inequality
+    /// @brief compares two Data_local pointers for inequality
     /// @sa https://json.nlohmann.me/api/json_pointer/operator_ne/
     template<typename RefStringTypeLhs, typename RefStringTypeRhs>
     // NOLINTNEXTLINE(readability-redundant-declaration)
     friend bool operator!=(const json_pointer<RefStringTypeLhs>& lhs,
                            const json_pointer<RefStringTypeRhs>& rhs) noexcept;
 
-    /// @brief compares JSON pointer and string for inequality
+    /// @brief compares Data_local pointer and string for inequality
     /// @sa https://json.nlohmann.me/api/json_pointer/operator_ne/
     template<typename RefStringTypeLhs, typename StringType>
     // NOLINTNEXTLINE(readability-redundant-declaration)
     friend bool operator!=(const json_pointer<RefStringTypeLhs>& lhs,
                            const StringType& rhs);
 
-    /// @brief compares string and JSON pointer for inequality
+    /// @brief compares string and Data_local pointer for inequality
     /// @sa https://json.nlohmann.me/api/json_pointer/operator_ne/
     template<typename RefStringTypeRhs, typename StringType>
     // NOLINTNEXTLINE(readability-redundant-declaration)
     friend bool operator!=(const StringType& lhs,
                            const json_pointer<RefStringTypeRhs>& rhs);
 
-    /// @brief compares two JSON pointer for less-than
+    /// @brief compares two Data_local pointer for less-than
     template<typename RefStringTypeLhs, typename RefStringTypeRhs>
     // NOLINTNEXTLINE(readability-redundant-declaration)
     friend bool operator<(const json_pointer<RefStringTypeLhs>& lhs,
@@ -14794,7 +14794,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/json_ref.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -14886,7 +14886,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/output/binary_writer.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -14912,7 +14912,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/output/output_adapters.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -15093,7 +15093,7 @@ class binary_writer
     }
 
     /*!
-    @param[in] j  JSON value to serialize
+    @param[in] j  Data_local value to serialize
     @pre       j.type() == value_t::object
     */
     void write_bson(const BasicJsonType& j)
@@ -15123,7 +15123,7 @@ class binary_writer
     }
 
     /*!
-    @param[in] j  JSON value to serialize
+    @param[in] j  Data_local value to serialize
     */
     void write_cbor(const BasicJsonType& j)
     {
@@ -15447,7 +15447,7 @@ class binary_writer
     }
 
     /*!
-    @param[in] j  JSON value to serialize
+    @param[in] j  Data_local value to serialize
     */
     void write_msgpack(const BasicJsonType& j)
     {
@@ -15769,7 +15769,7 @@ class binary_writer
     }
 
     /*!
-    @param[in] j  JSON value to serialize
+    @param[in] j  Data_local value to serialize
     @param[in] use_count   whether to use '#' prefixes (optimized format)
     @param[in] use_type    whether to use '$' prefixes (optimized format)
     @param[in] add_prefix  whether prefixes need to be used for this value
@@ -16197,7 +16197,7 @@ class binary_writer
     }
 
     /*!
-    @brief Calculates the size necessary to serialize the JSON value @a j with its @a name
+    @brief Calculates the size necessary to serialize the Data_local value @a j with its @a name
     @return The calculated size for the BSON document entry for @a j with the given @a name.
     */
     static std::size_t calc_bson_element_size(const string_t& name,
@@ -16243,9 +16243,9 @@ class binary_writer
     }
 
     /*!
-    @brief Serializes the JSON value @a j to BSON and associates it with the
+    @brief Serializes the Data_local value @a j to BSON and associates it with the
            key @a name.
-    @param name The name to associate with the JSON entity @a j within the
+    @param name The name to associate with the Data_local entity @a j within the
                 current BSON document
     */
     void write_bson_element(const string_t& name,
@@ -16291,8 +16291,8 @@ class binary_writer
 
     /*!
     @brief Calculates the size of the BSON serialization of the given
-           JSON-object @a j.
-    @param[in] value  JSON value to serialize
+           Data_local-object @a j.
+    @param[in] value  Data_local value to serialize
     @pre       value.type() == value_t::object
     */
     static std::size_t calc_bson_object_size(const typename BasicJsonType::object_t& value)
@@ -16307,7 +16307,7 @@ class binary_writer
     }
 
     /*!
-    @param[in] value  JSON value to serialize
+    @param[in] value  Data_local value to serialize
     @pre       value.type() == value_t::object
     */
     void write_bson_object(const typename BasicJsonType::object_t& value)
@@ -16880,7 +16880,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/output/serializer.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -16905,7 +16905,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/detail/conversions/to_chars.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -19001,7 +19001,7 @@ NLOHMANN_JSON_NAMESPACE_END
 
 // #include <nlohmann/ordered_map.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -19378,7 +19378,7 @@ NLOHMANN_JSON_NAMESPACE_END
 NLOHMANN_JSON_NAMESPACE_BEGIN
 
 /*!
-@brief a class to store JSON values
+@brief a class to store Data_local values
 
 @internal
 @invariant The member variables @a m_value and @a m_type have the following
@@ -19464,7 +19464,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
 
   public:
     using value_t = detail::value_t;
-    /// JSON Pointer, see @ref nlohmann::json_pointer
+    /// Data_local Pointer, see @ref nlohmann::json_pointer
     using json_pointer = ::nlohmann::json_pointer<StringType>;
     template<typename T, typename SFINAE>
     using json_serializer = JSONSerializer<T, SFINAE>;
@@ -19552,7 +19552,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         basic_json result;
 
         result["copyright"] = "(C) 2013-2023 Niels Lohmann";
-        result["name"] = "JSON for Modern C++";
+        result["name"] = "Data_local for Modern C++";
         result["url"] = "https://github.com/nlohmann/json";
         result["version"]["string"] =
             detail::concat(std::to_string(NLOHMANN_JSON_VERSION_MAJOR), '.',
@@ -19610,11 +19610,11 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     }
 
     ///////////////////////////
-    // JSON value data types //
+    // Data_local value data types //
     ///////////////////////////
 
-    /// @name JSON value data types
-    /// The data types to store a JSON value. These types are derived from
+    /// @name Data_local value data types
+    /// The data types to store a Data_local value. These types are derived from
     /// the template arguments passed to class @ref basic_json.
     /// @{
 
@@ -19693,18 +19693,18 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     }
 
     ////////////////////////
-    // JSON value storage //
+    // Data_local value storage //
     ////////////////////////
 
   JSON_PRIVATE_UNLESS_TESTED:
     /*!
-    @brief a JSON value
+    @brief a Data_local value
 
-    The actual storage for a JSON value of the @ref basic_json class. This
-    union combines the different storage types for the JSON value types
+    The actual storage for a Data_local value of the @ref basic_json class. This
+    union combines the different storage types for the Data_local value types
     defined in @ref value_t.
 
-    JSON type | value_t type    | used type
+    Data_local type | value_t type    | used type
     --------- | --------------- | ------------------------
     object    | object          | pointer to @ref object_t
     array     | array           | pointer to @ref array_t
@@ -19968,7 +19968,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
 
     This function asserts the class invariants. It needs to be called at the
     end of every constructor to make sure that created objects respect the
-    invariant. Furthermore, it has to be called each time the type of a JSON
+    invariant. Furthermore, it has to be called each time the type of a Data_local
     value is changed, because the invariant expresses a relationship between
     @a m_type and @a m_value.
 
@@ -20092,7 +20092,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
 
   public:
     //////////////////////////
-    // JSON parser callback //
+    // Data_local parser callback //
     //////////////////////////
 
     /// @brief parser event types
@@ -20128,7 +20128,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         assert_invariant();
     }
 
-    /// @brief create a JSON value from compatible types
+    /// @brief create a Data_local value from compatible types
     /// @sa https://json.nlohmann.me/api/basic_json/basic_json/
     template < typename CompatibleType,
                typename U = detail::uncvref_t<CompatibleType>,
@@ -20143,7 +20143,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         assert_invariant();
     }
 
-    /// @brief create a JSON value from an existing one
+    /// @brief create a Data_local value from an existing one
     /// @sa https://json.nlohmann.me/api/basic_json/basic_json/
     template < typename BasicJsonType,
                detail::enable_if_t <
@@ -20326,7 +20326,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         assert_invariant();
     }
 
-    /// @brief construct a JSON container given an iterator range
+    /// @brief construct a Data_local container given an iterator range
     /// @sa https://json.nlohmann.me/api/basic_json/basic_json/
     template < class InputIT, typename std::enable_if <
                    std::is_same<InputIT, typename basic_json_t::iterator>::value ||
@@ -20566,7 +20566,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     ///////////////////////
 
     /// @name object inspection
-    /// Functions to inspect the type of a JSON value.
+    /// Functions to inspect the type of a Data_local value.
     /// @{
 
     /// @brief serialization
@@ -20591,7 +20591,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return result;
     }
 
-    /// @brief return the type of the JSON value (explicit)
+    /// @brief return the type of the Data_local value (explicit)
     /// @sa https://json.nlohmann.me/api/basic_json/type/
     constexpr value_t type() const noexcept
     {
@@ -20689,7 +20689,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return m_data.m_type == value_t::discarded;
     }
 
-    /// @brief return the type of the JSON value (implicit)
+    /// @brief return the type of the Data_local value (implicit)
     /// @sa https://json.nlohmann.me/api/basic_json/operator_value_t/
     constexpr operator value_t() const noexcept
     {
@@ -20819,7 +20819,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     @tparam ThisType will be deduced as `basic_json` or `const basic_json`
 
     @throw type_error.303 if ReferenceType does not match underlying value
-    type of the current JSON
+    type of the current Data_local
     */
     template<typename ReferenceType, typename ThisType>
     static ReferenceType get_ref_impl(ThisType& obj)
@@ -20837,7 +20837,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
 
   public:
     /// @name value access
-    /// Direct access to the stored value of a JSON value.
+    /// Direct access to the stored value of a Data_local value.
     /// @{
 
     /// @brief get a pointer value (implicit)
@@ -20865,7 +20865,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     /*!
     @brief get a value (explicit)
 
-    Explicit type conversion between the JSON value and a compatible value
+    Explicit type conversion between the Data_local value and a compatible value
     which is [CopyConstructible](https://en.cppreference.com/w/cpp/named_req/CopyConstructible)
     and [DefaultConstructible](https://en.cppreference.com/w/cpp/named_req/DefaultConstructible).
     The value is converted by calling the @ref json_serializer<ValueType>
@@ -20887,14 +20887,14 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
 
     @tparam ValueType the returned value type
 
-    @return copy of the JSON value, converted to @a ValueType
+    @return copy of the Data_local value, converted to @a ValueType
 
     @throw what @ref json_serializer<ValueType> `from_json()` method throws
 
-    @liveexample{The example below shows several conversions from JSON values
+    @liveexample{The example below shows several conversions from Data_local values
     to other types. There a few things to note: (1) Floating-point numbers can
-    be converted to integers\, (2) A JSON array can be converted to a standard
-    `std::vector<short>`\, (3) A JSON object can be converted to C++
+    be converted to integers\, (2) A Data_local array can be converted to a standard
+    `std::vector<short>`\, (3) A Data_local object can be converted to C++
     associative containers such as `std::unordered_map<std::string\,
     json>`.,get__ValueType_const}
 
@@ -20916,7 +20916,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     /*!
     @brief get a value (explicit); special case
 
-    Explicit type conversion between the JSON value and a compatible value
+    Explicit type conversion between the Data_local value and a compatible value
     which is **not** [CopyConstructible](https://en.cppreference.com/w/cpp/named_req/CopyConstructible)
     and **not** [DefaultConstructible](https://en.cppreference.com/w/cpp/named_req/DefaultConstructible).
     The value is converted by calling the @ref json_serializer<ValueType>
@@ -20937,7 +20937,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
 
     @tparam ValueType the returned value type
 
-    @return copy of the JSON value, converted to @a ValueType
+    @return copy of the Data_local value, converted to @a ValueType
 
     @throw what @ref json_serializer<ValueType> `from_json()` method throws
 
@@ -21019,9 +21019,9 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     /*!
     @brief get a (pointer) value (explicit)
 
-    Performs explicit type conversion between the JSON value and a compatible value if required.
+    Performs explicit type conversion between the Data_local value and a compatible value if required.
 
-    - If the requested type is a pointer to the internally stored JSON value that pointer is returned.
+    - If the requested type is a pointer to the internally stored Data_local value that pointer is returned.
     No copies are made.
 
     - If the requested type is the current @ref basic_json, or a different @ref basic_json convertible
@@ -21033,7 +21033,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     @tparam ValueTypeCV the provided value type
     @tparam ValueType the returned value type
 
-    @return copy of the JSON value, converted to @tparam ValueType if necessary
+    @return copy of the Data_local value, converted to @tparam ValueType if necessary
 
     @throw what @ref json_serializer<ValueType> `from_json()` method throws if conversion is required
 
@@ -21058,23 +21058,23 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     /*!
     @brief get a pointer value (explicit)
 
-    Explicit pointer access to the internally stored JSON value. No copies are
+    Explicit pointer access to the internally stored Data_local value. No copies are
     made.
 
-    @warning The pointer becomes invalid if the underlying JSON object
+    @warning The pointer becomes invalid if the underlying Data_local object
     changes.
 
     @tparam PointerType pointer type; must be a pointer to @ref array_t, @ref
     object_t, @ref string_t, @ref boolean_t, @ref number_integer_t,
     @ref number_unsigned_t, or @ref number_float_t.
 
-    @return pointer to the internally stored JSON value if the requested
-    pointer type @a PointerType fits to the JSON value; `nullptr` otherwise
+    @return pointer to the internally stored Data_local value if the requested
+    pointer type @a PointerType fits to the Data_local value; `nullptr` otherwise
 
     @complexity Constant.
 
     @liveexample{The example below shows how pointers to internal values of a
-    JSON value can be requested. Note that no type conversions are made and a
+    Data_local value can be requested. Note that no type conversions are made and a
     `nullptr` is returned if the value and the requested pointer type does not
     match.,get__PointerType}
 
@@ -21153,27 +21153,27 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     /*!
     @brief get a value (implicit)
 
-    Implicit type conversion between the JSON value and a compatible value.
+    Implicit type conversion between the Data_local value and a compatible value.
     The call is realized by calling @ref get() const.
 
-    @tparam ValueType non-pointer type compatible to the JSON value, for
-    instance `int` for JSON integer numbers, `bool` for JSON booleans, or
-    `std::vector` types for JSON arrays. The character type of @ref string_t
+    @tparam ValueType non-pointer type compatible to the Data_local value, for
+    instance `int` for Data_local integer numbers, `bool` for Data_local booleans, or
+    `std::vector` types for Data_local arrays. The character type of @ref string_t
     as well as an initializer list of this type is excluded to avoid
     ambiguities as these types implicitly convert to `std::string`.
 
-    @return copy of the JSON value, converted to type @a ValueType
+    @return copy of the Data_local value, converted to type @a ValueType
 
     @throw type_error.302 in case passed type @a ValueType is incompatible
-    to the JSON value type (e.g., the JSON value is of type boolean, but a
+    to the Data_local value type (e.g., the Data_local value is of type boolean, but a
     string is requested); see example below
 
-    @complexity Linear in the size of the JSON value.
+    @complexity Linear in the size of the Data_local value.
 
-    @liveexample{The example below shows several conversions from JSON values
+    @liveexample{The example below shows several conversions from Data_local values
     to other types. There a few things to note: (1) Floating-point numbers can
-    be converted to integers\, (2) A JSON array can be converted to a standard
-    `std::vector<short>`\, (3) A JSON object can be converted to C++
+    be converted to integers\, (2) A Data_local array can be converted to a standard
+    `std::vector<short>`\, (3) A Data_local object can be converted to C++
     associative containers such as `std::unordered_map<std::string\,
     json>`.,operator__ValueType}
 
@@ -21232,7 +21232,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     ////////////////////
 
     /// @name element access
-    /// Access to the JSON value.
+    /// Access to the Data_local value.
     /// @{
 
     /// @brief access specified array element with bounds checking
@@ -21594,7 +21594,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         JSON_THROW(type_error::create(306, detail::concat("cannot use value() with ", type_name()), this));
     }
 
-    /// @brief access specified object element via JSON Pointer with default value
+    /// @brief access specified object element via Data_local Pointer with default value
     /// @sa https://json.nlohmann.me/api/basic_json/value/
     template < class ValueType, class KeyType, class ReturnType = typename value_return_type<ValueType>::type,
                detail::enable_if_t <
@@ -21621,7 +21621,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         JSON_THROW(type_error::create(306, detail::concat("cannot use value() with ", type_name()), this));
     }
 
-    /// @brief access specified object element via JSON Pointer with default value
+    /// @brief access specified object element via Data_local Pointer with default value
     /// @sa https://json.nlohmann.me/api/basic_json/value/
     template < class ValueType, detail::enable_if_t <
                    detail::is_getable<basic_json_t, ValueType>::value
@@ -21645,7 +21645,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         JSON_THROW(type_error::create(306, detail::concat("cannot use value() with ", type_name()), this));
     }
 
-    /// @brief access specified object element via JSON Pointer with default value
+    /// @brief access specified object element via Data_local Pointer with default value
     /// @sa https://json.nlohmann.me/api/basic_json/value/
     template < class ValueType, class ReturnType = typename value_return_type<ValueType>::type,
                detail::enable_if_t <
@@ -21901,7 +21901,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
 
   public:
 
-    /// @brief remove element from a JSON object given a key
+    /// @brief remove element from a Data_local object given a key
     /// @sa https://json.nlohmann.me/api/basic_json/erase/
     size_type erase(const typename object_t::key_type& key)
     {
@@ -21910,7 +21910,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return erase_internal(key);
     }
 
-    /// @brief remove element from a JSON object given a key
+    /// @brief remove element from a Data_local object given a key
     /// @sa https://json.nlohmann.me/api/basic_json/erase/
     template<class KeyType, detail::enable_if_t<
                  detail::is_usable_as_basic_json_key_type<basic_json_t, KeyType>::value, int> = 0>
@@ -21919,7 +21919,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return erase_internal(std::forward<KeyType>(key));
     }
 
-    /// @brief remove element from a JSON array given an index
+    /// @brief remove element from a Data_local array given an index
     /// @sa https://json.nlohmann.me/api/basic_json/erase/
     void erase(const size_type idx)
     {
@@ -21948,7 +21948,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     /// @name lookup
     /// @{
 
-    /// @brief find an element in a JSON object
+    /// @brief find an element in a Data_local object
     /// @sa https://json.nlohmann.me/api/basic_json/find/
     iterator find(const typename object_t::key_type& key)
     {
@@ -21962,7 +21962,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return result;
     }
 
-    /// @brief find an element in a JSON object
+    /// @brief find an element in a Data_local object
     /// @sa https://json.nlohmann.me/api/basic_json/find/
     const_iterator find(const typename object_t::key_type& key) const
     {
@@ -21976,7 +21976,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return result;
     }
 
-    /// @brief find an element in a JSON object
+    /// @brief find an element in a Data_local object
     /// @sa https://json.nlohmann.me/api/basic_json/find/
     template<class KeyType, detail::enable_if_t<
                  detail::is_usable_as_basic_json_key_type<basic_json_t, KeyType>::value, int> = 0>
@@ -21992,7 +21992,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return result;
     }
 
-    /// @brief find an element in a JSON object
+    /// @brief find an element in a Data_local object
     /// @sa https://json.nlohmann.me/api/basic_json/find/
     template<class KeyType, detail::enable_if_t<
                  detail::is_usable_as_basic_json_key_type<basic_json_t, KeyType>::value, int> = 0>
@@ -22008,7 +22008,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return result;
     }
 
-    /// @brief returns the number of occurrences of a key in a JSON object
+    /// @brief returns the number of occurrences of a key in a Data_local object
     /// @sa https://json.nlohmann.me/api/basic_json/count/
     size_type count(const typename object_t::key_type& key) const
     {
@@ -22016,7 +22016,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return is_object() ? m_data.m_value.object->count(key) : 0;
     }
 
-    /// @brief returns the number of occurrences of a key in a JSON object
+    /// @brief returns the number of occurrences of a key in a Data_local object
     /// @sa https://json.nlohmann.me/api/basic_json/count/
     template<class KeyType, detail::enable_if_t<
                  detail::is_usable_as_basic_json_key_type<basic_json_t, KeyType>::value, int> = 0>
@@ -22026,14 +22026,14 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return is_object() ? m_data.m_value.object->count(std::forward<KeyType>(key)) : 0;
     }
 
-    /// @brief check the existence of an element in a JSON object
+    /// @brief check the existence of an element in a Data_local object
     /// @sa https://json.nlohmann.me/api/basic_json/contains/
     bool contains(const typename object_t::key_type& key) const
     {
         return is_object() && m_data.m_value.object->find(key) != m_data.m_value.object->end();
     }
 
-    /// @brief check the existence of an element in a JSON object
+    /// @brief check the existence of an element in a Data_local object
     /// @sa https://json.nlohmann.me/api/basic_json/contains/
     template<class KeyType, detail::enable_if_t<
                  detail::is_usable_as_basic_json_key_type<basic_json_t, KeyType>::value, int> = 0>
@@ -22042,7 +22042,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return is_object() && m_data.m_value.object->find(std::forward<KeyType>(key)) != m_data.m_value.object->end();
     }
 
-    /// @brief check the existence of an element in a JSON object given a JSON pointer
+    /// @brief check the existence of an element in a Data_local object given a Data_local pointer
     /// @sa https://json.nlohmann.me/api/basic_json/contains/
     bool contains(const json_pointer& ptr) const
     {
@@ -22589,7 +22589,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         // insert only works for arrays
         if (JSON_HEDLEY_LIKELY(is_array()))
         {
-            // check if iterator pos fits to this JSON value
+            // check if iterator pos fits to this Data_local value
             if (JSON_HEDLEY_UNLIKELY(pos.m_object != this))
             {
                 JSON_THROW(invalid_iterator::create(202, "iterator does not fit current value", this));
@@ -22616,7 +22616,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         // insert only works for arrays
         if (JSON_HEDLEY_LIKELY(is_array()))
         {
-            // check if iterator pos fits to this JSON value
+            // check if iterator pos fits to this Data_local value
             if (JSON_HEDLEY_UNLIKELY(pos.m_object != this))
             {
                 JSON_THROW(invalid_iterator::create(202, "iterator does not fit current value", this));
@@ -22639,13 +22639,13 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
             JSON_THROW(type_error::create(309, detail::concat("cannot use insert() with ", type_name()), this));
         }
 
-        // check if iterator pos fits to this JSON value
+        // check if iterator pos fits to this Data_local value
         if (JSON_HEDLEY_UNLIKELY(pos.m_object != this))
         {
             JSON_THROW(invalid_iterator::create(202, "iterator does not fit current value", this));
         }
 
-        // check if range iterators belong to the same JSON object
+        // check if range iterators belong to the same Data_local object
         if (JSON_HEDLEY_UNLIKELY(first.m_object != last.m_object))
         {
             JSON_THROW(invalid_iterator::create(210, "iterators do not fit", this));
@@ -22670,7 +22670,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
             JSON_THROW(type_error::create(309, detail::concat("cannot use insert() with ", type_name()), this));
         }
 
-        // check if iterator pos fits to this JSON value
+        // check if iterator pos fits to this Data_local value
         if (JSON_HEDLEY_UNLIKELY(pos.m_object != this))
         {
             JSON_THROW(invalid_iterator::create(202, "iterator does not fit current value", this));
@@ -22690,7 +22690,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
             JSON_THROW(type_error::create(309, detail::concat("cannot use insert() with ", type_name()), this));
         }
 
-        // check if range iterators belong to the same JSON object
+        // check if range iterators belong to the same Data_local object
         if (JSON_HEDLEY_UNLIKELY(first.m_object != last.m_object))
         {
             JSON_THROW(invalid_iterator::create(210, "iterators do not fit", this));
@@ -22705,14 +22705,14 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         m_data.m_value.object->insert(first.m_it.object_iterator, last.m_it.object_iterator);
     }
 
-    /// @brief updates a JSON object from another object, overwriting existing keys
+    /// @brief updates a Data_local object from another object, overwriting existing keys
     /// @sa https://json.nlohmann.me/api/basic_json/update/
     void update(const_reference j, bool merge_objects = false)
     {
         update(j.begin(), j.end(), merge_objects);
     }
 
-    /// @brief updates a JSON object from another object, overwriting existing keys
+    /// @brief updates a Data_local object from another object, overwriting existing keys
     /// @sa https://json.nlohmann.me/api/basic_json/update/
     void update(const_iterator first, const_iterator last, bool merge_objects = false)
     {
@@ -22729,7 +22729,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
             JSON_THROW(type_error::create(312, detail::concat("cannot use update() with ", type_name()), this));
         }
 
-        // check if range iterators belong to the same JSON object
+        // check if range iterators belong to the same Data_local object
         if (JSON_HEDLEY_UNLIKELY(first.m_object != last.m_object))
         {
             JSON_THROW(invalid_iterator::create(210, "iterators do not fit", this));
@@ -23351,7 +23351,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return result;
     }
 
-    /// @brief check if the input is valid JSON
+    /// @brief check if the input is valid Data_local
     /// @sa https://json.nlohmann.me/api/basic_json/accept/
     template<typename InputType>
     static bool accept(InputType&& i,
@@ -23360,7 +23360,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return parser(detail::input_adapter(std::forward<InputType>(i)), nullptr, false, ignore_comments).accept(true);
     }
 
-    /// @brief check if the input is valid JSON
+    /// @brief check if the input is valid Data_local
     /// @sa https://json.nlohmann.me/api/basic_json/accept/
     template<typename IteratorType>
     static bool accept(IteratorType first, IteratorType last,
@@ -23534,7 +23534,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     /// @{
 
   public:
-    /// @brief create a CBOR serialization of a given JSON value
+    /// @brief create a CBOR serialization of a given Data_local value
     /// @sa https://json.nlohmann.me/api/basic_json/to_cbor/
     static std::vector<std::uint8_t> to_cbor(const basic_json& j)
     {
@@ -23543,21 +23543,21 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return result;
     }
 
-    /// @brief create a CBOR serialization of a given JSON value
+    /// @brief create a CBOR serialization of a given Data_local value
     /// @sa https://json.nlohmann.me/api/basic_json/to_cbor/
     static void to_cbor(const basic_json& j, detail::output_adapter<std::uint8_t> o)
     {
         binary_writer<std::uint8_t>(o).write_cbor(j);
     }
 
-    /// @brief create a CBOR serialization of a given JSON value
+    /// @brief create a CBOR serialization of a given Data_local value
     /// @sa https://json.nlohmann.me/api/basic_json/to_cbor/
     static void to_cbor(const basic_json& j, detail::output_adapter<char> o)
     {
         binary_writer<char>(o).write_cbor(j);
     }
 
-    /// @brief create a MessagePack serialization of a given JSON value
+    /// @brief create a MessagePack serialization of a given Data_local value
     /// @sa https://json.nlohmann.me/api/basic_json/to_msgpack/
     static std::vector<std::uint8_t> to_msgpack(const basic_json& j)
     {
@@ -23566,21 +23566,21 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return result;
     }
 
-    /// @brief create a MessagePack serialization of a given JSON value
+    /// @brief create a MessagePack serialization of a given Data_local value
     /// @sa https://json.nlohmann.me/api/basic_json/to_msgpack/
     static void to_msgpack(const basic_json& j, detail::output_adapter<std::uint8_t> o)
     {
         binary_writer<std::uint8_t>(o).write_msgpack(j);
     }
 
-    /// @brief create a MessagePack serialization of a given JSON value
+    /// @brief create a MessagePack serialization of a given Data_local value
     /// @sa https://json.nlohmann.me/api/basic_json/to_msgpack/
     static void to_msgpack(const basic_json& j, detail::output_adapter<char> o)
     {
         binary_writer<char>(o).write_msgpack(j);
     }
 
-    /// @brief create a UBJSON serialization of a given JSON value
+    /// @brief create a UBJSON serialization of a given Data_local value
     /// @sa https://json.nlohmann.me/api/basic_json/to_ubjson/
     static std::vector<std::uint8_t> to_ubjson(const basic_json& j,
             const bool use_size = false,
@@ -23591,7 +23591,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return result;
     }
 
-    /// @brief create a UBJSON serialization of a given JSON value
+    /// @brief create a UBJSON serialization of a given Data_local value
     /// @sa https://json.nlohmann.me/api/basic_json/to_ubjson/
     static void to_ubjson(const basic_json& j, detail::output_adapter<std::uint8_t> o,
                           const bool use_size = false, const bool use_type = false)
@@ -23599,7 +23599,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         binary_writer<std::uint8_t>(o).write_ubjson(j, use_size, use_type);
     }
 
-    /// @brief create a UBJSON serialization of a given JSON value
+    /// @brief create a UBJSON serialization of a given Data_local value
     /// @sa https://json.nlohmann.me/api/basic_json/to_ubjson/
     static void to_ubjson(const basic_json& j, detail::output_adapter<char> o,
                           const bool use_size = false, const bool use_type = false)
@@ -23607,7 +23607,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         binary_writer<char>(o).write_ubjson(j, use_size, use_type);
     }
 
-    /// @brief create a BJData serialization of a given JSON value
+    /// @brief create a BJData serialization of a given Data_local value
     /// @sa https://json.nlohmann.me/api/basic_json/to_bjdata/
     static std::vector<std::uint8_t> to_bjdata(const basic_json& j,
             const bool use_size = false,
@@ -23618,7 +23618,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return result;
     }
 
-    /// @brief create a BJData serialization of a given JSON value
+    /// @brief create a BJData serialization of a given Data_local value
     /// @sa https://json.nlohmann.me/api/basic_json/to_bjdata/
     static void to_bjdata(const basic_json& j, detail::output_adapter<std::uint8_t> o,
                           const bool use_size = false, const bool use_type = false)
@@ -23626,7 +23626,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         binary_writer<std::uint8_t>(o).write_ubjson(j, use_size, use_type, true, true);
     }
 
-    /// @brief create a BJData serialization of a given JSON value
+    /// @brief create a BJData serialization of a given Data_local value
     /// @sa https://json.nlohmann.me/api/basic_json/to_bjdata/
     static void to_bjdata(const basic_json& j, detail::output_adapter<char> o,
                           const bool use_size = false, const bool use_type = false)
@@ -23634,7 +23634,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         binary_writer<char>(o).write_ubjson(j, use_size, use_type, true, true);
     }
 
-    /// @brief create a BSON serialization of a given JSON value
+    /// @brief create a BSON serialization of a given Data_local value
     /// @sa https://json.nlohmann.me/api/basic_json/to_bson/
     static std::vector<std::uint8_t> to_bson(const basic_json& j)
     {
@@ -23643,21 +23643,21 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return result;
     }
 
-    /// @brief create a BSON serialization of a given JSON value
+    /// @brief create a BSON serialization of a given Data_local value
     /// @sa https://json.nlohmann.me/api/basic_json/to_bson/
     static void to_bson(const basic_json& j, detail::output_adapter<std::uint8_t> o)
     {
         binary_writer<std::uint8_t>(o).write_bson(j);
     }
 
-    /// @brief create a BSON serialization of a given JSON value
+    /// @brief create a BSON serialization of a given Data_local value
     /// @sa https://json.nlohmann.me/api/basic_json/to_bson/
     static void to_bson(const basic_json& j, detail::output_adapter<char> o)
     {
         binary_writer<char>(o).write_bson(j);
     }
 
-    /// @brief create a JSON value from an input in CBOR format
+    /// @brief create a Data_local value from an input in CBOR format
     /// @sa https://json.nlohmann.me/api/basic_json/from_cbor/
     template<typename InputType>
     JSON_HEDLEY_WARN_UNUSED_RESULT
@@ -23673,7 +23673,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return res ? result : basic_json(value_t::discarded);
     }
 
-    /// @brief create a JSON value from an input in CBOR format
+    /// @brief create a Data_local value from an input in CBOR format
     /// @sa https://json.nlohmann.me/api/basic_json/from_cbor/
     template<typename IteratorType>
     JSON_HEDLEY_WARN_UNUSED_RESULT
@@ -23715,7 +23715,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return res ? result : basic_json(value_t::discarded);
     }
 
-    /// @brief create a JSON value from an input in MessagePack format
+    /// @brief create a Data_local value from an input in MessagePack format
     /// @sa https://json.nlohmann.me/api/basic_json/from_msgpack/
     template<typename InputType>
     JSON_HEDLEY_WARN_UNUSED_RESULT
@@ -23730,7 +23730,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return res ? result : basic_json(value_t::discarded);
     }
 
-    /// @brief create a JSON value from an input in MessagePack format
+    /// @brief create a Data_local value from an input in MessagePack format
     /// @sa https://json.nlohmann.me/api/basic_json/from_msgpack/
     template<typename IteratorType>
     JSON_HEDLEY_WARN_UNUSED_RESULT
@@ -23769,7 +23769,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return res ? result : basic_json(value_t::discarded);
     }
 
-    /// @brief create a JSON value from an input in UBJSON format
+    /// @brief create a Data_local value from an input in UBJSON format
     /// @sa https://json.nlohmann.me/api/basic_json/from_ubjson/
     template<typename InputType>
     JSON_HEDLEY_WARN_UNUSED_RESULT
@@ -23784,7 +23784,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return res ? result : basic_json(value_t::discarded);
     }
 
-    /// @brief create a JSON value from an input in UBJSON format
+    /// @brief create a Data_local value from an input in UBJSON format
     /// @sa https://json.nlohmann.me/api/basic_json/from_ubjson/
     template<typename IteratorType>
     JSON_HEDLEY_WARN_UNUSED_RESULT
@@ -23823,7 +23823,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return res ? result : basic_json(value_t::discarded);
     }
 
-    /// @brief create a JSON value from an input in BJData format
+    /// @brief create a Data_local value from an input in BJData format
     /// @sa https://json.nlohmann.me/api/basic_json/from_bjdata/
     template<typename InputType>
     JSON_HEDLEY_WARN_UNUSED_RESULT
@@ -23838,7 +23838,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return res ? result : basic_json(value_t::discarded);
     }
 
-    /// @brief create a JSON value from an input in BJData format
+    /// @brief create a Data_local value from an input in BJData format
     /// @sa https://json.nlohmann.me/api/basic_json/from_bjdata/
     template<typename IteratorType>
     JSON_HEDLEY_WARN_UNUSED_RESULT
@@ -23853,7 +23853,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return res ? result : basic_json(value_t::discarded);
     }
 
-    /// @brief create a JSON value from an input in BSON format
+    /// @brief create a Data_local value from an input in BSON format
     /// @sa https://json.nlohmann.me/api/basic_json/from_bson/
     template<typename InputType>
     JSON_HEDLEY_WARN_UNUSED_RESULT
@@ -23868,7 +23868,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return res ? result : basic_json(value_t::discarded);
     }
 
-    /// @brief create a JSON value from an input in BSON format
+    /// @brief create a Data_local value from an input in BSON format
     /// @sa https://json.nlohmann.me/api/basic_json/from_bson/
     template<typename IteratorType>
     JSON_HEDLEY_WARN_UNUSED_RESULT
@@ -23909,13 +23909,13 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     /// @}
 
     //////////////////////////
-    // JSON Pointer support //
+    // Data_local Pointer support //
     //////////////////////////
 
-    /// @name JSON Pointer functions
+    /// @name Data_local Pointer functions
     /// @{
 
-    /// @brief access specified element via JSON Pointer
+    /// @brief access specified element via Data_local Pointer
     /// @sa https://json.nlohmann.me/api/basic_json/operator%5B%5D/
     reference operator[](const json_pointer& ptr)
     {
@@ -23929,7 +23929,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return ptr.get_unchecked(this);
     }
 
-    /// @brief access specified element via JSON Pointer
+    /// @brief access specified element via Data_local Pointer
     /// @sa https://json.nlohmann.me/api/basic_json/operator%5B%5D/
     const_reference operator[](const json_pointer& ptr) const
     {
@@ -23943,7 +23943,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return ptr.get_unchecked(this);
     }
 
-    /// @brief access specified element via JSON Pointer
+    /// @brief access specified element via Data_local Pointer
     /// @sa https://json.nlohmann.me/api/basic_json/at/
     reference at(const json_pointer& ptr)
     {
@@ -23957,7 +23957,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return ptr.get_checked(this);
     }
 
-    /// @brief access specified element via JSON Pointer
+    /// @brief access specified element via Data_local Pointer
     /// @sa https://json.nlohmann.me/api/basic_json/at/
     const_reference at(const json_pointer& ptr) const
     {
@@ -23971,7 +23971,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return ptr.get_checked(this);
     }
 
-    /// @brief return flattened JSON value
+    /// @brief return flattened Data_local value
     /// @sa https://json.nlohmann.me/api/basic_json/flatten/
     basic_json flatten() const
     {
@@ -23980,7 +23980,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return result;
     }
 
-    /// @brief unflatten a previously flattened JSON value
+    /// @brief unflatten a previously flattened Data_local value
     /// @sa https://json.nlohmann.me/api/basic_json/unflatten/
     basic_json unflatten() const
     {
@@ -23990,18 +23990,18 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     /// @}
 
     //////////////////////////
-    // JSON Patch functions //
+    // Data_local Patch functions //
     //////////////////////////
 
-    /// @name JSON Patch functions
+    /// @name Data_local Patch functions
     /// @{
 
-    /// @brief applies a JSON patch in-place without copying the object
+    /// @brief applies a Data_local patch in-place without copying the object
     /// @sa https://json.nlohmann.me/api/basic_json/patch/
     void patch_inplace(const basic_json& json_patch)
     {
         basic_json& result = *this;
-        // the valid JSON Patch operations
+        // the valid Data_local Patch operations
         enum class patch_operations {add, remove, replace, move, copy, test, invalid};
 
         const auto get_op = [](const std::string & op)
@@ -24051,7 +24051,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
                 result.at(top_pointer);
             }
 
-            // get reference to parent of JSON pointer ptr
+            // get reference to parent of Data_local pointer ptr
             const auto last_path = ptr.back();
             ptr.pop_back();
             // parent must exist when performing patch add per RFC6902 specs
@@ -24105,7 +24105,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         // wrapper for "remove" operation; remove value at ptr
         const auto operation_remove = [this, & result](json_pointer & ptr)
         {
-            // get reference to parent of JSON pointer ptr
+            // get reference to parent of Data_local pointer ptr
             const auto last_path = ptr.back();
             ptr.pop_back();
             basic_json& parent = result.at(ptr);
@@ -24134,7 +24134,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         // type check: top level value must be an array
         if (JSON_HEDLEY_UNLIKELY(!json_patch.is_array()))
         {
-            JSON_THROW(parse_error::create(104, 0, "JSON patch must be an array of objects", &json_patch));
+            JSON_THROW(parse_error::create(104, 0, "Data_local patch must be an array of objects", &json_patch));
         }
 
         // iterate and apply the operations
@@ -24172,7 +24172,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
             // type check: every element of the array must be an object
             if (JSON_HEDLEY_UNLIKELY(!val.is_object()))
             {
-                JSON_THROW(parse_error::create(104, 0, "JSON patch must be an array of objects", &val));
+                JSON_THROW(parse_error::create(104, 0, "Data_local patch must be an array of objects", &val));
             }
 
             // collect mandatory members
@@ -24267,7 +24267,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         }
     }
 
-    /// @brief applies a JSON patch to a copy of the current object
+    /// @brief applies a Data_local patch to a copy of the current object
     /// @sa https://json.nlohmann.me/api/basic_json/patch/
     basic_json patch(const basic_json& json_patch) const
     {
@@ -24276,7 +24276,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
         return result;
     }
 
-    /// @brief creates a diff as a JSON patch
+    /// @brief creates a diff as a Data_local patch
     /// @sa https://json.nlohmann.me/api/basic_json/diff/
     JSON_HEDLEY_WARN_UNUSED_RESULT
     static basic_json diff(const basic_json& source, const basic_json& target,
@@ -24352,7 +24352,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
                 // first pass: traverse this object's elements
                 for (auto it = source.cbegin(); it != source.cend(); ++it)
                 {
-                    // escape the key name to be used in a JSON patch
+                    // escape the key name to be used in a Data_local patch
                     const auto path_key = detail::concat(path, '/', detail::escape(it.key()));
 
                     if (target.find(it.key()) != target.end())
@@ -24413,13 +24413,13 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     /// @}
 
     ////////////////////////////////
-    // JSON Merge Patch functions //
+    // Data_local Merge Patch functions //
     ////////////////////////////////
 
-    /// @name JSON Merge Patch functions
+    /// @name Data_local Merge Patch functions
     /// @{
 
-    /// @brief applies a JSON Merge Patch
+    /// @brief applies a Data_local Merge Patch
     /// @sa https://json.nlohmann.me/api/basic_json/merge_patch/
     void merge_patch(const basic_json& apply_patch)
     {
@@ -24450,7 +24450,7 @@ class basic_json // NOLINT(cppcoreguidelines-special-member-functions,hicpp-spec
     /// @}
 };
 
-/// @brief user-defined to_string function for JSON values
+/// @brief user-defined to_string function for Data_local values
 /// @sa https://json.nlohmann.me/api/basic_json/to_string/
 NLOHMANN_BASIC_JSON_TPL_DECLARATION
 std::string to_string(const NLOHMANN_BASIC_JSON_TPL& j)
@@ -24463,7 +24463,7 @@ inline namespace literals
 inline namespace json_literals
 {
 
-/// @brief user-defined string literal for JSON values
+/// @brief user-defined string literal for Data_local values
 /// @sa https://json.nlohmann.me/api/basic_json/operator_literal_json/
 JSON_HEDLEY_NON_NULL(1)
 #if !defined(JSON_HEDLEY_GCC_VERSION) || JSON_HEDLEY_GCC_VERSION_CHECK(4,9,0)
@@ -24475,7 +24475,7 @@ JSON_HEDLEY_NON_NULL(1)
     return nlohmann::json::parse(s, s + n);
 }
 
-/// @brief user-defined string literal for JSON pointer
+/// @brief user-defined string literal for Data_local pointer
 /// @sa https://json.nlohmann.me/api/basic_json/operator_literal_json_pointer/
 JSON_HEDLEY_NON_NULL(1)
 #if !defined(JSON_HEDLEY_GCC_VERSION) || JSON_HEDLEY_GCC_VERSION_CHECK(4,9,0)
@@ -24498,7 +24498,7 @@ NLOHMANN_JSON_NAMESPACE_END
 namespace std // NOLINT(cert-dcl58-cpp)
 {
 
-/// @brief hash value for JSON objects
+/// @brief hash value for Data_local objects
 /// @sa https://json.nlohmann.me/api/basic_json/std_hash/
 NLOHMANN_BASIC_JSON_TPL_DECLARATION
 struct hash<nlohmann::NLOHMANN_BASIC_JSON_TPL> // NOLINT(cert-dcl58-cpp)
@@ -24531,7 +24531,7 @@ struct less< ::nlohmann::detail::value_t> // do not remove the space after '<', 
 // C++20 prohibit function specialization in the std namespace.
 #ifndef JSON_HAS_CPP_20
 
-/// @brief exchanges the values of two JSON objects
+/// @brief exchanges the values of two Data_local objects
 /// @sa https://json.nlohmann.me/api/basic_json/std_swap/
 NLOHMANN_BASIC_JSON_TPL_DECLARATION
 inline void swap(nlohmann::NLOHMANN_BASIC_JSON_TPL& j1, nlohmann::NLOHMANN_BASIC_JSON_TPL& j2) noexcept(  // NOLINT(readability-inconsistent-declaration-parameter-name, cert-dcl58-cpp)
@@ -24557,7 +24557,7 @@ inline void swap(nlohmann::NLOHMANN_BASIC_JSON_TPL& j1, nlohmann::NLOHMANN_BASIC
 
 // #include <nlohmann/detail/macro_unscope.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //
@@ -24602,7 +24602,7 @@ inline void swap(nlohmann::NLOHMANN_BASIC_JSON_TPL& j1, nlohmann::NLOHMANN_BASIC
 
 // #include <nlohmann/thirdparty/hedley/hedley_undef.hpp>
 //     __ _____ _____ _____
-//  __|  |   __|     |   | |  JSON for Modern C++
+//  __|  |   __|     |   | |  Data_local for Modern C++
 // |  |  |__   |  |  | | | |  version 3.11.3
 // |_____|_____|_____|_|___|  https://github.com/nlohmann/json
 //

@@ -1,4 +1,4 @@
-#include "Functions.h"
+#include "../../include/utils/Functions.h"
 
 const std::string SYMBOLS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefjhijklmnopqrstuvwxyz0123456789";
 const std::string NUMBERS = "0123456789";
@@ -36,14 +36,7 @@ std::string GEN::genid(int lenght, bool num_token, bool let_token) { // generate
     return id;
 }
 
-std::vector<std::string> File::split(const std::string &line, char delim) {
-    std::vector<std::string> result;
-    std::stringstream ss(line);
-    std::string value;
 
-    while (std::getline(ss, value, delim)) result.push_back(value);
-    return result;
-}
 
 void File::createFile(const std::string& dir) {
     std::ofstream file(dir, std::ios::out);
@@ -108,15 +101,7 @@ std::queue<TempEmloyee> File::loadSCV(const std::string &directory) {
     return empls;
 }
 
-std::set<std::string> File::splitUnic(const std::string &line, char delim) noexcept {
-    std::set<std::string> split;
-    std::stringstream ss(line);
-    std::string value;
-    try {
-        while (std::getline(ss, value, delim)) split.insert(value);
-    } catch (...) {}
-    return split;
-}
+
 
 void Employees::CreateEmployeePointers(const TempEmloyee &temp, std::unordered_map<std::string, std::shared_ptr<Employee>> &STAFF,
                                                                std::unordered_map<std::string, std::shared_ptr<Project>> &PROJECT_LIST) {

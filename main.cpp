@@ -1,32 +1,68 @@
 #include <string>
 #include <unordered_map>
-#include "Employee.h"
-#include "Factory.h"
-#include "TranslationManager.h"
+#include "include/core/staff/Employee.h"
+#include "include/core/staff/Factory.h"
+#include "utils/TranslationManager.h"
+#include "utils/Logger.h"
 #include "TUI.h"
 
-static std::size_t WIN_WIDTH = 118;
-static std::size_t WIN_HEIGHT = 28;
+static const std::size_t WIN_WIDTH = 118;
+static const std::size_t WIN_HEIGHT = 28;
+
+std::string getTime() {
+    const time_t now = time(nullptr);
+    std::string time_str = ctime(&now);
+
+    if (!time_str.empty() && time_str.back() == '\n') {
+        time_str.pop_back();
+    }
+
+    std::replace(time_str.begin(), time_str.end(), ' ', '_');
+    std::replace(time_str.begin(), time_str.end(), ':', '-');
+
+    return time_str;
+}
 
 int main(int argc, char *argv[]){
+    using namespace StaffDemo::Utils;
+    using namespace StaffDemo::Utils;
+
 #ifdef NDEBUG
-    ///@INFO [Release]
-    const std::string LOCALIZATION_DATA_DIRECTORY = "LCLangs.json";
-    ///@INFO [Release]
-    std::string STAFF_DATA_DIRECTORY = "Staff_Data.csv";
+    std::string localizationDataDirectory = "LNG.json";
+    std::stringstaffDataDirectory = "Staff_Data.csv";
+    std::string logFileDirectory = "logs/log-" + getTime();
 #else
-    ///@INFO [Debug]
-    const std::string LOCALIZATION_DATA_DIRECTORY = "./JSON/newLangs.json";
-    ///@INFO [Debug]
-    std::string STAFF_DATA_DIRECTORY = "./JSON/Staff_Data.csv";
+    std::string localizationDataDirectory = "./Data_local/newLangs.json";
+    std::string staffDataDirectory = "./Data_local/Staff_Data.csv";
+    std::string logFileDirectory = "./Data_local/logs/log-" + getTime();
 #endif
+    try {
+        FileLogger::initialize(logFileDirectory);
+    } catch (...) {
+        std::cout << "File don't load." << std::endl;
+    }
+    FileLogger::instance().log("StaffDemo started.");
+    FileLogger::instance().log("StaffDemo::Utils::FileLogger started.");
 
-    std::unordered_map<std::string, std::shared_ptr<Employee>>STAFF;
-    std::unordered_map<std::string, std::shared_ptr<Project>>PROJECTS;
+    try {
+        TranslationManager::instance().loadJson(localizationDataDirectory, "en");
+    } catch (std::exception& exception) {
+        FileLogger::instance().log("StaffDemo::Utils::TranslationManager --" + std::string(exception.what()), StaffDemo::Utils::Logger::Logger::ERROR);
+        exit(1454);
+    }
+    FileLogger::instance().log("StaffDemo::Utils::TranslationManager started.");
+    FileLogger::instance().flush();
 
-    TranslationManager::instance().loadJson("./JSON/newLangs.json", "en");
 
-    std::string DIRECTORY("./JSON/Staff_Data.csv");
+    std::unordered_map<std::string, std::shared_ptr<StaffDemo::Core::Staff::Employee>>STAFF;
+    std::unordered_map<std::string, std::shared_ptr<StaffDemo::Core::Staff::Project>>PROJECTS;
+    FileLogger::instance().log("StaffDemo.Main -- STAFF & PROJECTS initialized.");
+
+
+    std::string DIRECTORY(staffDataDirectory);
+    FileLogger::instance().log("StaffDemo.Main DIRECTORY loaded.");
+
+    FileLogger::instance().log("StaffDemo::UI::Screens.start_screen render.");
 
     switch (auto _load {TUI::START_SCREEN(WIN_WIDTH, WIN_HEIGHT, DIRECTORY)}; _load) {
         case 'y':

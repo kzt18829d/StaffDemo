@@ -1,14 +1,14 @@
-#include "TranslationManager.h"
+#include "utils/TranslationManager.h"
 #include <fstream>
 #include <iostream>
 
 
-TranslationManager &TranslationManager::instance() {
+StaffDemo::Utils::TranslationManager &StaffDemo::Utils::TranslationManager::instance() {
     static TranslationManager inst;
     return inst;
 }
 
-void TranslationManager::loadJson(const std::string &filename, const std::string &lang) {
+void StaffDemo::Utils::TranslationManager::loadJson(const std::string &filename, const std::string &lang) {
     std::ifstream file(filename);
 
     if (!file.is_open()) {
@@ -25,11 +25,11 @@ void TranslationManager::loadJson(const std::string &filename, const std::string
 
     }
     catch (const nlohmann::json::parse_error& e) {
-        std::cerr << "~~~~~~ ERROR. Parsing JSON: " << e.what() << std::endl;
+        std::cerr << "~~~~~~ ERROR. Parsing Data_local: " << e.what() << std::endl;
     }
 }
 
-std::string TranslationManager::tr(const std::string &key, bool space, const std::unordered_map<std::string, std::string> &val) {
+std::string StaffDemo::Utils::TranslationManager::tr(const std::string &key, bool space, const std::unordered_map<std::string, std::string> &val) {
     auto it = translations.find(key);
     if (it == translations.end()) return "[[" + key + "]]";
 
@@ -48,11 +48,11 @@ std::string TranslationManager::tr(const std::string &key, bool space, const std
     return translate;
 }
 
-int TranslationManager::trlen(const std::string &key, size_t modification, const std::unordered_map<std::string, std::string> &val) {
+int StaffDemo::Utils::TranslationManager::trlen(const std::string &key, size_t modification, const std::unordered_map<std::string, std::string> &val) {
     std::string translate = tr(key, false, val);
     return translate.length() + modification;
 }
 
-const std::map<std::string, std::string> &TranslationManager::dict() const {
+const std::map<std::string, std::string> &StaffDemo::Utils::TranslationManager::dict() const {
     return localization;
 }

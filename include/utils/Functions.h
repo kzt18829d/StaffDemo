@@ -11,15 +11,15 @@
 #include <memory>
 #include <functional>
 #include "cstring"
-#include <fmt/core.h>
-#include <tabulate/table.hpp>
+#include "_deps/fmt-src/include/fmt/core.h"
+#include "_deps/tabulate-src/include/tabulate/table.hpp"
 
-#include <TUI.h>
+#include "TUI.h"
 
-#include "Employee.h"
-#include "Personal.h"
-#include "Engineer.h"
-#include "Manager.h"
+#include "../core/employees/Employee.h"
+#include "../core/employees/Personal.h"
+#include "../core/employees/Engineer.h"
+#include "../core/employees/Manager.h"
 namespace GEN {
 
     std::string genid();
