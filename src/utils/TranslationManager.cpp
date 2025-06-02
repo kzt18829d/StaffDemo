@@ -1,4 +1,4 @@
-#include "utils/TranslationManager.h"
+#include "../../include/utils/TranslationManager.h"
 #include <fstream>
 #include <iostream>
 

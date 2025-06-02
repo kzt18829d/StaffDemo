@@ -1,5 +1,7 @@
 {
   "en": {
+    "BUTTON.StartScreen.ApplyDefault" : "Apply Default",
+    "BUTTON.StartScreen.ApplyCustom" : "Apply",
     "CHECKBOX.LOAD_SCREEN.nextEmployee.comfirm" : "Confirm",
     "BUTTON.LOAD_SCREEN.nextEmployeeButton" : "Next Employee",
     "personal.POSITION" : "Position",

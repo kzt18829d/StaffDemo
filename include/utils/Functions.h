@@ -11,15 +11,6 @@
 #include <memory>
 #include <functional>
 #include "cstring"
-#include "_deps/fmt-src/include/fmt/core.h"
-#include "_deps/tabulate-src/include/tabulate/table.hpp"
-
-#include "TUI.h"
-
-#include "../core/employees/Employee.h"
-#include "../core/employees/Personal.h"
-#include "../core/employees/Engineer.h"
-#include "../core/employees/Manager.h"
 namespace GEN {
 
     std::string genid();
@@ -33,19 +24,19 @@ namespace File {
     inline std::set<std::string>splitUnic(const std::string& line, char delim=':') noexcept;
 
     void createFile(const std::string& dir);
-    void openFile(const std::string& dir);
+    bool openFile(const std::string& dir);
 
-    void saveSCV(const std::string& directory, const std::unordered_map<std::string, std::shared_ptr<Employee>>&STAFF_LIST,
-                 const std::unordered_multimap<std::string, std::shared_ptr<Project>>&PROJECT_LIST, char delim=';', char projectDelim=':');
-
-    std::queue<TempEmloyee> loadSCV(const std::string& directory);
+//    void saveSCV(const std::string& directory, const std::unordered_map<std::string, std::shared_ptr<Employee>>&STAFF_LIST,
+//                 const std::unordered_multimap<std::string, std::shared_ptr<Project>>&PROJECT_LIST, char delim=';', char projectDelim=':');
+//
+//    std::queue<TempEmloyee> loadSCV(const std::string& directory);
 
 }
 
 namespace Employees {
 
-    void CreateEmployeePointers(const TempEmloyee &temp, std::unordered_map<std::string, std::shared_ptr<Employee>> &STAFF,
-                                                                   std::unordered_map<std::string, std::shared_ptr<Project>> &PROJECT_LIST);
+//    void CreateEmployeePointers(const TempEmloyee &temp, std::unordered_map<std::string, std::shared_ptr<Employee>> &STAFF,
+//                                                                   std::unordered_map<std::string, std::shared_ptr<Project>> &PROJECT_LIST);
 }
 
 #endif //STAFFDEMO_FUNCTIONS_H

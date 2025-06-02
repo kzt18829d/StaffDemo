@@ -1,40 +1,40 @@
 #include <utility>
-#include "../../include/staff/Employee.h"
-namespace StaffDemo::Core::Staff {
-    Employee::Employee(const std::string &name, const std::string &position,
-                                                   const std::string &id) : worktime{0}, payment{0} {}
+#include "../../include/staff/IEmployee.h"
+namespace StaffDemo::Staff {
+    IEmployee::IEmployee(const std::string &name, const std::string &position,
+                         const std::string &id) : worktime{0}, payment{0} {}
 
-    int Employee::getPayment() const {
+    int IEmployee::getPayment() const {
         return payment;
     }
 
-    bool Employee::operator==(const Employee &other) const {
+    bool IEmployee::operator==(const IEmployee &other) const {
         return this->id == other.id;
     }
 
-    bool Employee::operator!=(const Employee &other) const {
+    bool IEmployee::operator!=(const IEmployee &other) const {
         return this->id != other.id;
     }
 
-    Employee::~Employee() = default;
+    IEmployee::~IEmployee() = default;
 
-    void Employee::setWorkTime(int worktime_) {
+    void IEmployee::setWorkTime(int worktime_) {
 
     }
 
-    std::string Employee::getID() const {
+    std::string IEmployee::getID() const {
         return id;
     }
 
-    std::string Employee::getName() const {
+    std::string IEmployee::getName() const {
         return name;
     }
 
-    std::string Employee::getPosition() const {
+    std::string IEmployee::getPosition() const {
         return position;
     }
 
-    int Employee::getWorkTime() const {
+    int IEmployee::getWorkTime() const {
         return worktime;
     }
 }

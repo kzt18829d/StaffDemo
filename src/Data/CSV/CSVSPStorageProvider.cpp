@@ -1,33 +1,33 @@
-#include "core/CSVSPStorageProvider.h"
+#include "data/CSV/CSVSPStorageProvider.h"
 #include "utils/Split.h"
 #include <sstream>
 #include <fstream>
-#include "../../include/staff/Personal.h"
-#include "../../include/staff/Engineer.h"
-#include "../../include/staff/Manager.h"
-#include "utils/Logger.h"
+#include "staff/Personal.h"
+#include "staff/Engineer.h"
+#include "staff/Manager.h"
+
 using namespace StaffDemo::Utils;
 
-namespace StaffDemo::Core::StorageProvider {
-    CSVProjectRepository::CSVProjectRepository(const std::string &fileDir) : directory{std::move(fileDir)}
+namespace StaffDemo::StorageProvider {
+    CSVSPStorageProvider::CSVSPStorageProvider(const std::string &fileDir) : directory{std::move(fileDir)}
     {
-        FileLogger::instance().log("-INITIALIZE StaffDemo::Core::StorageProvider::CSVProjectRepository initialized with FileDirectory \"" + directory + "\".");
+//        FileLogger::instance().log("-INITIALIZE StaffDemo::Core::StorageProvider::CSVProjectRepository initialized with FileDirectory \"" + directory + "\".");
     }
-    std::pair<std::queue<Staff::TempEmloyee>, std::vector<Staff::TempProject>> CSVProjectRepository::load() {
-        FileLogger::instance().log("-LOAD StaffDemo::Core::StorageProvider::CSVProjectRepository.load is called.");
+    std::pair<std::queue<Staff::TempEmloyee>, std::vector<Staff::TempProject>> CSVSPStorageProvider::load() {
+//        FileLogger::instance().log("-LOAD StaffDemo::Core::StorageProvider::CSVProjectRepository.load is called.");
         std::ifstream CSV(directory, std::ios::in);
         if (!CSV.is_open()) {
-            FileLogger::instance().log("-LOAD StaffDemo::Core::StorageProvider::CSVProjectRepository.load error of -OPEN \"" + directory + "\" with std::ios::in.", Utils::Logger::ERROR);
+//            FileLogger::instance().log("-LOAD StaffDemo::Core::StorageProvider::CSVProjectRepository.load error of -OPEN \"" + directory + "\" with std::ios::in.", Utils::Logger::ERROR);
             throw std::ios_base::failure("Error, file couldn't be open.");
         }
-        FileLogger::instance().log("-LOAD StaffDemo::Core::StorageProvider::CSVProjectRepository.load -OPEN \"" + directory + "\" with std::ios::in.");
+//        FileLogger::instance().log("-LOAD StaffDemo::Core::StorageProvider::CSVProjectRepository.load -OPEN \"" + directory + "\" with std::ios::in.");
         std::queue<Staff::TempEmloyee> staffs;
         std::vector<Staff::TempProject> projects;
 
         std::string line;
         std::getline(CSV, line);
 
-        FileLogger::instance().log("-LOAD StaffDemo::Core::StorageProvider::CSVProjectRepository.load parsing file.");
+//        FileLogger::instance().log("-LOAD StaffDemo::Core::StorageProvider::CSVProjectRepository.load parsing file.");
 
         while (std::getline(CSV, line)) {
             std::vector<std::string> fields = Utils::split(line);
@@ -36,16 +36,16 @@ namespace StaffDemo::Core::StorageProvider {
             if (!fields[4].empty()) projects.push_back(Staff::TempProject(fields[4]));
         }
 
-        FileLogger::instance().log("-LOAD StaffDemo::Core::StorageProvider::CSVProjectRepository.load is complete");
+//        FileLogger::instance().log("-LOAD StaffDemo::Core::StorageProvider::CSVProjectRepository.load is complete");
 
         CSV.close();
-        FileLogger::instance().log("-LOAD StaffDemo::Core::StorageProvider::CSVProjectRepository.load -CLOSE \"" + directory + "\".");
-        FileLogger::instance().log("-LOAD StaffDemo::Core::StorageProvider::CSVProjectRepository.load -COMPLETED.");
+//        FileLogger::instance().log("-LOAD StaffDemo::Core::StorageProvider::CSVProjectRepository.load -CLOSE \"" + directory + "\".");
+//        FileLogger::instance().log("-LOAD StaffDemo::Core::StorageProvider::CSVProjectRepository.load -COMPLETED.");
         return {staffs, projects};
     }
 
     //save second
-    void CSVProjectRepository::save(const std::vector<Staff::TempEmloyee> &staffs,
+    void CSVSPStorageProvider::save(const std::vector<Staff::TempEmloyee> &staffs,
                                     const std::vector<Staff::TempProject> &projects) {
         std::ofstream CSV(directory, std::ios_base::out | std::ios_base::trunc);
         char delim = ';';
@@ -65,7 +65,7 @@ namespace StaffDemo::Core::StorageProvider {
     }
 
     // save_base
-    void CSVProjectRepository::save(const std::map<std::string, std::shared_ptr<Staff::Employee>> &staffs,
+    void CSVSPStorageProvider::save(const std::map<std::string, std::shared_ptr<Staff::IEmployee>> &staffs,
                                     const std::map<std::string, std::shared_ptr<Staff::Project>> &projects) {
         char delim = ';';
         std::fstream file(directory, std::ios_base::out | std::ios_base::trunc);

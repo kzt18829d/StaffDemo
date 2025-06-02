@@ -2,7 +2,7 @@
 #include <utility>
 #include "../../include/staff/Engineer.h"
 
-namespace StaffDemo::Core::Staff {
+namespace StaffDemo::Staff {
     Engineer::Engineer(const std::string &name, const std::string &position, const std::string &id, int salary, std::shared_ptr<Project> project, float partOfBudget) :
             Personal(name, position, id, salary), project{project}, partOfBudget(partOfBudget)
     {}

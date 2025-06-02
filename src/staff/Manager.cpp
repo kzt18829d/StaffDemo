@@ -2,10 +2,10 @@
 
 #include <utility>
 
-namespace StaffDemo::Core::Staff {
+namespace StaffDemo::Staff {
     ProjectManager::ProjectManager(const std::string &name, const std::string &position, const std::string &id, int heading,
                                    float partOfBudget, int proAddition, std::shared_ptr<Project>project) :
-            Employee(name, position, id), heading{heading}, partOfBudget{partOfBudget}, proAddition{proAddition}, project{project}
+            IEmployee(name, position, id), heading{heading}, partOfBudget{partOfBudget}, proAddition{proAddition}, project{project}
     {}
 
     int ProjectManager::calcBudgetPart(float part, int budget) {
@@ -34,7 +34,7 @@ namespace StaffDemo::Core::Staff {
 
     SeniorManager::SeniorManager(const std::string &name, const std::string &position, const std::string &id, int heading,
                                  float partOfBudgets, int proAddition, std::map<std::string, std::weak_ptr<Project>> projectsMap) :
-            Employee(name, position, id), heading{heading}, partOfBudget{partOfBudgets}, proAddition{proAddition}, projects{std::move(projectsMap)}
+            IEmployee(name, position, id), heading{heading}, partOfBudget{partOfBudgets}, proAddition{proAddition}, projects{std::move(projectsMap)}
     {}
 
     int SeniorManager::calcBudgetPart(float part, int budget) {

@@ -1,5 +1,5 @@
 add_library(staff STATIC
-        ../../include/staff/Employee.h
+        ../../include/staff/IEmployee.h
         ../../include/staff/employee_temp.h
         ../../include/staff/Engineer.h
         ../../include/staff/Factory.h
@@ -11,6 +11,7 @@ add_library(staff STATIC
         Factory.cpp
         Personal.cpp
         Manager.cpp
+        ../../include/staff/staff_enum.h
 )
 
 target_include_directories(staff PUBLIC ../include)

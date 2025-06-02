@@ -1,6 +1,6 @@
 #ifndef STAFFDEMO_MANAGER_H
 #define STAFFDEMO_MANAGER_H
-#include "Employee.h"
+#include "IEmployee.h"
 #include "StaffInterfaces.h"
 #include "Factory.h"
 #include <memory>
@@ -9,8 +9,19 @@
 #include <map>
 #include <algorithm>
 
-namespace StaffDemo::Core::Staff {
-    class ProjectManager : public Employee, public ProjectBudget, public Heading {
+namespace StaffDemo::Staff {
+    ///@brief Класс должности ProjectManager
+    ///@param [in] name Имя единицы персонала
+    ///@param [in] position Занимаемая должность
+    ///@param [in] id Идентификатор единицы персонала, уникальное значение (16 знаков, 0-9 & a-z & A-Z)
+    ///@param [in] heading Надбавка за руководство (Фиксированная, не зависящая от количества подчинённых)
+    ///@param [in] partOfBudget Процент надбавки за участие в проекте
+    ///@param [in] proAddition Фиксированная надбавка за написание кода
+    ///@param [in] project Проект, которым руководит менеджер
+    ///@TPositon projectm
+    ///@see IEmployee
+    ///@ingroup Staff
+    class ProjectManager : public IEmployee, public ProjectBudget, public Heading {
     private:
         std::weak_ptr<Project> project;
     protected:
@@ -30,7 +41,18 @@ namespace StaffDemo::Core::Staff {
         void calc() override;
     };
 
-    class SeniorManager : public Employee, public ProjectBudget, public Heading {
+    ///@brief Класс должности SeniorManager
+    ///@param [in] name Имя единицы персонала
+    ///@param [in] position Занимаемая должность
+    ///@param [in] id Идентификатор единицы персонала, уникальное значение (16 знаков, 0-9 & a-z & A-Z)
+    ///@param [in] heading Надбавка за руководство (Фиксированная, не зависящая от количества подчинённых)
+    ///@param [in] partOfBudget Процент надбавки за участие в проекте
+    ///@param [in] proAddition Фиксированная надбавка за написание кода
+    ///@param [in] projectsMap Карта проектов, которыми руководит менеджер
+    ///@TPositon seniorm
+    ///@see IEmployee
+    ///@ingroup Staff
+    class SeniorManager : public IEmployee, public ProjectBudget, public Heading {
     private:
         std::map<std::string, std::weak_ptr<Project>> projects;
 //    std::vector<std::weak_ptr<Project>> projects;

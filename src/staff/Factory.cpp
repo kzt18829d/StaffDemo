@@ -5,52 +5,52 @@
 
 using namespace StaffDemo::Utils;
 
-namespace StaffDemo::Core::Staff {
+namespace StaffDemo::Staff {
     Project::Project(std::string name, int budget) :
             name{std::move(name)}, budget{budget} {
-        FileLogger::instance().log("Created project " + this->name + ".");
-        FileLogger::instance().flush();
+//        FileLogger::instance().log("Created project " + this->name + ".");
+//        FileLogger::instance().flush();
     }
 
     std::string Project::getName() const {
-        FileLogger::instance().log("Project " + this->name + " call Project::getName().");
-        FileLogger::instance().flush();
+//        FileLogger::instance().log("Project " + this->name + " call Project::getName().");
+//        FileLogger::instance().flush();
         return name;
     }
 
     int Project::getBudget() const {
-        FileLogger::instance().log("Project " + this->name + " call Project::getBudget().");
-        FileLogger::instance().flush();
+//        FileLogger::instance().log("Project " + this->name + " call Project::getBudget().");
+//        FileLogger::instance().flush();
         return budget;
     }
 
-    std::vector<std::weak_ptr<Employee>> Project::getMembers() {
-        FileLogger::instance().log("Project " + this->name + " call Project::getMembers().");
-        FileLogger::instance().flush();
+    std::vector<std::weak_ptr<IEmployee>> Project::getMembers() {
+//        FileLogger::instance().log("Project " + this->name + " call Project::getMembers().");
+//        FileLogger::instance().flush();
         return members;
     }
 
-    void Project::addMember(std::weak_ptr<Employee> member) {
-        FileLogger::instance().log("Project " + this->name + " call Project::addMember().");
-        if (auto it = std::find_if(std::begin(this->members), std::end(this->members), [&](const std::weak_ptr<StaffDemo::Core::Employees::Employee>& currentMember) {
+    void Project::addMember(std::weak_ptr<IEmployee> member) {
+//        FileLogger::instance().log("Project " + this->name + " call Project::addMember().");
+        if (auto it = std::find_if(std::begin(this->members), std::end(this->members), [&](const std::weak_ptr<StaffDemo::Staff::IEmployee>& currentMember) {
                 return currentMember.lock() == member.lock();
             }); it != std::end(this->members)) {
-            FileLogger::instance().log("Project " + this->name + " attempt add Duplicate.", StaffDemo::Utils::FileLogger::instance()::FileLogger::instance()::WARNING);
-            FileLogger::instance().flush();
+//            FileLogger::instance().log("Project " + this->name + " attempt add Duplicate.", Utils::Logger::WARNING);
+//            FileLogger::instance().flush();
             throw StaffDemo::Utils::except::Duplicate();
         }
         this->members.push_back(member);
-        FileLogger::instance().flush();
+//        FileLogger::instance().flush();
     }
 
-    void Project::removeMember(std::weak_ptr<Employee> member) {
-        FileLogger::instance().log("Project " + this->name + " call Project::removeMember().");
+    void Project::removeMember(std::weak_ptr<IEmployee> member) {
+//        FileLogger::instance().log("Project " + this->name + " call Project::removeMember().");
         if (this->members.empty()) {
-            FileLogger::instance().log("Project " + this->name + " -> member list EMPTY.");
-            FileLogger::instance().flush();
+//            FileLogger::instance().log("Project " + this->name + " -> member list EMPTY.");
+//            FileLogger::instance().flush();
             throw std::out_of_range("Project.Members empty.");
         }
-        if (auto it = std::find_if(std::begin(this->members), std::end(this->members), [&](const std::weak_ptr<StaffDemo::Core::Employees::Employee>& currentMember) {
+        if (auto it = std::find_if(std::begin(this->members), std::end(this->members), [&](const std::weak_ptr<StaffDemo::Staff::IEmployee>& currentMember) {
                 return currentMember.lock() == member.lock();
             }); it != std::end(this->members)) this->members.erase(it);
         else throw StaffDemo::Utils::except::notFind();
@@ -58,7 +58,7 @@ namespace StaffDemo::Core::Staff {
 
     void Project::removeMember(const std::string& memberID) {
         if (this->members.empty()) throw std::out_of_range("Project.Members empty.");
-        if (auto it = std::find_if(std::begin(this->members), std::end(this->members), [&](const std::weak_ptr<StaffDemo::Core::Employees::Employee> currentMember) {
+        if (auto it = std::find_if(std::begin(this->members), std::end(this->members), [&](const std::weak_ptr<StaffDemo::Staff::IEmployee> currentMember) {
                 return currentMember.lock()->getID() == memberID;
             }); it != std::end(this->members)) this->members.erase(it);
         else throw StaffDemo::Utils::except::notFind();

@@ -6,7 +6,18 @@
 #include "Personal.h"
 #include "Factory.h"
 #include "StaffInterfaces.h"
-namespace StaffDemo::Core::Staff {
+namespace StaffDemo::Staff {
+    ///@brief Абстрактный класс для наследников Engineer
+    ///@param [in] name Имя единицы персонала
+    ///@param [in] position Занимаемая должность
+    ///@param [in] id Идентификатор единицы персонала, уникальное значение (16 знаков, 0-9 & a-z & A-Z)
+    ///@param [in] salary Почасовая ставка
+    ///@param [in] project Проект, к которому привязан инженер
+    ///@param [in] partOfBudget Процент надбавки за участие в проекте
+    ///@TPositon engineer
+    ///@see Personal
+    ///@see ProjectBudget
+    ///@ingroup Staff
     class Engineer : public Personal, public ProjectBudget {
     protected:
         std::weak_ptr<Project> project;
@@ -23,6 +34,17 @@ namespace StaffDemo::Core::Staff {
         void calc() override;
     };
 
+    ///@brief Класс должности Programmer
+    ///@param [in] name Имя единицы персонала
+    ///@param [in] position Занимаемая должность
+    ///@param [in] id Идентификатор единицы персонала, уникальное значение (16 знаков, 0-9 & a-z & A-Z)
+    ///@param [in] salary Почасовая ставка
+    ///@param [in] project Проект, к которому привязан инженер
+    ///@param [in] proAdditions Фиксированная надбавка за написание кода (не зависит от их количества)
+    ///@param [in] partOfBudget Процент надбавки за участие в проекте
+    ///@TPositon programmer
+    ///@see Engineer
+    ///@ingroup Staff
     class Programmer : public Engineer {
     private:
         int proAdditions;
@@ -37,6 +59,17 @@ namespace StaffDemo::Core::Staff {
         int calcProAdditions() override;
     };
 
+    ///@brief Класс должности Tester
+    ///@param [in] name Имя единицы персонала
+    ///@param [in] position Занимаемая должность
+    ///@param [in] id Идентификатор единицы персонала, уникальное значение (16 знаков, 0-9 & a-z & A-Z)
+    ///@param [in] salary Почасовая ставка
+    ///@param [in] project Проект, к которому привязан инженер
+    ///@param [in] proAdditions Фиксированная надбавка за найденные баги (не зависит от их количества)
+    ///@param [in] partOfBudget Процент надбавки за участие в проекте
+    ///@TPositon tester
+    ///@see Engineer
+    ///@ingroup Staff
     class Tester : public Engineer {
     private:
         int proAdditions;
@@ -50,6 +83,18 @@ namespace StaffDemo::Core::Staff {
         int calcProAdditions() override;
     };
 
+    ///@brief Класс должности TeamLeader
+    ///@param [in] name Имя единицы персонала
+    ///@param [in] position Занимаемая должность
+    ///@param [in] id Идентификатор единицы персонала, уникальное значение (16 знаков, 0-9 & a-z & A-Z)
+    ///@param [in] salary Почасовая ставка
+    ///@param [in] project Проект, которым руководит тимлид
+    ///@param [in] proAdditions Фиксированная надбавка за написание кода
+    ///@param [in] partOfBudget Процент надбавки за участие в проекте
+    ///@param [in] teamHeading Надбавка за руководство над проектом (фиксированная, без зависимости от количества подчинённых)
+    ///@TPositon teamlid
+    ///@see Engineer
+    ///@ingroup Staff
     class TeamLeader : public Programmer, public Heading {
     private:
         int teamHeading;

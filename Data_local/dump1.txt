@@ -1,0 +1,19 @@
+Component MainWindowHeader(const Model::Theme& theme) {
+        return Renderer([&]{
+            return hbox({
+                filler(),
+                text(TranslationManager::instance().dict().at("TITLE_F1")) | center,
+                filler()
+            }) | border | size(HEIGHT, EQUAL, 5) | color(theme.scheme.foreground) | bgcolor(theme.scheme.background);
+        });
+}
+
+Component SmallWindowHeader(const Model::Theme& theme);
+
+Component WindowFooter(std::unique_ptr<std::string> info,const Model::Theme& theme) {
+    return Renderer([&] {
+        return hbox({
+            text(*info)
+        }) | border | size(HEIGHT, EQUAL, 3) | color(theme.scheme.foreground) | bgcolor(theme.scheme.background);
+    });
+}

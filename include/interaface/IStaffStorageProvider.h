@@ -6,16 +6,18 @@
 #include <map>
 #include <string>
 #include "../staff/employee_temp.h"
-#include "../staff/Employee.h"
+#include "../staff/IEmployee.h"
 
 
-namespace StaffDemo::Core::Interface {
+namespace StaffDemo::Interface {
+    ///@brief Интерфейс для чтения/записи данных персонала
+    ///@details
+    ///@ingroup Interface
     class IStaffStorageProvider {
     public:
         virtual ~IStaffStorageProvider() = default;
-        virtual
         virtual std::queue<Staff::TempEmloyee> loadFromStorage() = 0;
-        virtual std::map<std::string, std::shared_ptr<Staff::Employee>> saveToStorage() = 0;
+        virtual std::map<std::string, std::shared_ptr<Staff::IEmployee>> saveToStorage() = 0;
     };
 }
 
