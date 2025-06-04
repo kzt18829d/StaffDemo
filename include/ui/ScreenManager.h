@@ -24,7 +24,7 @@ public:
     ScreenManager();
     bool addScreen(const std::string& screenName, ftxui::Component screen_);
     bool showScreen(const std::string& screenName);
-    ftxui::Element Render() override;
+    ftxui::Element Render();
     bool OnEvent(ftxui::Event event) override;
 
     std::string getActiveScreenName() const;

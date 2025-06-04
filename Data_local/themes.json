@@ -1,6 +1,24 @@
 {
   "default": {
-    "text_base" : "White",
-    "": ""
+    "text_base" : 15,
+    "text_primary": 7,
+    "text_secondary": 8,
+    "text_error": 9,
+    "text_success": 10,
+    "text_warning": 11,
+    "text_info": 12,
+    "text_accent": 214,
+    "bg_base": 0,
+    "bg_primary": -1,
+    "bg_secondary": 8,
+    "bg_selected": 4,
+    "bg_active": 18,
+    "border_window": 15,
+    "border_primary": 7,
+    "border_focused": 4,
+    "button_style": -8,
+    "button_focused": -9,
+    "text_window_header": 15,
+    "border_window_header": 15
   }
 }

@@ -28,7 +28,7 @@ add_subdirectory(Google_Tests)
 add_executable(StaffDemo main.cpp
 )
 
-find_package(Boost 1.88 CONFIG REQUIRED COMPONENTS signals2 log log_setup system filesystem thread date_time)
+find_package(Boost 1.88 REQUIRED COMPONENTS signals2 log log_setup system filesystem thread date_time)
 
 if(Boost_FOUND)
     message(STATUS "Boost found, version ${Boost_VERSION}")
@@ -41,6 +41,8 @@ if(Boost_FOUND)
 else()
     message(FATAL_ERROR "Boost not found!")
 endif()
+
+add_compile_definitions(BOOST_USE_STATIC_LIBS)
 
 target_link_libraries(StaffDemo
         PRIVATE

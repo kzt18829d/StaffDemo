@@ -1,5 +1,4 @@
 add_library(ui STATIC
-        UserInterface.cpp
         ../../include/ui/UserInterface.h
         UserInterface.cpp
         ../../include/core/Theme.h
@@ -21,7 +20,7 @@ add_library(ui STATIC
         ../../include/ui/ViewModel/LoadEmployeeViewModel.h
 )
 
-find_package(Boost 1.88 CONFIG REQUIRED COMPONENTS signals2 log log_setup system filesystem date_time thread)
+find_package(Boost 1.88 REQUIRED COMPONENTS signals2 log log_setup system filesystem date_time thread)
 
 target_link_libraries(ui PUBLIC
         ftxui::screen
