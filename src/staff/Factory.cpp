@@ -3,9 +3,9 @@
 
 #include "../../include/staff/Factory.h"
 
-using namespace StaffDemo::Utils;
+using namespace Utils;
 
-namespace StaffDemo::Staff {
+namespace Staff {
     Project::Project(std::string name, int budget) :
             name{std::move(name)}, budget{budget} {
 //        FileLogger::instance().log("Created project " + this->name + ".");
@@ -32,12 +32,12 @@ namespace StaffDemo::Staff {
 
     void Project::addMember(std::weak_ptr<IEmployee> member) {
 //        FileLogger::instance().log("Project " + this->name + " call Project::addMember().");
-        if (auto it = std::find_if(std::begin(this->members), std::end(this->members), [&](const std::weak_ptr<StaffDemo::Staff::IEmployee>& currentMember) {
+        if (auto it = std::find_if(std::begin(this->members), std::end(this->members), [&](const std::weak_ptr<Staff::IEmployee>& currentMember) {
                 return currentMember.lock() == member.lock();
             }); it != std::end(this->members)) {
 //            FileLogger::instance().log("Project " + this->name + " attempt add Duplicate.", Utils::Logger::WARNING);
 //            FileLogger::instance().flush();
-            throw StaffDemo::Utils::except::Duplicate();
+            throw Utils::except::Duplicate();
         }
         this->members.push_back(member);
 //        FileLogger::instance().flush();
@@ -50,18 +50,18 @@ namespace StaffDemo::Staff {
 //            FileLogger::instance().flush();
             throw std::out_of_range("Project.Members empty.");
         }
-        if (auto it = std::find_if(std::begin(this->members), std::end(this->members), [&](const std::weak_ptr<StaffDemo::Staff::IEmployee>& currentMember) {
+        if (auto it = std::find_if(std::begin(this->members), std::end(this->members), [&](const std::weak_ptr<Staff::IEmployee>& currentMember) {
                 return currentMember.lock() == member.lock();
             }); it != std::end(this->members)) this->members.erase(it);
-        else throw StaffDemo::Utils::except::notFind();
+        else throw Utils::except::notFind();
     }
 
     void Project::removeMember(const std::string& memberID) {
         if (this->members.empty()) throw std::out_of_range("Project.Members empty.");
-        if (auto it = std::find_if(std::begin(this->members), std::end(this->members), [&](const std::weak_ptr<StaffDemo::Staff::IEmployee> currentMember) {
+        if (auto it = std::find_if(std::begin(this->members), std::end(this->members), [&](const std::weak_ptr<Staff::IEmployee> currentMember) {
                 return currentMember.lock()->getID() == memberID;
             }); it != std::end(this->members)) this->members.erase(it);
-        else throw StaffDemo::Utils::except::notFind();
+        else throw Utils::except::notFind();
     }
 
     void Project::removeMember() {

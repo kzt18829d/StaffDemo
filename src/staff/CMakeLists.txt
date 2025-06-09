@@ -11,7 +11,6 @@ add_library(staff STATIC
         Factory.cpp
         Personal.cpp
         Manager.cpp
-        ../../include/staff/staff_enum.h
 )
 
 target_include_directories(staff PUBLIC ../include)

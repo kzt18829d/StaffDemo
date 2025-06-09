@@ -2,7 +2,7 @@
 
 #include <utility>
 
-namespace StaffDemo::Staff {
+namespace Staff {
     ProjectManager::ProjectManager(const std::string &name, const std::string &position, const std::string &id, int heading,
                                    float partOfBudget, int proAddition, std::shared_ptr<Project>project) :
             IEmployee(name, position, id), heading{heading}, partOfBudget{partOfBudget}, proAddition{proAddition}, project{project}

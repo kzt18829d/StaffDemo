@@ -6,9 +6,9 @@
 #include "staff/Engineer.h"
 #include "staff/Manager.h"
 
-using namespace StaffDemo::Utils;
+using namespace Utils;
 
-namespace StaffDemo::StorageProvider {
+namespace Data::StorageProvider {
     CSVSPStorageProvider::CSVSPStorageProvider(const std::string &fileDir) : directory{std::move(fileDir)}
     {
 //        FileLogger::instance().log("-INITIALIZE StaffDemo::Core::StorageProvider::CSVProjectRepository initialized with FileDirectory \"" + directory + "\".");

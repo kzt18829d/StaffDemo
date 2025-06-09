@@ -2,12 +2,9 @@
 #define STAFFDEMO_IEMPLOYEE_H
 #include <string>
 #include <iostream>
-#include "staff_enum.h"
 
 ///@defgroup Staff Персонал
-using namespace StaffDemo::Core::ENUM;
-
-namespace StaffDemo::Staff {
+namespace Staff {
 //    /@Positions (pos[posInFile]):
 //    /@Cleaner[cleaner] @tDriver[driver]
 //    /@Programmer[programmer] @Tester[tester] @TeamLeader[timlid]

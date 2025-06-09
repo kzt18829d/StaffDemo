@@ -1,5 +1,6 @@
 {
   "en": {
+    "VIEWMODEL_EmployeeLoadScreenAuto_navigateToBaseWindowButton" : "Navigate to Personal Manager",
     "BUTTON.LOAD_SCREEN.nextEmployeeButton" : "Next Employee",
     "personal.POSITION" : "Position",
     "file.LOC" : "DataBase directory",

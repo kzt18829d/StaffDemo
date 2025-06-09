@@ -24,25 +24,10 @@ add_subdirectory(src/staff)
 add_subdirectory(src/utils)
 add_subdirectory(src/ui)
 add_subdirectory(Google_Tests)
+add_subdirectory(src/interface)
 
-add_executable(StaffDemo main.cpp
-)
-
-find_package(Boost 1.88 REQUIRED COMPONENTS signals2 log log_setup system filesystem thread date_time)
-
-if(Boost_FOUND)
-    message(STATUS "Boost found, version ${Boost_VERSION}")
-    message(STATUS "Boost Filesystem found: ${Boost_FILESYSTEM_FOUND}")
-    message(STATUS "Boost System found: ${Boost_SYSTEM_FOUND}")
-
-    # Добавьте заголовки Boost
-    target_include_directories(StaffDemo PRIVATE ${Boost_INCLUDE_DIRS})
-
-else()
-    message(FATAL_ERROR "Boost not found!")
-endif()
-
-add_compile_definitions(BOOST_USE_STATIC_LIBS)
+add_executable(StaffDemo main.cpp)
+find_package(Boost CONFIG REQUIRED signals2)
 
 target_link_libraries(StaffDemo
         PRIVATE
@@ -50,6 +35,7 @@ target_link_libraries(StaffDemo
         data
         staff
         ui
+        interface
         GoogleTests
         fmt::fmt
         tabulate::tabulate
@@ -57,11 +43,5 @@ target_link_libraries(StaffDemo
         ftxui::dom
         ftxui::component
         Boost::signals2
-        Boost::system
-        Boost::thread
-        Boost::filesystem
-        Boost::log
-        Boost::log_setup
-        Boost::date_time
 )
 

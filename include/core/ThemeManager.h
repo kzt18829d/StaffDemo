@@ -4,45 +4,43 @@
 #include <map>
 #include <string>
 #include "Theme.h"
-#include "Signal2.h"
 #include <fstream>
 #include "../utils/json.hpp"
+#include "boost/signals2.hpp"
 
 
-namespace StaffDemo::Core {
+///@namespace Core
+namespace Core {
 
+    ///@brief Менеджер тем
+    ///@details Используется для наложения цветового оформления элементам графического интерфейса
+    ///@ingroup Core
+    ///@ingroup Theme
+    ///@see Theme
     class ThemeManager {
     public:
         using themeName = std::string;
     private:
-        ThemeManager();
-        ~ThemeManager() {
-            delete inst;
-        }
-
-        template<typename T>
-        [[maybe_unused]]std::any getColorByID(T toTranslate);
         std::map<std::string, Theme> themeList;
         std::unique_ptr<Theme> currentTheme = nullptr;
-        static ThemeManager* inst;
 
     public:
+        ThemeManager();
+        ~ThemeManager();
+
         ThemeManager(const ThemeManager&) = delete;
         ThemeManager(ThemeManager&&) = delete;
         ThemeManager& operator=(const ThemeManager&) = delete;
         ThemeManager& operator=(ThemeManager&&) = delete;
 
-        static ThemeManager& instance();
         bool setTheme(const themeName& name);
 
-        void loadFromJson(std::string& themeFileDirectory);
-
-        Theme& getTheme() const;
-        std::vector<themeName> getThemeNamesList() const;
+        [[nodiscard]] Theme& getTheme() const;
+        [[nodiscard]] std::vector<themeName> getThemeNamesList() const;
+        [[nodiscard]] std::vector<Theme> getThemeList() const;
         void addTheme(Theme& theme);
 
-
-        Signal<const Theme&> ThemeChangedSignal;
+        boost::signals2::signal<void(const Theme&)> ThemeChangedSignal;
     };
 
 } // Core

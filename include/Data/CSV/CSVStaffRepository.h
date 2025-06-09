@@ -9,7 +9,7 @@
 #include "../../utils/StaffExceptions.h"
 #include <algorithm>
 
-namespace StaffDemo::Repository {
+namespace Data::Repository {
 
     ///@brief Класс репозитория проектов
     ///@ingroup Data

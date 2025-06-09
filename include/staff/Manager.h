@@ -9,7 +9,7 @@
 #include <map>
 #include <algorithm>
 
-namespace StaffDemo::Staff {
+namespace Staff {
     ///@brief Класс должности ProjectManager
     ///@param [in] name Имя единицы персонала
     ///@param [in] position Занимаемая должность

@@ -1,44 +1,40 @@
 //
-// Created by hid3h on 29.05.2025.
+// Created by hid3h on 08.06.2025.
 //
 
 #ifndef STAFFDEMO_STARTSCREENVIEW_H
 #define STAFFDEMO_STARTSCREENVIEW_H
-#include "ViewBase.h"
-#include "ftxui/component/component.hpp"
+#include "BasicView.h"
 #include "../ViewModel/StartScreenViewModel.h"
-#include "../../utils/TranslationManager.h"
-#include "memory"
-#include "../../core/Signal2.h"
-#include "string"
-using Translate = StaffDemo::Utils::TranslationManager;
-//using Translate = StaffDemo::Utils::TranslationManager::instance().dict().contains(key) ? StaffDemo::Utils::TranslationManager::instance().dict.at(key) : std::string(key);
+#include "core/Usages.h"
+
 namespace View {
 
-class StartScreenView : public StaffDemo::UI::ViewBase {
+    ///@brief Представление стартового экрана
+    ///@ingroup View
+    class StartScreenView : public BasicView {
     private:
-        std::shared_ptr<Model::StartScreenViewModel> viewModel;
-        ftxui::Component staffDirectoryInputField;
-        ftxui::Component applyCustomSettingsButton;
-        ftxui::Component applyDefaultSettingsButton;
+        std::shared_ptr<ViewModel::StartScreenViewModel> viewModel;
+        Message statusMessage;
+        Message checkBoxMessage;
+
+        InputOption StaffDirectoryInputOption;
+        CheckboxOption autoLoadCheckBoxOption;
+
+        ftxui::Component staffDirectoryInput;
+        ftxui::Component autoLoadCheckBox;
+        ftxui::Component defaultSettingsButton;
+        ftxui::Component customSettingsButton;
 
         ftxui::Component windowContainer;
 
-        std::string statusMessage_;
+        void updateStatusMessage(Message& newMessage);
 
-        std::shared_ptr<bool> activeDefaultSettingsButton = std::make_shared<bool>(true);
-        std::shared_ptr<bool> activeCustomSettingsButton = std::make_shared<bool>(false);
+        boost::signals2::connection statusMessageChangedConnection;
 
-        StaffDemo::Core::Connection<const std::string&> statusSignalConnection;
-        StaffDemo::Core::Signal<> reRenderRequestSignal;
-        void updateStatusMessage(const std::string& newMessage);
-
-    protected:
-        void ThemeChanged(const Theme& newTheme);
     public:
-        StartScreenView(std::shared_ptr<Model::StartScreenViewModel> viewModel_);
+        explicit StartScreenView(const std::shared_ptr<ViewModel::StartScreenViewModel>& _viewModel);
         ftxui::Element Render() override;
-
     };
 
 } // View

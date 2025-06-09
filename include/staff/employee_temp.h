@@ -2,7 +2,7 @@
 #define STAFFDEMO_EMPLOYEE_TEMP_H
 #include <string>
 
-namespace StaffDemo::Staff {
+namespace Staff {
 
     ///@brief Шаблон временного хранилища единицы персонала
     ///@details Предназначен для использования в качестве посредника между функциями, не привязанный к конкретному типу IEmployee,

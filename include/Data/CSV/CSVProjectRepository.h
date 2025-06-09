@@ -10,7 +10,7 @@
 #include <memory>
 #include <algorithm>
 
-namespace StaffDemo::Repository {
+namespace Data::Repository {
     ///@brief Класс репозитория проектов
     ///@ingroup Data
     class CSVProjectRepository : public Interface::IProjectRepository {

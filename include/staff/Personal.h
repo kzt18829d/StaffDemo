@@ -4,7 +4,7 @@
 #include "IEmployee.h"
 #include "StaffInterfaces.h"
 
-namespace StaffDemo::Staff{
+namespace Staff{
     ///@brief Шаблон для классов-наследников Personal
     ///@details Абстрактный класс, от которого наследуются большинство единиц персонала.
     ///@param [in] name Имя единицы персонала

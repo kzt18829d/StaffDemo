@@ -5,11 +5,11 @@
 
 
 
-namespace StaffDemo::Repository {
+namespace Data::Repository {
     void CSVStaffRepository::add(std::shared_ptr<Staff::IEmployee> staff) {
         if (STAFF_LIST.contains(staff->getID())) {
             // log
-            throw StaffDemo::Utils::except::Duplicate(staff->getID() + " уже в списке");
+            throw Utils::except::Duplicate(staff->getID() + " уже в списке");
         }
         STAFF_LIST[staff->getID()] = staff;
     }

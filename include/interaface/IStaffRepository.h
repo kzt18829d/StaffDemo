@@ -4,7 +4,7 @@
 #include <map>
 #include "../staff/IEmployee.h"
 
-namespace StaffDemo::Interface {
+namespace Interface {
     ///@brief Интерфейс репозитория персонала
     ///@details
     ///@ingroup Interface

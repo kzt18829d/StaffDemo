@@ -5,7 +5,7 @@
 
 ///@defgroup Data
 
-namespace StaffDemo::StorageProvider {
+namespace Data::StorageProvider {
     ///@brief Класс для чтения и записи данных через CSV-файл
     ///@param [in,out] directory Расположение CSV-файла
     ///@see ISPStorageProvider

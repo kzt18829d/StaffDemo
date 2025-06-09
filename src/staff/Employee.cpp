@@ -1,6 +1,6 @@
 #include <utility>
 #include "../../include/staff/IEmployee.h"
-namespace StaffDemo::Staff {
+namespace Staff {
     IEmployee::IEmployee(const std::string &name, const std::string &position,
                          const std::string &id) : worktime{0}, payment{0} {}
 

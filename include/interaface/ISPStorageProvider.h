@@ -10,7 +10,7 @@
 #include "../staff/IEmployee.h"
 
 
-namespace StaffDemo::Interface {
+namespace Interface {
     ///@brief Интерфейс взаимодействия с данными персонала и проектов в файле
     ///@details Содержит чистые виртуальные методы для взаимодействия с файлами данных, содержащих информацию о персонале и проектах
     ///@ingroup Interface

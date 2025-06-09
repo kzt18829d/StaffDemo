@@ -5,9 +5,13 @@
 #include <string>
 #include <utility>
 
+///@defgroup Exceptions Исключения
 
-namespace StaffDemo::Utils::except {
+///@namespace Utils::except
+namespace Utils::except {
 
+    ///@brief Базовый класс исключений проекта
+    ///@ingroup Exceptions
     class StaffException : public std::exception {
     private:
         std::string exceptionText;
@@ -25,6 +29,8 @@ namespace StaffDemo::Utils::except {
         const char *what_() const noexcept { return exceptionText.c_str(); }
     };
 
+    ///@brief Класс исключений-информационных сообщений проекта
+    ///@ingroup Exceptions
     class InformationMessage : public StaffException {
     public:
         InformationMessage() : InformationMessage("Information Message") {}
@@ -33,6 +39,8 @@ namespace StaffDemo::Utils::except {
         ~InformationMessage() override = default;
     };
 
+    ///@brief Класс исключений-дубликатов проекта
+    ///@ingroup Exceptions
     class Duplicate : public StaffException {
     public:
         Duplicate() : Duplicate("Object is duplicate one of current elements.") {}
@@ -41,6 +49,8 @@ namespace StaffDemo::Utils::except {
         ~Duplicate() override = default;
     };
 
+    ///@brief Класс исключений-не найденных объектов сообщений проекта
+    ///@ingroup Exceptions
     class notFind : public StaffException {
     public:
         notFind() : notFind("Object don\'t find.") {}
@@ -49,6 +59,8 @@ namespace StaffDemo::Utils::except {
         ~notFind() override = default;
     };
 
+    ///@brief Класс исключений проекта
+    ///@ingroup Exceptions
     class previouslyAdded : public StaffException {
     public:
         previouslyAdded(): previouslyAdded("Object was added earlier.") {}
@@ -57,6 +69,8 @@ namespace StaffDemo::Utils::except {
         ~previouslyAdded() override = default;
     };
 
+    ///@brief Класс исключений неверно заполеных полей проекта
+    ///@ingroup Exceptions
     class IncorrectField : public StaffException {
     public:
         IncorrectField(): IncorrectField("Field Incorrectly.") {}

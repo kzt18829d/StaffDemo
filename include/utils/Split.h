@@ -5,7 +5,7 @@
 #include <set>
 #include <sstream>
 
-namespace StaffDemo::Utils {
+namespace Utils {
     inline std::vector<std::string>split(const std::string& line, char delim=';');
     inline std::set<std::string>splitUnic(const std::string& line, char delim=':') noexcept;
 }

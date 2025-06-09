@@ -1,39 +1,48 @@
 //
-// Created by hid3h on 29.05.2025.
+// Created by hid3h on 08.06.2025.
 //
 
 #ifndef STAFFDEMO_STARTSCREENVIEWMODEL_H
 #define STAFFDEMO_STARTSCREENVIEWMODEL_H
-#include "ViewModelBase.h"
-#include "../AppSetting.h"
-#include "../../core/Signal2.h"
+#include "BasicViewModel.h"
 #include "memory"
-#include "../../utils/Functions.h"
+#include "string"
+#include "core/AppSetting.h"
+#include "core/Usages.h"
+namespace ViewModel {
 
-namespace Model {
-    class StartScreenViewModel : public StaffDemo::UI::ViewModelBase {
+    ///@brief Модель представления стартового окна
+    ///@ingroup ViewModel
+    ///@see BasicViewModel
+    class StartScreenViewModel : public BasicViewModel {
     private:
-        std::string statusMessage;
-        std::string themeDirectory;
-        std::string staffDirectory;
-        std::shared_ptr<AppSettings> appSettings;
+        Message statusMessage;
+        Message checkBoxMessage;
+        Directory staffDirectory;
+
+        std::shared_ptr<bool> autoLoadEmployeesCheckBox_bool;
+
     public:
-        StartScreenViewModel(std::shared_ptr<AppSettings> settings);
+        explicit StartScreenViewModel(std::shared_ptr<Core::AppSettings> _appSettings);
 
-        std::string getStaffDir() const;
-        std::string getThemeDir() const;
-        std::string getStatusMessage() const;
-        void updateStatusMessage(const std::string& newMessage);
+        Message getStatusMessage() const;
+        Message getCheckBoxMessage() const;
+        Directory getStaffDirectory() const;
+        Directory getStaffDirectoryFromSettings() const;
 
-        std::string& setStaffDir();
+        void updateStatusMessage(Message& updatedMessage);
+        Message& setStaffDirectory();
 
-        void ApplySettings();
-        void DefaultSettings();
+        bool* getAutoLoadEmployeesCheckBox_bool();
 
-        StaffDemo::Core::Signal<> applySettingSignal;
-        StaffDemo::Core::Signal<const std::string&> statusMessageChangedSignal;
+        void useDefaultSettings();
+        void useCustomSettings();
+
+        boost::signals2::signal<void(WindowType nextScreen)> applySettingsSignal;
+        boost::signals2::signal<void(Message&)> statusMessageChangedSignal;
+
     };
 
-} // Model
+} // ViewModel
 
 #endif //STAFFDEMO_STARTSCREENVIEWMODEL_H

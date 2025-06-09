@@ -7,7 +7,7 @@
 #include "../staff/IEmployee.h"
 
 ///@defgroup Interface Интерфейс
-namespace StaffDemo::Interface {
+namespace Interface {
     ///@brief Интерфейс репозитория проектов
     ///@details Содержит чистые виртуальные методы взаимодействия с данными проектов внутри репозитория
     ///@ingroup Interface

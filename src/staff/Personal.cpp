@@ -1,5 +1,5 @@
 #include "../../include/staff/Personal.h"
-namespace StaffDemo::Staff{
+namespace Staff{
     Personal::Personal(const std::string &name, const std::string &position, const std::string &id, int salary) :
             IEmployee(name, position, id), salary{salary} {}
 

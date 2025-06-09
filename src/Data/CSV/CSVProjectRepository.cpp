@@ -1,6 +1,6 @@
-#include "data/CSV/CSVProjectRepository.h"
+#include "../../include/data/CSV/CSVProjectRepository.h"
 #include <exception>
-namespace StaffDemo::Repository {
+namespace Data::Repository {
     void CSVProjectRepository::add(std::shared_ptr<Staff::Project> project) {
         if (PROJECT_LIST.contains(project->getName())) {
             // <-log

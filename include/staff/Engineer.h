@@ -6,7 +6,7 @@
 #include "Personal.h"
 #include "Factory.h"
 #include "StaffInterfaces.h"
-namespace StaffDemo::Staff {
+namespace Staff {
     ///@brief Абстрактный класс для наследников Engineer
     ///@param [in] name Имя единицы персонала
     ///@param [in] position Занимаемая должность

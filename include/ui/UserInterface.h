@@ -1,58 +1,57 @@
-//
-// Created by hid3h on 26.05.2025.
-//
-
 #ifndef STAFFDEMO_USERINTERFACE_H
 #define STAFFDEMO_USERINTERFACE_H
-#include "../core/Signal2.h"
+
 #include "../core/ThemeManager.h"
-#include "AppSetting.h"
+#include "core/AppSetting.h"
+#include "data/ThemeStorageProvider.h"
 #include "ScreenManager.h"
 #include "memory"
 #include "ftxui/component/screen_interactive.hpp"
-#include <boost/log/core.hpp>
-#include <boost/log/trivial.hpp>
-#include <boost/log/expressions.hpp>
-#include <boost/log/sinks/text_file_backend.hpp>
-#include <boost/log/utility/setup/file.hpp>
-#include <boost/log/utility/setup/common_attributes.hpp>
 
-#include "View/StartScreenView.h"
+
+#include "../core/ScreensENUM.h"
+
+// include ViewModels
 #include "ViewModel/StartScreenViewModel.h"
+#include "ViewModel/EmployeeLoadScreenAutoViewModel.h"
 
-#include "../Data/CSV/CSVStaffRepository.h"
-#include "../Data/CSV/CSVProjectRepository.h"
+
+// include Views
+#include "ui/View/StartScreenView.h"
+#include "View/EmployeeLoadScreenAutoView.h"
 
 
 ///@defgroup TextUserInterface Текстовый пользовательский интерфейс
 
-
-namespace StaffDemo::UI {
-    ///@brief
-    ///@details
+///@namespace UI
+namespace UI {
+    ///@brief Главный исполнительный класс
+    ///@details Главный исполнительный класс, занимающийся инициализацией данных, моделей, ViewModels, Views, и прочих
     ///@ingroup TextUserInterface
     class UserInterface {
     private:
-//        void InitLogger();
-        void InitBoostLogger();
-        void InitThemes();
-        void InitModels();
-        void InitScreens();
-        void ConnectSignals();
+        void initLogger();      ///< Инициализация логирования
+        void loadThemes();      ///< Подгрузка тем из JSON
+        void loadTranslate();   ///< Подгрузка переводов из JSON
+        void initThemes();      ///< Инициализация тем в ThemeManager @see ThemeManager
+        void initTranslate();   ///< Инициализация переводов в TranslationManager @see TranslationManager
+        void initModels();      ///< Инициализация моделей
+        void initScreens();     ///< Инициализация ViewModels&Views
+        void connectSignals();  ///< Подключение глобальных сигналов
 
         ftxui::ScreenInteractive screenInteractive;
+
         ScreenManager screenManager;
-        std::shared_ptr<AppSettings> appSettings;
 
+        std::shared_ptr<Core::AppSettings> appSettings;
 
-        std::shared_ptr<Interface::IStaffRepository> staffRepository = std::make_shared<Repository::CSVStaffRepository>();
-        std::shared_ptr<Interface::IProjectRepository> projectRepository = std::make_shared<Repository::CSVProjectRepository>();
+        boost::signals2::connection StartScreenSignalConnection;
 
+        boost::signals2::connection EmployeeLoadScreenAutoConnection;
+        boost::signals2::connection EmployeeLoadScreenHandConnection;
 
-        Core::Connection<void()> startScreenSignalConnection;
-
-
-        std::shared_ptr<Model::StartScreenViewModel> startScreenViewModel;
+        std::shared_ptr<ViewModel::StartScreenViewModel> startScreenViewModel;
+        std::shared_ptr<ViewModel::EmployeeLoadScreenAutoViewModel> employeeLoadScreenAutoViewModel;
 
     public:
         UserInterface();
@@ -62,6 +61,5 @@ namespace StaffDemo::UI {
     };
 
 } // UI
-// StaffDemo
 
 #endif //STAFFDEMO_USERINTERFACE_H

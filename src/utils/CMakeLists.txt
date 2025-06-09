@@ -3,10 +3,11 @@ add_library(utils STATIC
         ../../include/utils/json.hpp
         ../../include/utils/Split.h
         ../../include/utils/StaffExceptions.h
-        ../../include/utils/TranslationManager.h
+        ../../include/core/TranslationManager.h
         Functions.cpp
         Split.cpp
-        TranslationManager.cpp
+        ../core/TranslationManager.cpp
+        ../../include/utils/FileTimeStamp.h
 )
 
 target_include_directories(utils PUBLIC ../include)

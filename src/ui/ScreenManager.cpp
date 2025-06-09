@@ -1,54 +1,50 @@
-#include <ftxui/component/event.hpp>
 #include "../../include/ui/ScreenManager.h"
 
-ScreenManager::ScreenManager() {
-    stackedContainer = ftxui::Container::Stacked({});
-    Add(stackedContainer);
-}
+namespace UI {
 
-bool ScreenManager::addScreen(const std::string &screenName, ftxui::Component screen_) {
-    if (screensID.contains(screenName)) {
-        //< log
-        return false;
+    ScreenManager::ScreenManager() {
+        screenContainer = ftxui::Container::Stacked({});
+        this->Add(screenContainer);
     }
-    screensInfo.push_back({screenName, screen_});
-    screensID[screenName] = screensID.size() - 1;
-    stackedContainer->Add(screen_);
-    return true;
-}
 
-bool ScreenManager::showScreen(const std::string &screenName) {
-    if (auto iterator = screensID.find(screenName); iterator != screensID.end()) {
-        auto index = iterator->second;
-        if (index > screensInfo.size()) return false;
-        stackedContainer->SetActiveChild(screensInfo.at(index).component.get());
-        activeScreen = (int)index;
-        return true;
+    ScreenManager::~ScreenManager() = default;
+
+    void ScreenManager::addScreen(WindowType enumScreenName, std::shared_ptr<View::BasicView> screen) {
+        if (screenMap.contains(enumScreenName)) return;
+        screenMap[enumScreenName] = screen;
+        screenContainer->Add(screen);
     }
-    return false;
-}
 
-ftxui::Element ScreenManager::Render() {
-//     return stackedContainer->Render(); // раскомментить, но закомментить нижние строки
-    if (!(activeScreen != -1 && activeScreen < screensInfo.size())) {
-        //< log
-        return ftxui::text("No screen on this activeScreen position");
+    void ScreenManager::showScreen(WindowType enumScreenName) {
+        if (!screenMap.contains(enumScreenName) || ACTIVE_SCREEN == enumScreenName) {
+            // log
+            return; // заглушка
+        }
+        ACTIVE_SCREEN = enumScreenName;
+        screenContainer->SetActiveChild(screenMap.at(enumScreenName));
     }
-    return screensInfo[activeScreen].component->Render();
-}
 
-bool ScreenManager::OnEvent(ftxui::Event event) {
-    return stackedContainer->OnEvent(event);
-}
-
-std::string ScreenManager::getActiveScreenName() const {
-    if (!(activeScreen == -1 or activeScreen >= screensID.size())) {
-        for (const auto &pair: screensID) if (pair.second == activeScreen) return pair.first;
+    ftxui::Element ScreenManager::Render() {
+        return screenContainer->Render();
     }
-    return "No screen";
-}
 
-ftxui::Component ScreenManager::getActiveScreenComponent() {
-    if (activeScreen != -1 && activeScreen < screensID.size()) return screensInfo.at(activeScreen).component;
-    return nullptr;
+    bool ScreenManager::OnEvent(ftxui::Event event) {
+        return screenContainer->OnEvent(event);
+    }
+
+    ScreenManager::ScreenName ScreenManager::getActiveScreenString() {
+        if (ACTIVE_SCREEN == WindowType::NULL_SCREEN) return "No Active Screen";
+//    return screenMap.at(ACTIVE_SCREEN);
+        return ""; // заглушка
+    }
+
+    ftxui::Component ScreenManager::getActiveScreenComponent() {
+        if (ACTIVE_SCREEN == WindowType::NULL_SCREEN) return nullptr;
+        return screenContainer->ActiveChild();
+    }
+
+    WindowType ScreenManager::getActiveScreenEnum() {
+        return ACTIVE_SCREEN;
+    }
+
 }

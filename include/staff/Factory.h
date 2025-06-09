@@ -9,7 +9,7 @@
 
 #include "../utils/StaffExceptions.h"
 
-namespace StaffDemo::Staff {
+namespace Staff {
 
     ///@brief Шаблон временного хранилища единицы проекта
     ///@details Предназначен для временного хранения единицы проекта при передаче на чтение/запись в IStorageProvider.

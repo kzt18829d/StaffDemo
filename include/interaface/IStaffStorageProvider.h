@@ -9,7 +9,7 @@
 #include "../staff/IEmployee.h"
 
 
-namespace StaffDemo::Interface {
+namespace Interface {
     ///@brief Интерфейс для чтения/записи данных персонала
     ///@details
     ///@ingroup Interface
