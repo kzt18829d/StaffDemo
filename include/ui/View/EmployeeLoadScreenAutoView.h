@@ -31,7 +31,7 @@ namespace View {
         void addLogLineToLoadEmployeesLog();
         void updateCurrentGaugeProcentString();
 
-//        boost::signals2::connection saveAndGoBaseWindowConnection;
+//        boost::signals2::signal<void()> saveAndGoBaseWindowConnection;
         boost::signals2::connection updateLoadedEmployeeScreenLogConnection;
         boost::signals2::connection updateGaugeConnection;
 

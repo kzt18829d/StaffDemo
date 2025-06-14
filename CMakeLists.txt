@@ -27,7 +27,7 @@ add_subdirectory(Google_Tests)
 add_subdirectory(src/interface)
 
 add_executable(StaffDemo main.cpp)
-find_package(Boost CONFIG REQUIRED signals2 log log_setup thread filesystem date_time)
+find_package(Boost CONFIG REQUIRED signals2)
 
 target_link_libraries(StaffDemo
         PRIVATE
@@ -43,10 +43,11 @@ target_link_libraries(StaffDemo
         ftxui::dom
         ftxui::component
         Boost::signals2
-        Boost::log
-        Boost::log_setup
-        Boost::thread
-        Boost::filesystem
-        Boost::date_time
+        #Boost::log
+        #Boost::log_setup
+        #Boost::thread
+        #Boost::filesystem
+        #Boost::date_time
+        #Boost::system
 )
 

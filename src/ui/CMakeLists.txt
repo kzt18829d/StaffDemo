@@ -19,9 +19,15 @@ add_library(ui STATIC
         ../../include/ui/View/EmployeeLoadScreenAutoView.h
         ../../include/ui/Model/loadEmployeeLogModel.cpp
         ../../include/ui/Model/loadEmployeeLogModel.h
+        ../../include/ui/ViewModel/BaseScreenViewModel.cpp
+        ../../include/ui/ViewModel/BaseScreenViewModel.h
+        ../../include/ui/View/BaseScreenView.cpp
+        ../../include/ui/View/BaseScreenView.h
 )
 
-find_package(Boost REQUIRED COMPONENTS signals2)
+find_package(Boost REQUIRED COMPONENTS signals2
+        #filesystem log log_setup date_time thread system
+)
 
 
 target_link_libraries(ui PUBLIC
@@ -33,5 +39,11 @@ target_link_libraries(ui PUBLIC
         core
         data
         fmt::fmt
+        #Boost::filesystem
+        #Boost::log
+        #Boost::log_setup
+        #Boost::date_time
+        #Boost::thread
+        #Boost::system
 )
 target_include_directories(ui PUBLIC ../include)

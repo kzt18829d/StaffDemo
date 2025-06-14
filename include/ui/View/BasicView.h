@@ -33,7 +33,7 @@ namespace View {
     public:
         explicit BasicView(std::shared_ptr<ViewModel::BasicViewModel> viewModel);
         ~BasicView() override;
-        ftxui::Element Render() override;
+        ftxui::Element Render() override = 0;
 
     };
 

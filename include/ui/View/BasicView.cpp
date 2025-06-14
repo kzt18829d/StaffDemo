@@ -13,9 +13,6 @@ namespace View {
         Render();
     }
 
-    ftxui::Element BasicView::Render() {
-        return ComponentBase::Render();
-    }
 
 
 } // View

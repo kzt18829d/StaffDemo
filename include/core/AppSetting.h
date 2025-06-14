@@ -14,15 +14,7 @@
 #include "../core/ThemeManager.h"
 #include "../core/TranslationManager.h"
 #include "../Data/TranslationStorageProvider.h"
-#include <boost/log/trivial.hpp>
-#include "boost/shared_ptr.hpp"
 
-
-#define INFO        BOOST_LOG_TRIVIAL(info)
-#define WARNING     BOOST_LOG_TRIVIAL(warning)
-#define ERROR       BOOST_LOG_TRIVIAL(error)
-#define FATAL_ERROR BOOST_LOG_TRIVIAL(fatal_error)
-#define DEBUG_      BOOST_LOG_TRIVIAL(debug)
 
 ///@defgroup Core Ядро
 

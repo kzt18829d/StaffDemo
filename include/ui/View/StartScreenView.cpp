@@ -47,8 +47,8 @@ namespace View {
         }) | size(WIDTH, EQUAL, 50) | ftxui::borderStyled(theme.border_primary);
 
         auto buttons = hbox({
-            customSettingsButton->Render()  | theme.button_style | (customSettingsButton->Focused() ? theme.button_focused : nothing)  | size(WIDTH, EQUAL, 14),
-            defaultSettingsButton->Render() | theme.button_style | (defaultSettingsButton->Focused() ? theme.button_focused : nothing) | size(WIDTH, EQUAL, 14)
+            customSettingsButton->Render()  | theme.button_style | (customSettingsButton->Focused() ? theme.button_focused : nothing)  | size(WIDTH, EQUAL, 20),
+            defaultSettingsButton->Render() | theme.button_style | (defaultSettingsButton->Focused() ? theme.button_focused : nothing) | size(WIDTH, EQUAL, 20)
         });
 
         return vbox({

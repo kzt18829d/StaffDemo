@@ -32,7 +32,11 @@ namespace UI {
     void UserInterface::connectSignals() {
         StartScreenSignalConnection = startScreenViewModel->applySettingsSignal.connect([&, this](WindowType nextScreen){
             screenManager.showScreen(nextScreen);
-            screenInteractive.PostEvent(Event::Custom);
+            run();
+        });
+        EmployeeLoadScreenAutoConnection = employeeLoadScreenAutoViewModel->saveAndGoBaseWindowSignal.connect([&, this](WindowType nextScreen){
+            screenManager.showScreen(nextScreen);
+            run();
         });
     }
 
@@ -53,36 +57,36 @@ namespace UI {
 
     void UserInterface::initLogger() {
 
-        namespace logging = boost::log;
-        namespace src = boost::log::sources;
-        namespace sinks = boost::log::sinks;
-        namespace expr = boost::log::expressions;
-        namespace keywords = boost::log::keywords;
-
-        boost::log::add_common_attributes();
-
-        auto file_backend = boost::make_shared<sinks::text_file_backend>(
-               keywords::file_name = "StaffDemo_LOG_%Y-%m-%d_%H-%M-%S.txt",
+//        namespace logging = boost::log;
+//        namespace src = boost::log::sources;
+//        namespace sinks = boost::log::sinks;
+//        namespace expr = boost::log::expressions;
+//        namespace keywords = boost::log::keywords;
+//
+//        boost::log::add_common_attributes();
+//
+//        auto file_backend = boost::make_shared<sinks::text_file_backend>(
+//               keywords::file_name = "StaffDemo_LOG_%Y-%m-%d_%H-%M-%S.txt",
 //                boost::log::keywords::file_name = "StaffDemo_LOG_%Y-%m-%d_%H-%M-%S.log",
-                keywords::rotation_size = 100 * 1024 * 1024,
-                keywords::time_based_rotation = boost::log::sinks::file::rotation_at_time_interval(boost::posix_time::hours(1)),
-                keywords::auto_flush = true);
-
-
-        using sink_t = sinks::asynchronous_sink<sinks::text_file_backend>;
-        auto sinkFile = boost::make_shared<sink_t>(file_backend);
-
-        sinkFile->set_formatter(
-                expr::stream << "[" << expr::format_date_time<boost::posix_time::ptime>("TimeStamp", "%H:%M:%S") << "]"
-                << "[" << logging::trivial::severity << "]"
-                << ": " << expr::smessage
-                );
-
-#ifdef DEBUG_PARAM_
-        sinkFile->set_filter(logging::trivial::severity >= logging::trivial::trace);
-#else
-        sinkFile->set_filter(logging::trivial::severity >= logging::trivial::info);
-#endif
+//                keywords::rotation_size = 100 * 1024 * 1024,
+//                keywords::time_based_rotation = boost::log::sinks::file::rotation_at_time_interval(boost::posix_time::hours(1)),
+//                keywords::auto_flush = true);
+//
+//
+//        using sink_t = sinks::asynchronous_sink<sinks::text_file_backend>;
+//        auto sinkFile = boost::make_shared<sink_t>(file_backend);
+//
+//        sinkFile->set_formatter(
+//                expr::stream << "[" << expr::format_date_time<boost::posix_time::ptime>("TimeStamp", "%H:%M:%S") << "]"
+//                << "[" << logging::trivial::severity << "]"
+//                << ": " << expr::smessage
+//                );
+//
+//#ifdef DEBUG_PARAM_
+//        sinkFile->set_filter(logging::trivial::severity >= logging::trivial::trace);
+//#else
+//        sinkFile->set_filter(logging::trivial::severity >= logging::trivial::info);
+//#endif
 //        logging::core::get()->add_sink(sinkFile);
     }
 

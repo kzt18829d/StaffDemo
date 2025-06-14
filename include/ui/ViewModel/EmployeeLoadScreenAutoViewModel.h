@@ -36,7 +36,7 @@ namespace ViewModel {
         void addCurrentGaugeLine(gaugeCounter addGauge);
         void addLoadedEmployeeScreenLogLine(Text& text);
 
-        boost::signals2::signal<WindowType(WindowType nextScreen)> saveAndGoBaseWindowSignal;
+        boost::signals2::signal<void(WindowType nextScreen)> saveAndGoBaseWindowSignal;
         boost::signals2::signal<void(Text&)> updateLoadedEmployeeScreenLogSignal;
         boost::signals2::signal<void(gaugeCounter&)> updateGaugeSignal;
     };
