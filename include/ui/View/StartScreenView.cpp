@@ -16,13 +16,13 @@ namespace View {
         autoLoadCheckBox        = ftxui::Checkbox(viewModel->getCheckBoxMessage(), viewModel->getAutoLoadEmployeesCheckBox_bool());
 
         //add Translation Manager
-        defaultSettingsButton   = ftxui::Button("Use Default", [&]{ viewModel->useDefaultSettings(); });
-        customSettingsButton    = ftxui::Button("Use Current", [&]{ viewModel->useCustomSettings(); });
+        defaultSettingsButton   = ftxui::Button("Use Default", [&, this]{ viewModel->useDefaultSettings(); });
+        customSettingsButton    = ftxui::Button("Use Current", [&, this]{ viewModel->useCustomSettings(); });
 
         windowContainer         = ftxui::Container::Vertical({
             staffDirectoryInput,
             autoLoadCheckBox,
-            ftxui::Container::Horizontal({customSettingsButton, defaultSettingsButton})
+            customSettingsButton, defaultSettingsButton
         });
 
         statusMessageChangedConnection = viewModel->statusMessageChangedSignal.connect([this](const Message&){
@@ -59,7 +59,7 @@ namespace View {
                 filler() | size(HEIGHT, EQUAL, 6),
                 vbox({
                     hbox({autoLoadCheckBox->Render()}) | align_right,
-                        buttons
+                        buttons | align_right
                 })
             })
         }) | bgcolor(theme.bg_primary) | color(theme.text_primary);

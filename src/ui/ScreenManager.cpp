@@ -21,7 +21,7 @@ namespace UI {
             return; // заглушка
         }
         ACTIVE_SCREEN = enumScreenName;
-        screenContainer->SetActiveChild(screenMap.at(enumScreenName));
+        screenContainer->SetActiveChild(screenMap[enumScreenName]);
     }
 
     ftxui::Element ScreenManager::Render() {

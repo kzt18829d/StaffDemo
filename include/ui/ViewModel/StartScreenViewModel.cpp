@@ -9,7 +9,6 @@ namespace ViewModel {
         if (appSettings.lock()) this->staffDirectory = appSettings.lock()->getStaffDirectory();
         //translate
         this->checkBoxMessage = "Use auto loading from file?";
-        this->autoLoadEmployeesCheckBox_bool = std::make_shared<bool>(false);
     }
 
     Message StartScreenViewModel::getStatusMessage() const {
@@ -34,7 +33,7 @@ namespace ViewModel {
     }
 
     void StartScreenViewModel::useDefaultSettings() {
-        if (this->autoLoadEmployeesCheckBox_bool) applySettingsSignal(WindowType::LOAD_EMPLOYEES_WINDOW_auto);
+        if (*autoLoadEmployeesCheckBox_bool == true) applySettingsSignal(WindowType::LOAD_EMPLOYEES_WINDOW_auto);
         else applySettingsSignal(WindowType::LOAD_EMPLOYEES_WINDOW_hand);
     }
 
@@ -49,12 +48,16 @@ namespace ViewModel {
         } catch(...) {}
     }
 
-    bool *StartScreenViewModel::getAutoLoadEmployeesCheckBox_bool() {
-        return this->autoLoadEmployeesCheckBox_bool.get();
+    bool* StartScreenViewModel::getAutoLoadEmployeesCheckBox_bool() {
+        return autoLoadEmployeesCheckBox_bool;
     }
 
     Directory StartScreenViewModel::getStaffDirectoryFromSettings() const {
         return appSettings.lock()->getStaffDirectory();
+    }
+
+    StartScreenViewModel::~StartScreenViewModel() {
+        delete autoLoadEmployeesCheckBox_bool;
     }
 
 } // ViewModel

@@ -17,9 +17,12 @@ add_library(ui STATIC
         ../../include/ui/ViewModel/EmployeeLoadScreenAutoViewModel.h
         ../../include/ui/View/EmployeeLoadScreenAutoView.cpp
         ../../include/ui/View/EmployeeLoadScreenAutoView.h
+        ../../include/ui/Model/loadEmployeeLogModel.cpp
+        ../../include/ui/Model/loadEmployeeLogModel.h
 )
 
 find_package(Boost REQUIRED COMPONENTS signals2)
+
 
 target_link_libraries(ui PUBLIC
         ftxui::screen
@@ -29,5 +32,6 @@ target_link_libraries(ui PUBLIC
         utils
         core
         data
+        fmt::fmt
 )
 target_include_directories(ui PUBLIC ../include)

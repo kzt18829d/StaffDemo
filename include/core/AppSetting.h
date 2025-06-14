@@ -14,6 +14,16 @@
 #include "../core/ThemeManager.h"
 #include "../core/TranslationManager.h"
 #include "../Data/TranslationStorageProvider.h"
+#include <boost/log/trivial.hpp>
+#include "boost/shared_ptr.hpp"
+
+
+#define INFO        BOOST_LOG_TRIVIAL(info)
+#define WARNING     BOOST_LOG_TRIVIAL(warning)
+#define ERROR       BOOST_LOG_TRIVIAL(error)
+#define FATAL_ERROR BOOST_LOG_TRIVIAL(fatal_error)
+#define DEBUG_      BOOST_LOG_TRIVIAL(debug)
+
 ///@defgroup Core Ядро
 
 ///@namespace Core
@@ -30,6 +40,7 @@ namespace Core {
         Directory StaffDirectory;
         Directory StaffDirectory_custom;
         Directory LogDirectory;
+        Directory LoggerSettings;
 
         Size ScreenWidth {120};
         Size ScreenHeight {30};
@@ -45,11 +56,14 @@ namespace Core {
             ThemeDirectory              = "./themes.json";
             StaffDirectory              = "./Staff_Data.csv";
             LogDirectory                = "./logs/log-" + getTime();
+            LoggerSettings              = "./logger.ini";
+            loadThemes                  = true;
 #else
             LocalizationDirectory       = "./Data_local/newLangs.json";
             ThemeDirectory              = "./Data_local/themes.json";
             StaffDirectory              = "./Data_local/Staff_Data.csv";
             LogDirectory                = "./Data_local/logs/log-" + Utils::getTime();
+            LoggerSettings              = "./Data_local/logger.ini";
             loadThemes                  = false;
 #endif
             currentLanguage = "en";

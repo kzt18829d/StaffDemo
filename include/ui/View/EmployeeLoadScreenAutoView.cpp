@@ -14,7 +14,7 @@ namespace View {
             if (viewModel->getSuccessLoadEmployees()) viewModel->saveAndGoBaseWindowSignal(WindowType::BASE_WINDOW);
         };
 
-        gaugeProcentString = std::to_string(viewModel->getCurrentGaugeLine());
+        gaugeProcentString = std::to_string(static_cast<int>(viewModel->getCurrentGaugeLine())) + "%";
 
         loadingGauge = ftxui::gaugeRight(0.0);
         loadEmployeesLog = ftxui::paragraphAlignLeft("");
@@ -31,8 +31,12 @@ namespace View {
     ftxui::Element EmployeeLoadScreenAutoView::Render() {
         const auto& theme = viewModel->getTheme();
 
+//        updateCurrentGaugeProcent();
+//        updateCurrentGaugeProcentString();
+
         auto loadingGaugeRender = vbox({
-            loadingGauge | color(theme.text_primary) | hcenter,
+            loadingGauge | color(theme.text_primary) | size(WIDTH, EQUAL, 60) | borderHeavy,
+            text(gaugeProcentString) | hcenter | color(theme.text_primary),
             text(statusMessage) | hcenter | color(theme.text_primary)
         });
         auto windowHeader = ftxui::hbox({
@@ -42,21 +46,22 @@ namespace View {
         }) | ftxui::bgcolor(theme.bg_primary) | ftxui::color(theme.text_window_header) | ftxui::borderStyled(theme.border_window_header);
 
         auto loadEmployeesLogRender = vbox({
-
-        }) | borderStyled(theme.border_primary);
+            vbox({text("EXAMPLE")}) | hcenter | vcenter
+        }) | borderStyled(theme.border_primary) | size (WIDTH, EQUAL, 80) | size(HEIGHT, EQUAL, 8);
 
         auto buttons = ftxui::hbox({
-           navigateToBaseWindowButton->Render() | color(theme.text_primary) | bgcolor(theme.bg_primary)
+           navigateToBaseWindowButton->Render() | color(theme.text_primary) | bgcolor(theme.bg_primary) | theme.button_style | (navigateToBaseWindowButton->Focused() ? theme.button_focused : nothing)
         });
 
         return vbox({
             windowHeader | size(HEIGHT, EQUAL, 5),
             vbox({
-                filler() | size(HEIGHT, EQUAL, 5),
+                filler() | size(HEIGHT, EQUAL, 4),
                 loadingGaugeRender | hcenter,
-                filler() | size(HEIGHT, EQUAL, 5),
+                filler() | size(HEIGHT, EQUAL, 1),
                 loadEmployeesLogRender | hcenter,
-                filler() | size(HEIGHT, EQUAL, 5)
+                filler() | size(HEIGHT, EQUAL, 1),
+                buttons | align_right
             }) | size(HEIGHT, EQUAL, 22),
             hbox({}) | borderStyled(theme.border_window)| size(HEIGHT, EQUAL, 3)
         });
@@ -70,7 +75,7 @@ namespace View {
     }
 
     void EmployeeLoadScreenAutoView::updateCurrentGaugeProcentString() {
-        gaugeProcentString = std::to_string(viewModel->getCurrentGaugeLine());
+        gaugeProcentString = std::to_string(static_cast<int>(viewModel->getCurrentGaugeLine() * 100)) + "%";
     }
 
 } // View

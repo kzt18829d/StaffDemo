@@ -19,7 +19,7 @@ namespace ViewModel {
         return loadedEmployeesCount.get();
     }
 
-    Counter *EmployeeLoadScreenAutoViewModel::getLoadedEployeesPotentialCount() const {
+    Counter *EmployeeLoadScreenAutoViewModel::getLoadedEmployeesPotentialCount() const {
         return loadedEmployeesPotentialCount.get();
     }
 

@@ -20,10 +20,11 @@ namespace ViewModel {
         Message checkBoxMessage;
         Directory staffDirectory;
 
-        std::shared_ptr<bool> autoLoadEmployeesCheckBox_bool;
+        bool* autoLoadEmployeesCheckBox_bool = new bool(false);
 
     public:
         explicit StartScreenViewModel(std::shared_ptr<Core::AppSettings> _appSettings);
+        ~StartScreenViewModel();
 
         Message getStatusMessage() const;
         Message getCheckBoxMessage() const;

@@ -24,7 +24,7 @@ namespace ViewModel {
         explicit EmployeeLoadScreenAutoViewModel(std::shared_ptr<Core::AppSettings> sharedPtr);
 
         Counter* getLoadedEmployeesCount() const;
-        Counter* getLoadedEployeesPotentialCount() const;
+        Counter* getLoadedEmployeesPotentialCount() const;
         bool* getSuccessLoadEmployees() const;
         gaugeCounter getCurrentGaugeLine() const;
         std::queue<Text> getLoadedEmployeeScreenLog_all() const;
