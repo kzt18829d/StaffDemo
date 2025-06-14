@@ -1,12 +1,15 @@
 {
   "en": {
+    "VIEW-BaseScreenView_ExitButton" : "Exit",
+    "VIEW_BaseScreenView_SaveMessage" : "Saved",
+    "VIEW_BaseScreenView_MainSaveButton" : "Save all",
     "VIEW_BaseScreenView_toBaseScreenButton" : "Home Page",
     "VIEW_BaseScreenView_toSettingsScreenButton" : "Settings",
     "VIEW_BaseScreenView_toFindEmployeeScreenButton" : "Find Employee",
     "VIEWMODEL_EmployeeLoadScreenAuto_navigateToBaseWindowButton" : "Navigate to Personal Manager",
     "BUTTON.LOAD_SCREEN.nextEmployeeButton" : "Next Employee",
-    "BUTTON.StartScreen.ApplyDefault" : "Apply Default",
-    "BUTTON.StartScreen.ApplyCustom" : "Apply",
+    "VIEW_StartScreen_ApplyDefaultSettingsButton" : "Apply Default",
+    "VIEW_StartScreen_ApplyCustomSettingsButton" : "Apply This",
     "CHECKBOX.LOAD_SCREEN.nextEmployee.comfirm" : "Confirm",
     "personal.POSITION" : "Position",
     "file.LOC" : "DataBase directory",

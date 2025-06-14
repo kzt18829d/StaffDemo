@@ -3,6 +3,7 @@
 //
 
 #include "StartScreenView.h"
+#include "fmt/core.h"
 
 namespace View {
 
@@ -16,8 +17,8 @@ namespace View {
         autoLoadCheckBox        = ftxui::Checkbox(viewModel->getCheckBoxMessage(), viewModel->getAutoLoadEmployeesCheckBox_bool());
 
         //add Translation Manager
-        defaultSettingsButton   = ftxui::Button("Use Default", [&, this]{ viewModel->useDefaultSettings(); });
-        customSettingsButton    = ftxui::Button("Use Current", [&, this]{ viewModel->useCustomSettings(); });
+        defaultSettingsButton   = ftxui::Button(fmt::format("{:^{}}", viewModel->getTranslate("VIEW_StartScreen_ApplyDefaultSettingsButton"), 20), [&, this]{ viewModel->useDefaultSettings(); });
+        customSettingsButton    = ftxui::Button(fmt::format("{:^{}}", viewModel->getTranslate("VIEW_StartScreen_ApplyCustomSettingsButton"), 20), [&, this]{ viewModel->useCustomSettings(); });
 
         windowContainer         = ftxui::Container::Vertical({
             staffDirectoryInput,
@@ -38,7 +39,7 @@ namespace View {
 
         auto windowHeader = ftxui::hbox({
             ftxui::filler(),
-            ftxui::text(/*Translate::instance().dict().at(*/"TITLE_START_SCREEN")/*)*/ | ftxui::center | ftxui::bold,
+            ftxui::text(fmt::format("{:^{}}",viewModel->getTranslate("TITLE_F1"), 34)) | ftxui::center | ftxui::bold,
             ftxui::filler()
         }) | ftxui::bgcolor(theme.bg_primary) | ftxui::color(theme.text_window_header) | ftxui::borderStyled(theme.border_window_header);
 

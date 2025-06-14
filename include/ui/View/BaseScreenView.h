@@ -15,6 +15,8 @@ namespace View {
         std::shared_ptr<ViewModel::BaseScreenViewModel> viewModel;
 
         int* LeftMainMenuSelector = new int{0};
+        TextLabel saveMessage;
+
 
         std::function<void()> saveFunction;
         std::function<void()> exitFunction;
@@ -38,6 +40,8 @@ namespace View {
         ftxui::Component windowContainer;
 
         void changeLeftMainMenuSelector(int newSelector);
+        void changeSaveMessage(Text newMessage);
+
 
     public:
         BaseScreenView(std::shared_ptr<ViewModel::BaseScreenViewModel> _vm);

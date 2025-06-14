@@ -9,7 +9,15 @@
 namespace ViewModel {
 
     class BaseScreenViewModel : public BasicViewModel {
+    private:
         std::weak_ptr<Core::AppSettings> appSettings;
+
+    public:
+        BaseScreenViewModel(std::shared_ptr<Core::AppSettings> sharedPtr);
+        ~BaseScreenViewModel();
+        boost::signals2::signal<void()> exitSignal;
+
+
     };
 
 } // ViewModel

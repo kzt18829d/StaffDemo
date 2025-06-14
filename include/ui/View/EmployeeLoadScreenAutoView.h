@@ -8,6 +8,7 @@
 #include "../ViewModel/EmployeeLoadScreenAutoViewModel.h"
 #include "../../core/Usages.h"
 #include "ftxui/dom/elements.hpp"
+#include "fmt/core.h"
 
 
 namespace View {

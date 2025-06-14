@@ -14,8 +14,8 @@ namespace View {
         loadingGauge = ftxui::gaugeRight(0.0);
         loadEmployeesLog = ftxui::paragraphAlignLeft("log");
 
-        navigateToBaseWindowButton = ftxui::Button(viewModel->getTranslate("VIEWMODEL_EmployeeLoadScreenAuto_navigateToBaseWindowButton"), [&]() {
-            if (*viewModel->getSuccessLoadEmployees() == true) viewModel->saveAndGoBaseWindowSignal(WindowType::START_WINDOW); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        navigateToBaseWindowButton = ftxui::Button(fmt::format("{:^{}}", viewModel->getTranslate("VIEWMODEL_EmployeeLoadScreenAuto_navigateToBaseWindowButton"), 38), [&]() {
+            if (*viewModel->getSuccessLoadEmployees() == true) viewModel->saveAndGoBaseWindowSignal(WindowType::BASE_WINDOW); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             else return void();
         });
 

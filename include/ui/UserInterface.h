@@ -25,11 +25,13 @@
 // include ViewModels
 #include "ViewModel/StartScreenViewModel.h"
 #include "ViewModel/EmployeeLoadScreenAutoViewModel.h"
+#include "ViewModel/BaseScreenViewModel.h"
 
 
 // include Views
 #include "ui/View/StartScreenView.h"
 #include "View/EmployeeLoadScreenAutoView.h"
+#include "View/BaseScreenView.h"
 
 
 ///@defgroup TextUserInterface Текстовый пользовательский интерфейс
@@ -64,8 +66,11 @@ namespace UI {
         boost::signals2::connection EmployeeLoadScreenAutoConnection;
         boost::signals2::connection EmployeeLoadScreenHandConnection;
 
+        boost::signals2::connection exitSignalConnection;
+
         std::shared_ptr<ViewModel::StartScreenViewModel> startScreenViewModel;
         std::shared_ptr<ViewModel::EmployeeLoadScreenAutoViewModel> employeeLoadScreenAutoViewModel;
+        std::shared_ptr<ViewModel::BaseScreenViewModel> baseScreenViewModel;
 
     public:
         UserInterface();

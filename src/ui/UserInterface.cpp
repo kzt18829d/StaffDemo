@@ -20,9 +20,13 @@ namespace UI {
         auto employeeLoadScreenView = std::make_shared<View::EmployeeLoadScreenAutoView>(employeeLoadScreenAutoViewModel);
         screenManager.addScreen(WindowType::LOAD_EMPLOYEES_WINDOW_auto, employeeLoadScreenView);
 
+        baseScreenViewModel = std::make_shared<ViewModel::BaseScreenViewModel>(appSettings);
+        auto baseScreenView = std::make_shared<View::BaseScreenView>(baseScreenViewModel);
+        screenManager.addScreen(WindowType::BASE_WINDOW, baseScreenView);
+
 
 #ifdef DEBUG_PARAM_
-        auto TYPESCREEN = WindowType::LOAD_EMPLOYEES_WINDOW_auto;
+        auto TYPESCREEN = WindowType::START_WINDOW;
         screenManager.showScreen(TYPESCREEN); //!!!!!!!!!!!!!!!
 #else
         screenManager.showScreen(WindowType::START_WINDOW);
@@ -37,6 +41,11 @@ namespace UI {
         EmployeeLoadScreenAutoConnection = employeeLoadScreenAutoViewModel->saveAndGoBaseWindowSignal.connect([&, this](WindowType nextScreen){
             screenManager.showScreen(nextScreen);
             run();
+        });
+        ViewUpdateRequestConnection = baseScreenViewModel->ViewUpdateSignal.connect([&, this]{screenInteractive.PostEvent(Event::Custom);});
+
+        exitSignalConnection = baseScreenViewModel->exitSignal.connect([&, this]{
+           screenInteractive.ExitLoopClosure();
         });
     }
 
