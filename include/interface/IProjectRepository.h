@@ -17,7 +17,7 @@ namespace Interface {
         virtual void add(std::shared_ptr<Staff::Project> project) = 0;
         virtual void remove(std::shared_ptr<Staff::Project> project) = 0;
 
-        virtual std::map<std::string, std::shared_ptr<Staff::Project>> getProjects() const = 0;
+        virtual std::map<std::string, std::weak_ptr<Staff::Project>> getProjects() const = 0;
         virtual std::vector<std::weak_ptr<Staff::IEmployee>> getStaff(std::shared_ptr<Staff::Project> project) const = 0;
         virtual std::vector<std::weak_ptr<Staff::IEmployee>> getStaff(const std::string& projectName) const = 0;
 
@@ -32,6 +32,8 @@ namespace Interface {
         virtual void relocateStaff(std::shared_ptr<Staff::IEmployee> staff, const std::string& fromProject, const std::string& toProject) = 0;
         virtual void relocateStaff(std::shared_ptr<Staff::IEmployee> staff, std::shared_ptr<Staff::Project> fromProject, const std::string& toProject) = 0;
         virtual void relocateStaff(std::shared_ptr<Staff::IEmployee> staff, const std::string& fromProject, std::shared_ptr<Staff::Project> toProject) = 0;
+
+        virtual bool clean() = 0;
     };
 }
 

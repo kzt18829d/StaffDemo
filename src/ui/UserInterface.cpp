@@ -8,6 +8,7 @@
 namespace UI {
     void UserInterface::initModels() {
         appSettings = std::make_shared<Core::AppSettings>();
+        repositoryInstruments = std::make_shared<Core::RepositoryInstruments>();
     }
 
     void UserInterface::initScreens() {
@@ -20,13 +21,21 @@ namespace UI {
         auto employeeLoadScreenView = std::make_shared<View::EmployeeLoadScreenAutoView>(employeeLoadScreenAutoViewModel);
         screenManager.addScreen(WindowType::LOAD_EMPLOYEES_WINDOW_auto, employeeLoadScreenView);
 
+
+        // Base Screen ----------------------------
+
+        // Settings Screen
+        baseScreen_SettingsSubviewModel = std::make_shared<ViewModel::SubViewModel::SettingsSubViewModel>(appSettings, repositoryInstruments);
+        auto baseScreen_SettingsSubview = std::make_shared<View::SubView::SettingsSubView>(baseScreen_SettingsSubviewModel);
+
+        // Base Screen
         baseScreenViewModel = std::make_shared<ViewModel::BaseScreenViewModel>(appSettings);
-        auto baseScreenView = std::make_shared<View::BaseScreenView>(baseScreenViewModel);
+        auto baseScreenView = std::make_shared<View::BaseScreenView>(baseScreenViewModel, baseScreen_SettingsSubview);
         screenManager.addScreen(WindowType::BASE_WINDOW, baseScreenView);
 
 
 #ifdef DEBUG_PARAM_
-        auto TYPESCREEN = WindowType::START_WINDOW;
+        auto TYPESCREEN = WindowType::BASE_WINDOW;
         screenManager.showScreen(TYPESCREEN); //!!!!!!!!!!!!!!!
 #else
         screenManager.showScreen(WindowType::START_WINDOW);
@@ -34,18 +43,36 @@ namespace UI {
     }
 
     void UserInterface::connectSignals() {
-        StartScreenSignalConnection = startScreenViewModel->applySettingsSignal.connect([&, this](WindowType nextScreen){
+        appSettings->themeManager->ThemeChangedSignal.connect([&,this](Core::Theme tm){
+            appSettings->themeManager->setTheme(tm.name);
+            screenInteractive.PostEvent(Event::Custom);
+        });
+
+        StartScreenStatusMessageChangedConnection= startScreenViewModel->statusMessageChangedSignal.connect([&, this](Message&){
+           screenInteractive.PostEvent(Event::Custom);
+        });
+
+        ChangeScreenFromStartScreenConnection = startScreenViewModel->applySettingsSignal.connect([&, this](WindowType nextScreen){
             screenManager.showScreen(nextScreen);
+//            screenInteractive.PostEvent(Event::Custom);
+            screenInteractive.ExitLoopClosure();
+//            screenInteractive.Exit();
             run();
         });
-        EmployeeLoadScreenAutoConnection = employeeLoadScreenAutoViewModel->saveAndGoBaseWindowSignal.connect([&, this](WindowType nextScreen){
+
+        ChangeScreenFromEmployeeLoadScreenAutoConnection = employeeLoadScreenAutoViewModel->saveAndGoBaseWindowSignal.connect([&, this](WindowType nextScreen){
             screenManager.showScreen(nextScreen);
+            screenInteractive.ExitLoopClosure();
+//            screenInteractive.Exit();
             run();
         });
+
         ViewUpdateRequestConnection = baseScreenViewModel->ViewUpdateSignal.connect([&, this]{screenInteractive.PostEvent(Event::Custom);});
 
         exitSignalConnection = baseScreenViewModel->exitSignal.connect([&, this]{
            screenInteractive.ExitLoopClosure();
+           screenInteractive.Exit();
+           exit(0);
         });
     }
 
@@ -61,6 +88,7 @@ namespace UI {
     }
 
     void UserInterface::run() {
+        screenInteractive.ExitLoopClosure();
         screenInteractive.Loop(screenManager.getActiveScreenComponent());
     }
 

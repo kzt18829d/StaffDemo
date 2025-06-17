@@ -3,6 +3,7 @@
 //
 
 #include "StartScreenViewModel.h"
+#include "core/ScreensENUM.h"
 
 namespace ViewModel {
     StartScreenViewModel::StartScreenViewModel(std::shared_ptr<Core::AppSettings> sharedPtr) : BasicViewModel(sharedPtr) {

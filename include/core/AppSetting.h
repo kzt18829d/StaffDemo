@@ -4,16 +4,13 @@
 #include "algorithm"
 #include "ctime"
 #include "staff/IEmployee.h"
-#include "interaface/IStaffRepository.h"
-#include "interaface/IProjectRepository.h"
-#include "interaface/ISPStorageProvider.h"
 #include "../core./Usages.h"
-#include "ScreensENUM.h"
 #include "../utils/FileTimeStamp.h"
 #include "../data/ThemeStorageProvider.h"
 #include "../core/ThemeManager.h"
 #include "../core/TranslationManager.h"
 #include "../Data/TranslationStorageProvider.h"
+
 
 
 ///@defgroup Core Ядро
@@ -42,32 +39,6 @@ namespace Core {
         Check UseCustom {false};
         Check loadThemes {false};
     public:
-        AppSettings() {
-#ifdef NDEBUG
-            LocalizationDirectory       = "./localization.json";
-            ThemeDirectory              = "./themes.json";
-            StaffDirectory              = "./Staff_Data.csv";
-            LogDirectory                = "./logs/log-" + getTime();
-            LoggerSettings              = "./logger.ini";
-            loadThemes                  = true;
-#else
-            LocalizationDirectory       = "./Data_local/newLangs.json";
-            ThemeDirectory              = "./Data_local/themes.json";
-            StaffDirectory              = "./Data_local/Staff_Data.csv";
-            LogDirectory                = "./Data_local/logs/log-" + Utils::getTime();
-            LoggerSettings              = "./Data_local/logger.ini";
-            loadThemes                  = false;
-#endif
-            currentLanguage = "en";
-            windowType                  = WindowType();
-            themeStorageProvider        = std::make_unique<Data::ThemeStorageProvider>(this->ThemeDirectory);
-            translationStorageProvider  = std::make_unique<Data::TranslationStorageProvider>(this->LocalizationDirectory);
-            themeManager                = std::make_unique<Core::ThemeManager>();
-            translationManager          = std::make_unique<Core::TranslationManager>(this->currentLanguage);
-        } // AppSettings
-
-        ~AppSettings() = default;
-
 
         [[nodiscard]] Directory getLocalizationDirectory() const  { return this->LocalizationDirectory; }
         [[nodiscard]] Directory getThemeDirectory() const         { return this->ThemeDirectory; }
@@ -88,12 +59,38 @@ namespace Core {
 
         void setStaffDirectory(Directory& newDirectory)           { this->StaffDirectory_custom = std::move(newDirectory); }
 
-        WindowType windowType;
 
         std::unique_ptr<Data::ThemeStorageProvider> themeStorageProvider;
         std::unique_ptr<Data::TranslationStorageProvider> translationStorageProvider;
         std::unique_ptr<Core::ThemeManager> themeManager;
         std::unique_ptr<Core::TranslationManager> translationManager;
+
+        AppSettings() {
+#ifdef NDEBUG
+            LocalizationDirectory       = "./localization.json";
+            ThemeDirectory              = "./themes.json";
+            StaffDirectory              = "./Staff_Data.csv";
+            LogDirectory                = "./logs/log-" + getTime();
+            LoggerSettings              = "./logger.ini";
+            loadThemes                  = true;
+#else
+            LocalizationDirectory       = "./Data_local/newLangs.json";
+            ThemeDirectory              = "./Data_local/themes.json";
+            StaffDirectory              = "./Data_local/Staff_Data.csv";
+            LogDirectory                = "./Data_local/logs/log-" + Utils::getTime();
+            LoggerSettings              = "./Data_local/logger.ini";
+            loadThemes                  = false;
+#endif
+            currentLanguage = "en";
+            themeStorageProvider        = std::make_unique<Data::ThemeStorageProvider>(this->ThemeDirectory);
+            translationStorageProvider  = std::make_unique<Data::TranslationStorageProvider>(this->LocalizationDirectory);
+            themeManager                = std::make_unique<Core::ThemeManager>();
+            translationManager          = std::make_unique<Core::TranslationManager>(this->currentLanguage);
+
+        } // AppSettings
+
+        ~AppSettings() = default;
+
     };
 }
 

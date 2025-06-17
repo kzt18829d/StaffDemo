@@ -5,14 +5,15 @@
 #include "staff/Personal.h"
 #include "staff/Engineer.h"
 #include "staff/Manager.h"
+#include "staff/employee_temp.h"
 
 using namespace Utils;
 
 namespace Data::StorageProvider {
-    CSVSPStorageProvider::CSVSPStorageProvider(const std::string &fileDir) : directory{std::move(fileDir)}
-    {
-//        FileLogger::instance().log("-INITIALIZE StaffDemo::Core::StorageProvider::CSVProjectRepository initialized with FileDirectory \"" + directory + "\".");
-    }
+//    CSVSPStorageProvider::CSVSPStorageProvider(const std::string &fileDir) : directory{std::move(fileDir)}
+//    {
+////        FileLogger::instance().log("-INITIALIZE StaffDemo::Core::StorageProvider::CSVProjectRepository initialized with FileDirectory \"" + directory + "\".");
+//    }
     std::pair<std::queue<Staff::TempEmloyee>, std::vector<Staff::TempProject>> CSVSPStorageProvider::load() {
 //        FileLogger::instance().log("-LOAD StaffDemo::Core::StorageProvider::CSVProjectRepository.load is called.");
         std::ifstream CSV(directory, std::ios::in);
@@ -45,8 +46,7 @@ namespace Data::StorageProvider {
     }
 
     //save second
-    void CSVSPStorageProvider::save(const std::vector<Staff::TempEmloyee> &staffs,
-                                    const std::vector<Staff::TempProject> &projects) {
+    void CSVSPStorageProvider::save(const std::vector<Staff::TempEmloyee>& staffs, const std::vector<Staff::TempProject>& projects) {
         std::ofstream CSV(directory, std::ios_base::out | std::ios_base::trunc);
         char delim = ';';
         if (!CSV.is_open()) {
@@ -65,8 +65,8 @@ namespace Data::StorageProvider {
     }
 
     // save_base
-    void CSVSPStorageProvider::save(const std::map<std::string, std::shared_ptr<Staff::IEmployee>> &staffs,
-                                    const std::map<std::string, std::shared_ptr<Staff::Project>> &projects) {
+    void CSVSPStorageProvider::save(const std::map<std::string, std::weak_ptr<Staff::IEmployee>> &staffs,
+                                    const std::map<std::string, std::weak_ptr<Staff::Project>> &projects) {
         char delim = ';';
         std::fstream file(directory, std::ios_base::out | std::ios_base::trunc);
         if (!file.is_open()) {
@@ -75,23 +75,23 @@ namespace Data::StorageProvider {
         }
         file << "id;name;position;salary;project\n";
         for (const auto& [id, Employee]: staffs) {
-            file << Employee->getID() << delim;
-            file << Employee->getName() << delim;
-            file << Employee->getPosition() << delim;
+            file << Employee.lock()->getID() << delim;
+            file << Employee.lock()->getName() << delim;
+            file << Employee.lock()->getPosition() << delim;
 
-            if (auto Personal_Class = std::dynamic_pointer_cast<Staff::Personal>(Employee)) {
+            if (auto Personal_Class = std::dynamic_pointer_cast<Staff::Personal>(Employee.lock())) {
                 file << Personal_Class->getSalary() << delim;
             } else file << "" << delim;
 
-            if (auto Engineer_Class = std::dynamic_pointer_cast<Staff::Engineer>(Employee)) {
+            if (auto Engineer_Class = std::dynamic_pointer_cast<Staff::Engineer>(Employee.lock())) {
                 if (auto project = Engineer_Class->getProject().lock()) {
                     file << project->getName();
                 } else file << "";
-            } else if (auto ProjectManager_Class = std::dynamic_pointer_cast<Staff::ProjectManager>(Employee)) {
+            } else if (auto ProjectManager_Class = std::dynamic_pointer_cast<Staff::ProjectManager>(Employee.lock())) {
                 if (auto project = ProjectManager_Class->getProject().lock()){
                     file << project->getName();
                 } else file << "";
-            } else if (auto SeniorManager_Class = std::dynamic_pointer_cast<Staff::SeniorManager>(Employee)) {
+            } else if (auto SeniorManager_Class = std::dynamic_pointer_cast<Staff::SeniorManager>(Employee.lock())) {
                 const auto& projects_ = SeniorManager_Class->getProjects();
                 for (auto& [projectName, project_weak] : projects_) {
                     file << ':';
@@ -104,4 +104,10 @@ namespace Data::StorageProvider {
         }
         file.close();
     }
+
+    void CSVSPStorageProvider::setDirectory(std::string &directory) {
+        directory = std::move(directory);
+    }
+
+    CSVSPStorageProvider::CSVSPStorageProvider() = default;
 }

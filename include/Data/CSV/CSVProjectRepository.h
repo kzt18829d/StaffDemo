@@ -1,7 +1,7 @@
 #ifndef STAFFDEMO_CSVPROJECTREPOSITORY_H
 #define STAFFDEMO_CSVPROJECTREPOSITORY_H
 
-#include "../../interaface/IProjectRepository.h"
+#include "../../interface/IProjectRepository.h"
 #include "../../staff/IEmployee.h"
 #include "../../staff/Factory.h"
 #include "../../utils/StaffExceptions.h"
@@ -21,7 +21,7 @@ namespace Data::Repository {
         void add(std::shared_ptr<Staff::Project> project) override;
         void remove(std::shared_ptr<Staff::Project> project) override;
 
-        std::map<std::string, std::shared_ptr<Staff::Project>> getProjects() const override;
+        std::map<std::string, std::weak_ptr<Staff::Project>> getProjects() const override;
         std::vector<std::weak_ptr<Staff::IEmployee>> getStaff(std::shared_ptr<Staff::Project> project) const override;
         std::vector<std::weak_ptr<Staff::IEmployee>> getStaff(const std::string &projectName) const override;
 
@@ -34,6 +34,8 @@ namespace Data::Repository {
         void relocateStaff(std::shared_ptr<Staff::IEmployee> staff, std::shared_ptr<Staff::Project> fromProject, const std::string &toProject) override;
         void relocateStaff(std::shared_ptr<Staff::IEmployee> staff, const std::string &fromProject, std::shared_ptr<Staff::Project> toProject) override;
         void relocateStaff(std::shared_ptr<Staff::IEmployee> staff, const std::string &fromProject, const std::string &toProject) override;
+
+        bool clean() override;
     };
 
 }

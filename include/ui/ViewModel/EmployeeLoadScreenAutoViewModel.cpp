@@ -8,7 +8,7 @@ namespace ViewModel {
     EmployeeLoadScreenAutoViewModel::EmployeeLoadScreenAutoViewModel(std::shared_ptr<Core::AppSettings> sharedPtr) : BasicViewModel(sharedPtr) {
         loadedEmployeesCount = std::make_unique<Counter>(0);
         loadedEmployeesPotentialCount = std::make_unique<Counter>(0);
-        SuccessLoadEmployees = std::make_shared<bool>(false);
+        SuccessLoadEmployees = std::make_shared<bool>(true);
 
         currentGaugeLine = std::make_shared<gaugeCounter>(0.0);
 

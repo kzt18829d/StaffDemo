@@ -20,7 +20,7 @@ namespace Data::Repository {
         }); it != STAFF_LIST.end()) STAFF_LIST.erase(it);
         else {
             // log
-            throw std::out_of_range("не найден");
+//            throw std::out_of_range("не найден");
         }
     }
 
@@ -44,5 +44,15 @@ namespace Data::Repository {
         std::for_each(STAFF_LIST.begin(), STAFF_LIST.end(), [&](const auto& staff){
             if (staff.second->getPosition() == position) temp[staff.first] = staff.second; });
         return temp;
+    }
+
+    bool CSVStaffRepository::clean() {
+        try {
+            STAFF_LIST.clear();
+        } catch (...){
+            return false;
+        }
+        if (!STAFF_LIST.empty()) return false;
+        return true;
     }
 } // StaffRepository

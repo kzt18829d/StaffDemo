@@ -7,31 +7,21 @@
 #include "ScreenManager.h"
 #include "memory"
 #include "ftxui/component/screen_interactive.hpp"
-//#include <boost/log/trivial.hpp>
-//#include <boost/log/core.hpp>
-//#include "boost/log/expressions.hpp"
-//#include <boost/log/sinks/text_file_backend.hpp>
-//#include <boost/log/utility/setup/file.hpp>
-//#include <boost/log/utility/setup/common_attributes.hpp>
-//#include <boost/log/sources/record_ostream.hpp>
-//#include <boost/log/sources/severity_logger.hpp>
-//#include "boost/log/support/date_time.hpp"
-//#include <boost/log/sinks/async_frontend.hpp>
-//#include <boost/log/core/core.hpp>
-
-
 #include "../core/ScreensENUM.h"
+#include "../core/RepositoryInstruments.h"
 
 // include ViewModels
 #include "ViewModel/StartScreenViewModel.h"
 #include "ViewModel/EmployeeLoadScreenAutoViewModel.h"
 #include "ViewModel/BaseScreenViewModel.h"
+#include "ViewModel/BaseScreenSubViewModel/SettingsSubViewModel.h"
 
 
 // include Views
 #include "ui/View/StartScreenView.h"
 #include "View/EmployeeLoadScreenAutoView.h"
 #include "View/BaseScreenView.h"
+#include "View/BaseScreenSubViews/SettingsSubView.h"
 
 
 ///@defgroup TextUserInterface Текстовый пользовательский интерфейс
@@ -59,18 +49,22 @@ namespace UI {
         ScreenManager screenManager;
 
         std::shared_ptr<Core::AppSettings> appSettings;
+        std::shared_ptr<Core::RepositoryInstruments> repositoryInstruments;
 
         boost::signals2::connection ViewUpdateRequestConnection;
-        boost::signals2::connection StartScreenSignalConnection;
+        boost::signals2::connection ChangeScreenFromStartScreenConnection;
 
-        boost::signals2::connection EmployeeLoadScreenAutoConnection;
-        boost::signals2::connection EmployeeLoadScreenHandConnection;
+        boost::signals2::connection ChangeScreenFromEmployeeLoadScreenAutoConnection;
+        boost::signals2::connection ChangeScreenFromEmployeeLoadScreenHandConnection;
+
+        boost::signals2::connection StartScreenStatusMessageChangedConnection;
 
         boost::signals2::connection exitSignalConnection;
 
         std::shared_ptr<ViewModel::StartScreenViewModel> startScreenViewModel;
         std::shared_ptr<ViewModel::EmployeeLoadScreenAutoViewModel> employeeLoadScreenAutoViewModel;
         std::shared_ptr<ViewModel::BaseScreenViewModel> baseScreenViewModel;
+        std::shared_ptr<ViewModel::SubViewModel::SettingsSubViewModel> baseScreen_SettingsSubviewModel;
 
     public:
         UserInterface();

@@ -9,6 +9,7 @@
 #include "string"
 #include "core/AppSetting.h"
 #include "core/Usages.h"
+
 namespace ViewModel {
 
     ///@brief Модель представления стартового окна

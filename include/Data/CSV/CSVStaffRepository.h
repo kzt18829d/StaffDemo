@@ -1,8 +1,8 @@
 #ifndef STAFFDEMO_STAFFREPOSITORYCSV_H
 #define STAFFDEMO_STAFFREPOSITORYCSV_H
 
-#include "../../interaface/IStaffRepository.h"
-#include "../../interaface/IStaffStorageProvider.h"
+#include "../../interface/IStaffRepository.h"
+//#include "../../interface/IStaffStorageProvider.h"
 #include <map>
 #include <memory>
 #include "../../staff/IEmployee.h"
@@ -22,6 +22,7 @@ namespace Data::Repository {
         std::map<std::string, std::weak_ptr<Staff::IEmployee>> getAll() const override;
         std::map<std::string, std::weak_ptr<Staff::IEmployee>> getByName(const std::string &name) const override;
         std::map<std::string, std::weak_ptr<Staff::IEmployee>> getByPosition(const std::string &position) const override;
+        bool clean() override;
     };
 
 } // StaffDemo

@@ -6,6 +6,8 @@ add_library(core STATIC
         ../../include/core/Usages.h
         ../../include/core/ScreensENUM.h
         ../../include/core/InfoTypeENUM.h
+        ../../include/core/RepositoryInstruments.cpp
+        ../../include/core/RepositoryInstruments.h
 )
 
 #find_package(boost_date_time CONFIG REQUIRED)

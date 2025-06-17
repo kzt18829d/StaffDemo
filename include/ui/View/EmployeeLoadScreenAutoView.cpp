@@ -40,7 +40,7 @@ namespace View {
         });
         auto windowHeader = ftxui::hbox({
             ftxui::filler(),
-            ftxui::text(/*Translate::instance().dict().at(*/"TITLE_START_SCREEN")/*)*/ | ftxui::center | ftxui::bold,
+            ftxui::text(fmt::format("{:^}", viewModel->getTranslate("TITLE_F1"))) | ftxui::center | ftxui::bold,
             ftxui::filler()
         }) | ftxui::bgcolor(theme.bg_primary) | ftxui::color(theme.text_window_header) | ftxui::borderStyled(theme.border_window_header);
 

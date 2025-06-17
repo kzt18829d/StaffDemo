@@ -15,8 +15,12 @@ namespace Data::Repository {
             }); it != std::end(PROJECT_LIST)) PROJECT_LIST.erase(it);
     }
 
-    std::map<std::string, std::shared_ptr<Staff::Project>> CSVProjectRepository::getProjects() const {
-        return PROJECT_LIST;
+    std::map<std::string, std::weak_ptr<Staff::Project>> CSVProjectRepository::getProjects() const {
+        std::map<std::string, std::weak_ptr<Staff::Project>> temp;
+        std::for_each(PROJECT_LIST.begin(), PROJECT_LIST.end(), [&](const auto& line){
+            temp[line.first] = line.second;
+        });
+        return temp;
     }
 
     std::vector<std::weak_ptr<Staff::IEmployee>> CSVProjectRepository::getStaff(std::shared_ptr<Staff::Project> project) const {
@@ -146,6 +150,14 @@ namespace Data::Repository {
         } catch (const std::exception& exception) {
             throw exception.what();
         }
+    }
+
+    bool CSVProjectRepository::clean() {
+        try{
+            PROJECT_LIST.clear();
+        } catch (...) { return false; }
+        if (!PROJECT_LIST.empty()) return false;
+        return true;
     }
 }
 

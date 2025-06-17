@@ -16,6 +16,7 @@ namespace Interface {
         virtual std::map<std::string, std::weak_ptr<Staff::IEmployee>> getAll() const = 0;
         virtual std::map<std::string, std::weak_ptr<Staff::IEmployee>> getByName(const std::string& name) const = 0;
         virtual std::map<std::string, std::weak_ptr<Staff::IEmployee>> getByPosition(const std::string& position) const = 0;
+        virtual bool clean() = 0;
     };
 }
 

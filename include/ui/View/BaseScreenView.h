@@ -1,12 +1,10 @@
-//
-// Created by hid3h on 14.06.2025.
-//
-
 #ifndef STAFFDEMO_BASESCREENVIEW_H
 #define STAFFDEMO_BASESCREENVIEW_H
 #include "BasicView.h"
 #include "../ViewModel/BaseScreenViewModel.h"
 #include "fmt/core.h"
+#include "BaseScreenSubViews/SettingsSubView.h"
+#include "memory"
 
 namespace View {
 
@@ -16,6 +14,8 @@ namespace View {
 
         int* LeftMainMenuSelector = new int{0};
         TextLabel saveMessage;
+        TextLabel StatusText;
+        TextLabel StatusMessage;
 
 
         std::function<void()> saveFunction;
@@ -29,6 +29,8 @@ namespace View {
 
         ftxui::Component BaseScreen;
         ftxui::Component SettingsScreen;
+//        ftxui::Component SettingsScreen;
+
         ftxui::Component findEmployeeScreen;
 
         std::vector<std::string> LeftMainMenuEntries;
@@ -42,10 +44,15 @@ namespace View {
         void changeLeftMainMenuSelector(int newSelector);
         void changeSaveMessage(Text newMessage);
 
+//        void initBaseScreen();
+//        void initSettingsScreen();
+//        void initFindEmployeeScreen();
+
+//        void changeActiveSubScreen();
 
     public:
-        BaseScreenView(std::shared_ptr<ViewModel::BaseScreenViewModel> _vm);
-        ~BaseScreenView();
+        explicit BaseScreenView(std::shared_ptr<ViewModel::BaseScreenViewModel> _vm, std::shared_ptr<SubView::SettingsSubView> settingsSubView);
+        ~BaseScreenView() override;
 
         ftxui::Element Render() override;
     };
