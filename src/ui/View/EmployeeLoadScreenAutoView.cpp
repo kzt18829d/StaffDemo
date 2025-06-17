@@ -2,7 +2,7 @@
 // Created by hid3h on 09.06.2025.
 //
 
-#include "EmployeeLoadScreenAutoView.h"
+#include "ui/View/EmployeeLoadScreenAutoView.h"
 
 namespace View {
 

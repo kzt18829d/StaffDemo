@@ -1,4 +1,4 @@
-#include "BasicView.h"
+#include "ui/View/BasicView.h"
 
 namespace View {
     BasicView::BasicView(std::shared_ptr<ViewModel::BasicViewModel> viewModel) : ViewModel(std::move(viewModel)) {

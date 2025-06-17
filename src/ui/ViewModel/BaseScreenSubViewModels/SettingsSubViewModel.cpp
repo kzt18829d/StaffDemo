@@ -2,7 +2,7 @@
 // Created by hid3h on 17.06.2025.
 //
 
-#include "SettingsSubViewModel.h"
+#include "ui/ViewModel/BaseScreenSubViewModel/SettingsSubViewModel.h"
 
 
 namespace ViewModel::SubViewModel {

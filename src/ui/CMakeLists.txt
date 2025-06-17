@@ -5,27 +5,27 @@ add_library(ui STATIC
         ../../include/core/AppSetting.h
         ScreenManager.cpp
         ../../include/ui/ScreenManager.h
-        ../../include/ui/ViewModel/BasicViewModel.cpp
+        ViewModel/BasicViewModel.cpp
         ../../include/ui/ViewModel/BasicViewModel.h
-        ../../include/ui/ViewModel/StartScreenViewModel.cpp
+        ViewModel/StartScreenViewModel.cpp
         ../../include/ui/ViewModel/StartScreenViewModel.h
-        ../../include/ui/View/BasicView.cpp
+        View/BasicView.cpp
         ../../include/ui/View/BasicView.h
-        ../../include/ui/View/StartScreenView.cpp
+        View/StartScreenView.cpp
         ../../include/ui/View/StartScreenView.h
-        ../../include/ui/ViewModel/EmployeeLoadScreenAutoViewModel.cpp
+        ViewModel/EmployeeLoadScreenAutoViewModel.cpp
         ../../include/ui/ViewModel/EmployeeLoadScreenAutoViewModel.h
-        ../../include/ui/View/EmployeeLoadScreenAutoView.cpp
+        View/EmployeeLoadScreenAutoView.cpp
         ../../include/ui/View/EmployeeLoadScreenAutoView.h
-        ../../include/ui/Model/loadEmployeeLogModel.cpp
+        Model/loadEmployeeLogModel.cpp
         ../../include/ui/Model/loadEmployeeLogModel.h
-        ../../include/ui/ViewModel/BaseScreenViewModel.cpp
+        ViewModel/BaseScreenViewModel.cpp
         ../../include/ui/ViewModel/BaseScreenViewModel.h
-        ../../include/ui/View/BaseScreenView.cpp
+        View/BaseScreenView.cpp
         ../../include/ui/View/BaseScreenView.h
-        ../../include/ui/View/BaseScreenSubViews/SettingsSubView.cpp
+        View/BaseScreenSubViews/SettingsSubView.cpp
         ../../include/ui/View/BaseScreenSubViews/SettingsSubView.h
-        ../../include/ui/ViewModel/BaseScreenSubViewModel/SettingsSubViewModel.cpp
+        ViewModel/BaseScreenSubViewModels/SettingsSubViewModel.cpp
         ../../include/ui/ViewModel/BaseScreenSubViewModel/SettingsSubViewModel.h
 )
 

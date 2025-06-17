@@ -2,7 +2,7 @@
 // Created by hid3h on 08.06.2025.
 //
 
-#include "ThemeStorageProvider.h"
+#include "Data/ThemeStorageProvider.h"
 namespace Data {
 
     ThemeStorageProvider::ThemeStorageProvider(Directory& themeDirectory) : ThemeDirectory(themeDirectory), loadedThemesList({}) {

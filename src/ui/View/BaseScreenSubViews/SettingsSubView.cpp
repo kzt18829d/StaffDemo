@@ -2,7 +2,7 @@
 // Created by hid3h on 17.06.2025.
 //
 
-#include "SettingsSubView.h"
+#include "ui/View/BaseScreenSubViews/SettingsSubView.h"
 
 
 namespace View::SubView {

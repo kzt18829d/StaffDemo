@@ -3,7 +3,7 @@
 //
 
 #include <fstream>
-#include "RepositoryInstruments.h"
+#include "core/RepositoryInstruments.h"
 
 namespace Core {
     RepositoryInstruments::RepositoryInstruments() {

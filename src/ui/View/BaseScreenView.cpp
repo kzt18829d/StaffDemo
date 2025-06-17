@@ -2,7 +2,7 @@
 // Created by hid3h on 14.06.2025.
 //
 
-#include "BaseScreenView.h"
+#include "ui/View/BaseScreenView.h"
 
 namespace View {
     BaseScreenView::BaseScreenView(std::shared_ptr<ViewModel::BaseScreenViewModel> _vm, std::shared_ptr<SubView::SettingsSubView> settingsSubView) : BasicView(_vm), viewModel(_vm), SettingsScreen(settingsSubView) {

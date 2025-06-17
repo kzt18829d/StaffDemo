@@ -6,7 +6,7 @@ add_library(core STATIC
         ../../include/core/Usages.h
         ../../include/core/ScreensENUM.h
         ../../include/core/InfoTypeENUM.h
-        ../../include/core/RepositoryInstruments.cpp
+        RepositoryInstruments.cpp
         ../../include/core/RepositoryInstruments.h
 )
 

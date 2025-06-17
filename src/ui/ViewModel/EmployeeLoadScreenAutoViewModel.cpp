@@ -2,7 +2,7 @@
 // Created by hid3h on 09.06.2025.
 //
 
-#include "EmployeeLoadScreenAutoViewModel.h"
+#include "ui/ViewModel/EmployeeLoadScreenAutoViewModel.h"
 
 namespace ViewModel {
     EmployeeLoadScreenAutoViewModel::EmployeeLoadScreenAutoViewModel(std::shared_ptr<Core::AppSettings> sharedPtr) : BasicViewModel(sharedPtr) {

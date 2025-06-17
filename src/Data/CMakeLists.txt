@@ -5,11 +5,11 @@ add_library(data STATIC
         CSV/CSVProjectRepository.cpp
         ../../include/Data/CSV/CSVSPStorageProvider.h
         CSV/CSVSPStorageProvider.cpp
-        ../../include/Data/ThemeStorageProvider.cpp
+        ThemeStorageProvider.cpp
         ../../include/Data/ThemeStorageProvider.h
-        ../../include/Data/FileChecking.cpp
+        FileChecking.cpp
         ../../include/Data/FileChecking.h
-        ../../include/Data/TranslationStorageProvider.cpp
+        TranslationStorageProvider.cpp
         ../../include/Data/TranslationStorageProvider.h
 )
 

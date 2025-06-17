@@ -2,7 +2,7 @@
 // Created by hid3h on 08.06.2025.
 //
 
-#include "StartScreenView.h"
+#include "ui/View/StartScreenView.h"
 #include "fmt/core.h"
 
 namespace View {

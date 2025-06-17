@@ -2,7 +2,7 @@
 // Created by hid3h on 10.06.2025.
 //
 
-#include "loadEmployeeLogModel.h"
+#include "ui/Model/loadEmployeeLogModel.h"
 #include "fmt/core.h"
 
 namespace Model {
