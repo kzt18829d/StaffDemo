@@ -10,6 +10,8 @@
 #include "core/AppSetting.h"
 #include "core/Usages.h"
 
+enum class WindowType;
+
 namespace ViewModel {
 
     ///@brief Модель представления стартового окна
@@ -40,7 +42,7 @@ namespace ViewModel {
         void useDefaultSettings();
         void useCustomSettings();
 
-        boost::signals2::signal<void(WindowType nextScreen)> applySettingsSignal;
+        boost::signals2::signal<void(WindowType nextScreen)> applySettingsSignal{};
         boost::signals2::signal<void(Message&)> statusMessageChangedSignal;
 
     };

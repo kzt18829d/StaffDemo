@@ -4,7 +4,7 @@
 #include "../../core/AppSetting.h"
 #include "../../core/Usages.h"
 #include "queue"
-
+#include "../../core/ScreensENUM.h"
 namespace ViewModel {
 
     class EmployeeLoadScreenAutoViewModel : public BasicViewModel {

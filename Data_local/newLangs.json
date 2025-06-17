@@ -1,5 +1,6 @@
 {
   "en": {
+    "VIEW_SettingsSubView_changeLanguageText" : "Languages",
     "VIEW_SettingsSubView_createNewRepositoryButton" : "Create new",
     "VIEW_SettingsSubView_createRepositoryCheckboxText" : "Не сохранять текущий?",
     "VIEW_SettingsSubView_saveRepositoryButton" : "Save this Repository",

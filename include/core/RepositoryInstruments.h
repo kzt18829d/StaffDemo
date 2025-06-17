@@ -8,10 +8,6 @@
 #include <memory>
 #include "Usages.h"
 
-#include "../interface/IStaffRepository.h"
-#include "../interface/IProjectRepository.h"
-#include "../interface/ISPStorageProvider.h"
-
 #include "../Data/CSV/CSVStaffRepository.h"
 #include "../Data/CSV/CSVProjectRepository.h."
 #include "../Data/CSV/CSVSPStorageProvider.h"
@@ -22,14 +18,14 @@ namespace Core {
     class RepositoryInstruments {
     private:
         Directory path;
-        Directory path2;
+        [[maybe_unused]] Directory path2;
         std::unique_ptr<Data::StorageProvider::CSVSPStorageProvider> storageProvider;
         std::queue<Staff::TempEmloyee> tempEmployees;
         std::vector<Staff::TempProject> tempProjects;
 
     public:
-        std::unique_ptr<Interface::IStaffRepository> staffRepository;
-        std::unique_ptr<Interface::IProjectRepository> projectRepository;
+        std::unique_ptr<Data::Repository::CSVStaffRepository> staffRepository;
+        std::unique_ptr<Data::Repository::CSVProjectRepository> projectRepository;
 
         RepositoryInstruments();
         ~RepositoryInstruments();

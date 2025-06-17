@@ -6,8 +6,8 @@
 #include <sstream>
 
 namespace Utils {
-    inline std::vector<std::string>split(const std::string& line, char delim=';');
-    inline std::set<std::string>splitUnic(const std::string& line, char delim=':') noexcept;
+    std::vector<std::string>split(const std::string& line, char delim=';');
+    std::set<std::string>splitUnic(const std::string& line, char delim=':') noexcept;
 }
 
 #endif //STAFFDEMO_SPLIT_H

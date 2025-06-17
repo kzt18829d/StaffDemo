@@ -35,7 +35,7 @@ namespace UI {
 
 
 #ifdef DEBUG_PARAM_
-        auto TYPESCREEN = WindowType::BASE_WINDOW;
+        auto TYPESCREEN = WindowType::START_WINDOW;
         screenManager.showScreen(TYPESCREEN); //!!!!!!!!!!!!!!!
 #else
         screenManager.showScreen(WindowType::START_WINDOW);

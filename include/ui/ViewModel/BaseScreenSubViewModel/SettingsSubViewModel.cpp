@@ -13,6 +13,7 @@ namespace ViewModel::SubViewModel {
 
     SettingsSubViewModel::~SettingsSubViewModel() {
         delete selectedTheme;
+        delete selectedLang;
     }
 
     std::vector<std::string> SettingsSubViewModel::getThemesList() const {
@@ -76,6 +77,10 @@ namespace ViewModel::SubViewModel {
 
     int *SettingsSubViewModel::getSelectedTheme() {
         return selectedTheme;
+    }
+
+    int *SettingsSubViewModel::getSelectedLang() {
+        return selectedLang;
     }
 } // SubViewModel
 // ViewModel

@@ -42,7 +42,7 @@ namespace View {
 
         windowContainer = Container::Horizontal({
             LeftMainMenu,
-            stackedContainerScreens
+            SettingsScreen
         });
         Add(windowContainer);
     }
@@ -89,7 +89,7 @@ namespace View {
             text("Base Window") | hcenter | vcenter
         }) | borderStyled(theme.border_primary);
 
-        auto rightSceneFillScreens = stackedContainerScreens->ActiveChild()->Render();
+        auto rightSceneFillScreens = SettingsScreen->Render();
 
         auto footer = hbox({
             text(StatusMessage),

@@ -11,6 +11,7 @@ namespace ViewModel::SubViewModel {
         std::weak_ptr<Core::AppSettings> appSettings;
         std::weak_ptr<Core::RepositoryInstruments> repositoryInstruments;
         int* selectedTheme = new int{0};
+        int* selectedLang = new int{1};
     public:
         explicit SettingsSubViewModel(std::shared_ptr<Core::AppSettings> sharedPtr, std::shared_ptr<Core::RepositoryInstruments> rSharedPtr);
         ~SettingsSubViewModel();
@@ -27,6 +28,7 @@ namespace ViewModel::SubViewModel {
         void createNewRepositories(bool withSaveCurrent, Directory newRepositoryDirectory="");
 
         int* getSelectedTheme();
+        int* getSelectedLang();
 
         boost::signals2::signal<void(bool)> cleanedStaffRepositorySignal;
         boost::signals2::signal<void(bool)> cleanedProjectRepositorySignal;

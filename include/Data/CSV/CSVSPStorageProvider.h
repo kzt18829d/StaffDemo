@@ -13,6 +13,7 @@ namespace Data::StorageProvider {
     class CSVSPStorageProvider : public Interface::ISPStorageProvider {
     private:
         std::string directory;
+        std::vector<std::string>split(const std::string& line, char delim=';');
     public:
         explicit CSVSPStorageProvider();
         ~CSVSPStorageProvider() override = default;

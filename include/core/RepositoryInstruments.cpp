@@ -15,11 +15,16 @@ namespace Core {
     RepositoryInstruments::~RepositoryInstruments() = default;
 
     bool RepositoryInstruments::loadPersonalData(Directory &directory) {
-        if (path != directory) path = directory;
-        storageProvider->setDirectory(directory);
-        auto [queue, vector] = storageProvider->load();
-        tempEmployees = std::move(queue);
-        tempProjects = std::move(vector);
+        try {
+            if (path != directory) path = directory;
+            storageProvider->setDirectory(directory);
+            auto [queue, vector] = storageProvider->load();
+            tempEmployees = std::move(queue);
+            tempProjects = std::move(vector);
+        } catch (std::exception &ex) {
+            return false;
+        }
+        return true;
     }
 
     bool RepositoryInstruments::savePersonalData() {

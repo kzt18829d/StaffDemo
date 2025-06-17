@@ -10,10 +10,7 @@
 using namespace Utils;
 
 namespace Data::StorageProvider {
-//    CSVSPStorageProvider::CSVSPStorageProvider(const std::string &fileDir) : directory{std::move(fileDir)}
-//    {
-////        FileLogger::instance().log("-INITIALIZE StaffDemo::Core::StorageProvider::CSVProjectRepository initialized with FileDirectory \"" + directory + "\".");
-//    }
+
     std::pair<std::queue<Staff::TempEmloyee>, std::vector<Staff::TempProject>> CSVSPStorageProvider::load() {
 //        FileLogger::instance().log("-LOAD StaffDemo::Core::StorageProvider::CSVProjectRepository.load is called.");
         std::ifstream CSV(directory, std::ios::in);
@@ -31,7 +28,7 @@ namespace Data::StorageProvider {
 //        FileLogger::instance().log("-LOAD StaffDemo::Core::StorageProvider::CSVProjectRepository.load parsing file.");
 
         while (std::getline(CSV, line)) {
-            std::vector<std::string> fields = Utils::split(line);
+            std::vector<std::string> fields = split(line, ';');
             if (fields.size() != 5) continue;
             staffs.push(Staff::TempEmloyee(fields[0], fields[1], fields[2], fields[3], fields[4]));
             if (!fields[4].empty()) projects.push_back(Staff::TempProject(fields[4]));
@@ -107,6 +104,15 @@ namespace Data::StorageProvider {
 
     void CSVSPStorageProvider::setDirectory(std::string &directory) {
         directory = std::move(directory);
+    }
+
+    std::vector<std::string> CSVSPStorageProvider::split(const std::string &line, char delim) {
+        std::vector<std::string> result;
+        std::stringstream ss(line);
+        std::string value;
+
+        while (std::getline(ss, value, delim)) result.push_back(value);
+        return result;
     }
 
     CSVSPStorageProvider::CSVSPStorageProvider() = default;

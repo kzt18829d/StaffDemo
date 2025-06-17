@@ -1,8 +1,6 @@
 #ifndef STAFFDEMO_STAFFREPOSITORYCSV_H
 #define STAFFDEMO_STAFFREPOSITORYCSV_H
 
-#include "../../interface/IStaffRepository.h"
-//#include "../../interface/IStaffStorageProvider.h"
 #include <map>
 #include <memory>
 #include "../../staff/IEmployee.h"
@@ -13,16 +11,16 @@ namespace Data::Repository {
 
     ///@brief Класс репозитория проектов
     ///@ingroup Data
-    class CSVStaffRepository : public Interface::IStaffRepository {
+    class CSVStaffRepository {
     private:
-        std::map<std::string, std::shared_ptr<Staff::IEmployee>> STAFF_LIST;
+        std::map<std::string, std::shared_ptr<Staff::IEmployee>> STAFF_LIST{};
     public:
-        void add(std::shared_ptr<Staff::IEmployee> staff) override;
-        void remove(std::shared_ptr<Staff::IEmployee> staff) override;
-        std::map<std::string, std::weak_ptr<Staff::IEmployee>> getAll() const override;
-        std::map<std::string, std::weak_ptr<Staff::IEmployee>> getByName(const std::string &name) const override;
-        std::map<std::string, std::weak_ptr<Staff::IEmployee>> getByPosition(const std::string &position) const override;
-        bool clean() override;
+        void add(std::shared_ptr<Staff::IEmployee> staff);
+        void remove(std::shared_ptr<Staff::IEmployee> staff);
+        std::map<std::string, std::weak_ptr<Staff::IEmployee>> getAll() const;
+        std::map<std::string, std::weak_ptr<Staff::IEmployee>> getByName(const std::string &name) const;
+        std::map<std::string, std::weak_ptr<Staff::IEmployee>> getByPosition(const std::string &position) const;
+        bool clean();
     };
 
 } // StaffDemo

@@ -2,16 +2,17 @@
 #define STAFFDEMO_SETTINGSSUBVIEW_H
 #include "../BasicView.h"
 #include "../../ViewModel/BaseScreenSubViewModel/SettingsSubViewModel.h"
+#include "fmt/core.h"
 
 namespace View::SubView {
 
     class SettingsSubView : public BasicView {
         std::shared_ptr<ViewModel::SubViewModel::SettingsSubViewModel> subViewModel;
 
-        int bord = 30;
+        int bord = 15;
         int interblockBord = 15;
-        bool* canHoverableThemeButton = new bool{false};
-        bool* checkBoxSaver = new bool{false};
+        bool* canHoverableThemeButton = new bool{true};
+        bool* checkBoxSaver = new bool{true};
         Text ThemeTextWindow;
         Text themeText, currentThemeText;
         Text changeThemeText;
@@ -34,8 +35,8 @@ namespace View::SubView {
 
 
     public:
-        SettingsSubView(std::shared_ptr<ViewModel::SubViewModel::SettingsSubViewModel> sVM);
-        ~SettingsSubView();
+        explicit SettingsSubView(std::shared_ptr<ViewModel::SubViewModel::SettingsSubViewModel> sVM);
+        ~SettingsSubView() override;
 
         ftxui::Element Render() override;
     };

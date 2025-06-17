@@ -15,5 +15,6 @@ add_library(data STATIC
 
 target_link_libraries(data PRIVATE interface)
 target_link_libraries(data PUBLIC ftxui::screen)
+target_link_libraries(data PUBLIC staff utils)
 
 target_include_directories(data PUBLIC ../../include)

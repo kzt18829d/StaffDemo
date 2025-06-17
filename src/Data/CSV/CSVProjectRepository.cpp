@@ -4,7 +4,7 @@ namespace Data::Repository {
     void CSVProjectRepository::add(std::shared_ptr<Staff::Project> project) {
         if (PROJECT_LIST.contains(project->getName())) {
             // <-log
-            throw Utils::except::previouslyAdded("Project " + project->getName() + " was previously added.");
+//            throw Utils::except::previouslyAdded("Project " + project->getName() + " was previously added.");
         }
         PROJECT_LIST[project->getName()] = project;
     }

@@ -9,9 +9,10 @@ namespace Data::Repository {
     void CSVStaffRepository::add(std::shared_ptr<Staff::IEmployee> staff) {
         if (STAFF_LIST.contains(staff->getID())) {
             // log
-            throw Utils::except::Duplicate(staff->getID() + " уже в списке");
+//            throw Utils::except::Duplicate(staff->getID() + " уже в списке");
+            return;
         }
-        STAFF_LIST[staff->getID()] = staff;
+        STAFF_LIST[staff->getID()] = std::move(staff);
     }
 
     void CSVStaffRepository::remove(std::shared_ptr<Staff::IEmployee> staff) {
