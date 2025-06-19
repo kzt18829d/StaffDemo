@@ -28,9 +28,14 @@ namespace UI {
         baseScreen_SettingsSubviewModel = std::make_shared<ViewModel::SubViewModel::SettingsSubViewModel>(appSettings, repositoryInstruments);
         auto baseScreen_SettingsSubview = std::make_shared<View::SubView::SettingsSubView>(baseScreen_SettingsSubviewModel);
 
+        // Base SubScreen
+
+        baseScreen_BaseSubViewModel = std::make_shared<ViewModel::SubViewModel::BaseSubScreenViewModel>(appSettings);
+        auto baseScreen_BaseSubView = std::make_shared<View::SubView::BaseSubScreenView>(baseScreen_BaseSubViewModel);
+
         // Base Screen
         baseScreenViewModel = std::make_shared<ViewModel::BaseScreenViewModel>(appSettings);
-        auto baseScreenView = std::make_shared<View::BaseScreenView>(baseScreenViewModel, baseScreen_SettingsSubview);
+        auto baseScreenView = std::make_shared<View::BaseScreenView>(baseScreenViewModel, baseScreen_BaseSubView, baseScreen_SettingsSubview);
         screenManager.addScreen(WindowType::BASE_WINDOW, baseScreenView);
 
 

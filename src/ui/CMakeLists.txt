@@ -27,6 +27,8 @@ add_library(ui STATIC
         ../../include/ui/View/BaseScreenSubViews/SettingsSubView.h
         ViewModel/BaseScreenSubViewModels/SettingsSubViewModel.cpp
         ../../include/ui/ViewModel/BaseScreenSubViewModel/SettingsSubViewModel.h
+        ../../include/ui/View/BaseScreenSubViews/BaseSubScreenView.cpp
+        ../../include/ui/View/BaseScreenSubViews/BaseSubScreenView.h
 )
 
 find_package(Boost REQUIRED COMPONENTS signals2

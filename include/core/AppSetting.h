@@ -70,7 +70,7 @@ namespace Core {
             LocalizationDirectory       = "./localization.json";
             ThemeDirectory              = "./themes.json";
             StaffDirectory              = "./Staff_Data.csv";
-            LogDirectory                = "./logs/log-" + getTime();
+            LogDirectory                = "./logs/log-" + Utils::getTime();
             LoggerSettings              = "./logger.ini";
             loadThemes                  = true;
 #else

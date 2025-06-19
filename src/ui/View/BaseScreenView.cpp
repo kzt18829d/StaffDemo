@@ -5,8 +5,9 @@
 #include "ui/View/BaseScreenView.h"
 
 namespace View {
-    BaseScreenView::BaseScreenView(std::shared_ptr<ViewModel::BaseScreenViewModel> _vm, std::shared_ptr<SubView::SettingsSubView> settingsSubView) : BasicView(_vm), viewModel(_vm), SettingsScreen(settingsSubView) {
-
+    BaseScreenView::BaseScreenView(std::shared_ptr<ViewModel::BaseScreenViewModel> _vm, std::shared_ptr<SubView::BaseSubScreenView> baseSubView, std::shared_ptr<SubView::SettingsSubView> settingsSubView ) : BasicView(_vm), viewModel(_vm), BaseScreen(baseSubView), SettingsScreen(settingsSubView) {
+        LeftMainMenuSelector = new int(0);
+        currentScreen = new int(0);
         StatusMessage = viewModel->getTranslate("VIEW_BaseScreenView_Footer_State");
         toBaseScreenButton = Button(fmt::format("{:^{}}", viewModel->getTranslate("VIEW_BaseScreenView_toBaseScreenButton"), 22), [&]{
             changeLeftMainMenuSelector(0);
@@ -34,27 +35,38 @@ namespace View {
 //        initSettingsScreen();
 //        initFindEmployeeScreen();
 
-        stackedContainerScreens = Container::Stacked({
-//            BaseScreen,
-//            findEmployeeScreen,
-            SettingsScreen
-        });
+        stackedContainerScreens = SettingsScreen;
 
         windowContainer = Container::Horizontal({
             LeftMainMenu,
             SettingsScreen
         });
         Add(windowContainer);
+        Add(stackedContainerScreens);
     }
 
     BaseScreenView::~BaseScreenView() {
         delete LeftMainMenuSelector;
+        delete currentScreen;
     }
 
     void BaseScreenView::changeLeftMainMenuSelector(int newSelector) {
-        if (*LeftMainMenuSelector == newSelector) {
-            delete LeftMainMenuSelector;
-            LeftMainMenuSelector = new int {newSelector};
+
+        delete LeftMainMenuSelector;
+        LeftMainMenuSelector = new int {newSelector};
+
+        switch (*LeftMainMenuSelector) {
+            case 0:
+                toBaseScreenButton->TakeFocus();
+                break;
+            case 2:
+                toSettingsScreenButton->TakeFocus();
+                break;
+            case 1:
+                toFindEmployeeScreenButton->TakeFocus();
+                break;
+            default:
+                break;
         }
     }
 
@@ -70,6 +82,8 @@ namespace View {
             ftxui::text(fmt::format("{:^{}}",viewModel->getTranslate("TITLE_F1"), 34)) | ftxui::center | ftxui::bold,
             ftxui::filler()
         }) | ftxui::bgcolor(theme.bg_primary) | ftxui::color(theme.text_window_header) | ftxui::borderStyled(theme.border_window_header);
+
+        setHoveredStatusToScreenSwitchButtons();
 
         auto leftMenu = vbox({
             text(fmt::format("{:^{}}", viewModel->getTranslate("TITLE1"), 24)) | center | bold,
@@ -89,72 +103,48 @@ namespace View {
             text("Base Window") | hcenter | vcenter
         }) | borderStyled(theme.border_primary);
 
-        auto rightSceneFillScreens = SettingsScreen->Render();
+        auto rightSceneFillScreens = stackedContainerScreens->ActiveChild()->Render();
 
         auto footer = hbox({
             text(StatusMessage),
             filler() | size(WIDTH, EQUAL, 10),
             text(StatusText) | size(WIDTH, EQUAL, 50), separator()
-        }) | borderStyled(theme.bg_primary);
+        }) | borderStyled(theme.border_primary);
 
         return vbox({
             windowHeader | size(HEIGHT, EQUAL, 5),
             hbox({
 //                leftMenu, rightSceneFill | flex
-                leftMenu, rightSceneFillScreens | flex
+                leftMenu, getActiveSubScreen()->Render() | flex
             }),
             footer
-        });
+        }) | bgcolor(theme.bg_primary);
     }
 
-//    void BaseScreenView::changeActiveSubScreen() {
-//        switch (*LeftMainMenuSelector) {
-//            case 0:
-//                stackedContainerScreens->SetActiveChild(BaseScreen);
-//                break;
-//            case 1:
-//                stackedContainerScreens->SetActiveChild(findEmployeeScreen);
-//                break;
-//            case 2:
-//                stackedContainerScreens->SetActiveChild(SettingsScreen);
-//        }
-//    }
+    ftxui::Component BaseScreenView::getActiveSubScreen() {
+        switch (*currentScreen) {
+            case 0:
+                return BaseScreen;
+            case 1:
+                return findEmployeeScreen;
+            case 2:
+                return SettingsScreen;
+        }
+        return nullptr;
+    }
 
-//    void BaseScreenView::initBaseScreen() {
-//        auto bScreen = Renderer([]{
-//            return vbox({
-//                filler() | size(HEIGHT, EQUAL, 3),
-//                hbox({text("Base Screen of StaffDemo") | hcenter}),
-//                filler() | size(HEIGHT, EQUAL, 3),
-//                hbox({text("Kzt18829d, 2025") | hcenter})
-//            });
-//        });
-//        BaseScreen = bScreen;
-//    }
+    void BaseScreenView::setHoveredStatusToScreenSwitchButtons() {
+        switch (*currentScreen) {
+            case 0:
+                toBaseScreenButton->TakeFocus();
+                break;
+            case 1:
+                toFindEmployeeScreenButton->TakeFocus();
+                break;
+            case 2:
+                toSettingsScreenButton->TakeFocus();
+                break;
+        }
+    }
 
-//    void BaseScreenView::initSettingsScreen() {
-//        const auto& theme = viewModel->getTheme();
-//
-//        auto currentThemeField = hbox({
-//            text(viewModel->getTranslate("VIEW_BaseScreenView_SettingsScreen_CurrentThemeText") + "    "),
-//            text(theme.name)
-//        });
-//
-//        auto sScreen = Renderer([&](){
-//            return vbox({
-//
-//            });
-//        });
-//        SettingsScreen = sScreen;
-//    }
-
-//    void BaseScreenView::initFindEmployeeScreen() {
-//        auto fill = hbox({
-//           text("FindEmployeeScreen")
-//        });
-//        auto FEScreen = Renderer([&]{
-//            return vbox({fill});
-//        });
-//        findEmployeeScreen = FEScreen;
-//    }
 } // View

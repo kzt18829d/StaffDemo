@@ -26,7 +26,9 @@ add_subdirectory(src/ui)
 add_subdirectory(Google_Tests)
 add_subdirectory(src/interface)
 
-add_executable(StaffDemo main.cpp)
+add_executable(StaffDemo main.cpp
+        src/ui/ViewModel/BaseScreenSubViewModels/BaseSubScreenViewModel.cpp
+        include/ui/ViewModel/BaseScreenSubViewModel/BaseSubScreenViewModel.h)
 find_package(Boost CONFIG REQUIRED signals2)
 
 target_link_libraries(StaffDemo

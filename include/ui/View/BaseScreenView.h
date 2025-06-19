@@ -4,6 +4,7 @@
 #include "../ViewModel/BaseScreenViewModel.h"
 #include "fmt/core.h"
 #include "BaseScreenSubViews/SettingsSubView.h"
+#include "BaseScreenSubViews/BaseSubScreenView.h"
 #include "memory"
 
 namespace View {
@@ -12,7 +13,8 @@ namespace View {
     private:
         std::shared_ptr<ViewModel::BaseScreenViewModel> viewModel;
 
-        int* LeftMainMenuSelector = new int{0};
+        int* LeftMainMenuSelector;
+        int* currentScreen;
         TextLabel saveMessage;
         TextLabel StatusText;
         TextLabel StatusMessage;
@@ -48,10 +50,11 @@ namespace View {
 //        void initSettingsScreen();
 //        void initFindEmployeeScreen();
 
-//        void changeActiveSubScreen();
+        ftxui::Component getActiveSubScreen();
+        void setHoveredStatusToScreenSwitchButtons();
 
     public:
-        explicit BaseScreenView(std::shared_ptr<ViewModel::BaseScreenViewModel> _vm, std::shared_ptr<SubView::SettingsSubView> settingsSubView);
+        explicit BaseScreenView(std::shared_ptr<ViewModel::BaseScreenViewModel> _vm, std::shared_ptr<SubView::BaseSubScreenView> baseSubView, std::shared_ptr<SubView::SettingsSubView> settingsSubView);
         ~BaseScreenView() override;
 
         ftxui::Element Render() override;

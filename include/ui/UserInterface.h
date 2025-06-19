@@ -65,6 +65,7 @@ namespace UI {
         std::shared_ptr<ViewModel::EmployeeLoadScreenAutoViewModel> employeeLoadScreenAutoViewModel;
         std::shared_ptr<ViewModel::BaseScreenViewModel> baseScreenViewModel;
         std::shared_ptr<ViewModel::SubViewModel::SettingsSubViewModel> baseScreen_SettingsSubviewModel;
+        std::shared_ptr<ViewModel::SubViewModel::BaseSubScreenViewModel> baseScreen_BaseSubViewModel;
 
     public:
         UserInterface();
